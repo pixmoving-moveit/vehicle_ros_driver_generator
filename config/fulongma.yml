@@ -1,0 +1,935 @@
+car_type: Apollo_ACU
+protocols:
+  '100':
+    id: '100'
+    name: throttle_command_100
+    protocol_type: control
+    sender: ACU
+    vars:
+    - {bit: 47, is_signed_var: false, len: 12, name: Dirve_SpeedTarget, offset: 0.0,
+      order: motorola, physical_range: '[0|40.95]', physical_unit: m/s, precision: 0.01,
+      type: double}
+    - {bit: 63, is_signed_var: false, len: 8, name: CheckSum_100, offset: 0.0, order: motorola,
+      physical_range: '[0|255]', physical_unit: '', precision: 1.0, type: int}
+    - {bit: 31, is_signed_var: false, len: 16, name: Dirve_ThrottlePedalTarget, offset: 0.0,
+      order: motorola, physical_range: '[0|100]', physical_unit: '%', precision: 0.1,
+      type: double}
+    - bit: 0
+      enum: {0: DIRVE_ENCTRL_DISABLE, 1: DIRVE_ENCTRL_ENABLE}
+      is_signed_var: false
+      len: 1
+      name: Dirve_EnCtrl
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+  '101':
+    id: '101'
+    name: brake_command_101
+    protocol_type: control
+    sender: ACU
+    vars:
+    - {bit: 63, is_signed_var: false, len: 8, name: CheckSum_101, offset: 0.0, order: motorola,
+      physical_range: '[0|255]', physical_unit: '', precision: 1.0, type: int}
+    - {bit: 31, is_signed_var: false, len: 16, name: Brake_Pedal_Target, offset: 0.0,
+      order: motorola, physical_range: '[0|100]', physical_unit: '%', precision: 0.1,
+      type: double}
+    - bit: 0
+      enum: {0: BRAKE_ENCTRL_DISABLE, 1: BRAKE_ENCTRL_ENABLE}
+      is_signed_var: false
+      len: 1
+      name: Brake_EnCtrl
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+  '102':
+    id: '102'
+    name: steering_command_102
+    protocol_type: control
+    sender: ACU
+    vars:
+    - bit: 0
+      enum: {0: STEER_ENCTRL_DISABLE, 1: STEER_ENCTRL_ENABLE}
+      is_signed_var: false
+      len: 1
+      name: Steer_EnCtrl
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - {bit: 31, is_signed_var: false, len: 16, name: Steer_AngleTarget, offset: -500.0,
+      order: motorola, physical_range: '[-500|500]', physical_unit: deg, precision: 1.0,
+      type: int}
+    - {bit: 15, is_signed_var: false, len: 8, name: Steer_AngleSpeed, offset: 0.0,
+      order: motorola, physical_range: '[0|250]', physical_unit: deg/s, precision: 1.0,
+      type: int}
+    - {bit: 63, is_signed_var: false, len: 8, name: CheckSum_102, offset: 0.0, order: motorola,
+      physical_range: '[0|255]', physical_unit: '', precision: 1.0, type: int}
+  '103':
+    id: '103'
+    name: gear_command_103
+    protocol_type: control
+    sender: ACU
+    vars:
+    - bit: 10
+      enum: {0: GEAR_TARGET_INVALID, 1: GEAR_TARGET_PARK, 2: GEAR_TARGET_REVERSE,
+        3: GEAR_TARGET_NEUTRAL, 4: GEAR_TARGET_DRIVE}
+      is_signed_var: false
+      len: 3
+      name: Gear_Target
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|4]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 0
+      enum: {0: GEAR_ENCTRL_DISABLE, 1: GEAR_ENCTRL_ENABLE}
+      is_signed_var: false
+      len: 1
+      name: Gear_EnCtrl
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - {bit: 63, is_signed_var: false, len: 8, name: CheckSum_103, offset: 0.0, order: motorola,
+      physical_range: '[0|255]', physical_unit: '', precision: 1.0, type: int}
+  '104':
+    id: '104'
+    name: park_command_104
+    protocol_type: control
+    sender: ACU
+    vars:
+    - {bit: 63, is_signed_var: false, len: 8, name: CheckSum_104, offset: 0.0, order: motorola,
+      physical_range: '[0|255]', physical_unit: '', precision: 1.0, type: int}
+    - bit: 8
+      enum: {0: PARK_TARGET_RELEASE, 1: PARK_TARGET_PARKING_TRIGGER}
+      is_signed_var: false
+      len: 1
+      name: Park_Target
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 0
+      enum: {0: PARK_ENCTRL_DISABLE, 1: PARK_ENCTRL_ENABLE}
+      is_signed_var: false
+      len: 1
+      name: Park_EnCtrl
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+  '105':
+    id: '105'
+    name: vehicle_mode_command_105
+    protocol_type: control
+    sender: ACU
+    vars:
+    - bit: 18
+      enum: {0: HEADLIGHT_CTRL_OFF, 1: HEADLIGHT_CTRL_ON}
+      is_signed_var: false
+      len: 1
+      name: Headlight_Ctrl
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - {bit: 63, is_signed_var: false, len: 8, name: CheckSum_105, offset: 0.0, order: motorola,
+      physical_range: '[0|255]', physical_unit: '', precision: 1.0, type: int}
+    - bit: 17
+      enum: {0: TURNLIGHT_CTRL_TURNLAMP_OFF, 1: TURNLIGHT_CTRL_LEFT_TURNLAMP_ON, 2: TURNLIGHT_CTRL_RIGHT_TURNLAMP_ON,
+        3: TURNLIGHT_CTRL_HAZARD_WARNING_LAMPSTS_ON}
+      is_signed_var: false
+      len: 2
+      name: TurnLight_Ctrl
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|7]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 10
+      enum: {0: DRIVE_MODECTRL_THROTTLE_PADDLE_DRIVE, 1: DRIVE_MODECTRL_SPEED_DRIVE}
+      is_signed_var: false
+      len: 3
+      name: Drive_ModeCtrl
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|7]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 2
+      enum: {0: STEER_MODECTRL_STANDARD_STEER, 1: STEER_MODECTRL_NON_DIRECTION_STEER,
+        2: STEER_MODECTRL_SYNC_DIRECTION_STEER}
+      is_signed_var: false
+      len: 3
+      name: Steer_ModeCtrl
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|7]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+  '107':
+    id: '107'
+    name: acu_sweepctrlcmd_107
+    protocol_type: control
+    sender: ACU
+    vars:
+    - {bit: 55, description: "\u98CE\u673A\u901F\u5EA6\u63A7\u5236", is_signed_var: false,
+      len: 16, name: FanSpeedCtrl, offset: 0.0, order: motorola, physical_range: '[0|0]',
+      physical_unit: rpm, precision: 1.0, type: int}
+    - bit: 9
+      enum: {0: SHAKERDUSTERCTRL_OFF, 1: SHAKERDUSTERCTRL_ON}
+      is_signed_var: false
+      len: 1
+      name: ShakerDusterCtrl
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 8
+      description: "\u55B7\u96FE\u964D\u5C18"
+      enum: {0: DEDUSTINGCTRL_OFF, 1: DEDUSTINGCTRL_ON}
+      is_signed_var: false
+      len: 1
+      name: DedustingCtrl
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 1
+      description: "\u4E00\u952E\u6E05\u626B\u63A7\u5236"
+      enum: {0: AUTOCLEANINGSTARTCTRL_NO, 1: AUTOCLEANINGSTARTCTRL_START, 2: AUTOCLEANINGSTARTCTRL_STOP,
+        3: AUTOCLEANINGSTARTCTRL_NO}
+      is_signed_var: false
+      len: 2
+      name: AutoCleaningStartCtrl
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|3]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 3
+      description: "\u4E00\u952E\u503E\u5012"
+      enum: {0: AUTOGARBAGEDUMPSTARTCTRL_NO, 1: AUTOGARBAGEDUMPSTARTCTRL_START, 2: AUTOGARBAGEDUMPSTARTCTRL_STOP,
+        3: AUTOGARBAGEDUMPSTARTCTRL_NO}
+      is_signed_var: false
+      len: 2
+      name: AutoGarbageDumpStartCtrl
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|3]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 13
+      description: "\u5438\u76D8\u5347\u964D\u63A7\u5236"
+      enum: {0: MOUTHPIECEUPDOWNCTRL_NO, 1: MOUTHPIECEUPDOWNCTRL_UP, 2: MOUTHPIECEUPDOWNCTRL_DOWN}
+      is_signed_var: false
+      len: 2
+      name: MouthpieceUpDownCtrl
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|3]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 15
+      description: "\u626B\u76D8\u5347\u964D"
+      enum: {0: SWEEPPLATEUPDOWN_NO, 1: SWEEPPLATEUPDOWN_UP, 2: SWEEPPLATEUPDOWN_DOWN}
+      is_signed_var: false
+      len: 2
+      name: SweepPlateUpDown
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|3]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 17
+      description: "\u98CE\u673A\u5DE5\u4F5C\u6A21\u5F0F"
+      enum: {0: FANMODECTRL_OFF, 1: FANMODECTRL_LOW, 2: FANMODECTRL_MID, 3: FANMODECTRL_HIGH}
+      is_signed_var: false
+      len: 2
+      name: FanModeCtrl
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|3]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 19
+      description: "\u98CE\u673A\u901F\u5EA6\u6A21\u5F0F"
+      enum: {0: FANSPEEDMODE_DEFAULT, 1: FANSPEEDMODE_SPEED}
+      is_signed_var: false
+      len: 1
+      name: FanSpeedMode
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 21
+      description: "\u626B\u76D8\u8F6C\u901F\u6321\u4F4D\u63A7\u5236"
+      enum: {0: SWEEPMODECTRL_OFF, 1: SWEEPMODECTRL_LOW, 2: SWEEPMODECTRL_MID, 3: SWEEPMODECTRL_HIGH}
+      is_signed_var: false
+      len: 2
+      name: SweepModeCtrl
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|3]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 25
+      description: "\u5272\u8349\u8F6C\u901F\u6321\u4F4D\u63A7\u5236"
+      enum: {0: MOWINGSPEEDCTRL_OFF, 1: MOWINGSPEEDCTRL_LOW, 2: MOWINGSPEEDCTRL_MID,
+        3: MOWINGSPEEDCTRL_HIGH}
+      is_signed_var: false
+      len: 2
+      name: MowingSpeedCtrl
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|3]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+  '200':
+    id: '200'
+    name: vcu2acu_chassiserrcode1_200
+    protocol_type: report
+    sender: VCU
+    vars:
+    - {bit: 7, is_signed_var: false, len: 1, name: BMS_CommunicationFault, offset: 0.0,
+      order: motorola, physical_range: '[0|0]', physical_unit: '', precision: 1.0,
+      type: bool}
+    - {bit: 10, is_signed_var: false, len: 1, name: ChassisEmergencySta, offset: 0.0,
+      order: motorola, physical_range: '[0|0]', physical_unit: '', precision: 1.0,
+      type: bool}
+    - {bit: 11, is_signed_var: false, len: 1, name: LeadacidBatteryLow, offset: 0.0,
+      order: motorola, physical_range: '[0|0]', physical_unit: '', precision: 1.0,
+      type: bool}
+    - {bit: 8, is_signed_var: false, len: 1, name: ControlerCommunicationFault, offset: 0.0,
+      order: motorola, physical_range: '[0|0]', physical_unit: '', precision: 1.0,
+      type: bool}
+    - {bit: 9, is_signed_var: false, len: 1, name: ChassisCrashSta, offset: 0.0, order: motorola,
+      physical_range: '[0|0]', physical_unit: '', precision: 1.0, type: bool}
+    - {bit: 6, is_signed_var: false, len: 1, name: EPS_RearCommunicationFault, offset: 0.0,
+      order: motorola, physical_range: '[0|0]', physical_unit: '', precision: 1.0,
+      type: bool}
+    - {bit: 5, is_signed_var: false, len: 1, name: EPS_FrontCommunicationFault, offset: 0.0,
+      order: motorola, physical_range: '[0|0]', physical_unit: '', precision: 1.0,
+      type: bool}
+    - {bit: 3, is_signed_var: false, len: 1, name: EDS_RrCommunicationFault, offset: 0.0,
+      order: motorola, physical_range: '[0|0]', physical_unit: '', precision: 1.0,
+      type: bool}
+    - {bit: 2, is_signed_var: false, len: 1, name: EDS_RfCommunicationFault, offset: 0.0,
+      order: motorola, physical_range: '[0|0]', physical_unit: '', precision: 1.0,
+      type: bool}
+    - {bit: 1, is_signed_var: false, len: 1, name: EDS_LrCommunicationFault, offset: 0.0,
+      order: motorola, physical_range: '[0|0]', physical_unit: '', precision: 1.0,
+      type: bool}
+    - {bit: 0, is_signed_var: false, len: 1, name: EDS_LfCommunicationFault, offset: 0.0,
+      order: motorola, physical_range: '[0|0]', physical_unit: '', precision: 1.0,
+      type: bool}
+    - {bit: 4, is_signed_var: false, len: 1, name: EBS_CommunicationFault, offset: 0.0,
+      order: motorola, physical_range: '[0|0]', physical_unit: '', precision: 1.0,
+      type: bool}
+    - {bit: 23, is_signed_var: false, len: 8, name: ChassisVcuOtherErr, offset: 0.0,
+      order: motorola, physical_range: '[0|0]', physical_unit: '', precision: 1.0,
+      type: int}
+  '201':
+    id: '201'
+    name: vcu2acu_chassiserrcode2_201
+    protocol_type: report
+    sender: VCU
+    vars:
+    - {bit: 47, is_signed_var: false, len: 8, name: ChassisEbsErrorCode3, offset: 0.0,
+      order: motorola, physical_range: '[0|0]', physical_unit: '', precision: 1.0,
+      type: int}
+    - {bit: 23, is_signed_var: false, len: 8, name: ChassisBmsErrorCode, offset: 0.0,
+      order: motorola, physical_range: '[0|0]', physical_unit: '', precision: 1.0,
+      type: int}
+    - {bit: 63, is_signed_var: false, len: 8, name: ChassisBackEpsErrorCode, offset: 0.0,
+      order: motorola, physical_range: '[0|0]', physical_unit: '', precision: 1.0,
+      type: int}
+    - {bit: 55, is_signed_var: false, len: 8, name: ChassisFrontEpsErrorCode, offset: 0.0,
+      order: motorola, physical_range: '[0|0]', physical_unit: '', precision: 1.0,
+      type: int}
+    - {bit: 39, is_signed_var: false, len: 8, name: ChassisEbsErrorCode2, offset: 0.0,
+      order: motorola, physical_range: '[0|0]', physical_unit: '', precision: 1.0,
+      type: int}
+    - {bit: 31, is_signed_var: false, len: 8, name: ChassisEbsErrorCode1, offset: 0.0,
+      order: motorola, physical_range: '[0|0]', physical_unit: '', precision: 1.0,
+      type: int}
+  '202':
+    id: '202'
+    name: vcu2acu_chassiserrcode3_202
+    protocol_type: report
+    sender: VCU
+    vars:
+    - {bit: 63, is_signed_var: false, len: 8, name: ChassisRrEdsErrorCode2, offset: 0.0,
+      order: motorola, physical_range: '[0|0]', physical_unit: '', precision: 1.0,
+      type: int}
+    - {bit: 47, is_signed_var: false, len: 8, name: ChassisRfEdsErrorCode2, offset: 0.0,
+      order: motorola, physical_range: '[0|0]', physical_unit: '', precision: 1.0,
+      type: int}
+    - {bit: 31, is_signed_var: false, len: 8, name: ChassisLrEdsErrorCode2, offset: 0.0,
+      order: motorola, physical_range: '[0|0]', physical_unit: '', precision: 1.0,
+      type: int}
+    - {bit: 15, is_signed_var: false, len: 8, name: ChassisLfEdsErrorCode2, offset: 0.0,
+      order: motorola, physical_range: '[0|0]', physical_unit: '', precision: 1.0,
+      type: int}
+    - {bit: 55, is_signed_var: false, len: 8, name: ChassisRrEdsErrorCode, offset: 0.0,
+      order: motorola, physical_range: '[0|0]', physical_unit: '', precision: 1.0,
+      type: int}
+    - {bit: 39, is_signed_var: false, len: 8, name: ChassisRfEdsErrorCode, offset: 0.0,
+      order: motorola, physical_range: '[0|0]', physical_unit: '', precision: 1.0,
+      type: int}
+    - {bit: 23, is_signed_var: false, len: 8, name: ChassisLrEdsErrorCode, offset: 0.0,
+      order: motorola, physical_range: '[0|0]', physical_unit: '', precision: 1.0,
+      type: int}
+    - {bit: 7, is_signed_var: false, len: 8, name: ChassisLfEdsErrorCode, offset: 0.0,
+      order: motorola, physical_range: '[0|0]', physical_unit: '', precision: 1.0,
+      type: int}
+  '500':
+    id: '500'
+    name: throttle_report_500
+    protocol_type: report
+    sender: VCU
+    vars:
+    - {bit: 31, is_signed_var: false, len: 16, name: Dirve_ThrottlePedalActual, offset: 0.0,
+      order: motorola, physical_range: '[0|100]', physical_unit: '%', precision: 0.1,
+      type: double}
+    - bit: 23
+      description: Drive system communication fault
+      enum: {0: DIRVE_FLT2_NO_FAULT, 1: DIRVE_FLT2_DRIVE_SYSTEM_COMUNICATION_FAULT}
+      is_signed_var: false
+      len: 8
+      name: Dirve_Flt2
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 15
+      description: Drive system hardware fault
+      enum: {0: DIRVE_FLT1_NO_FAULT, 1: DIRVE_FLT1_DRIVE_SYSTEM_HARDWARE_FAULT}
+      is_signed_var: false
+      len: 8
+      name: Dirve_Flt1
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 1
+      enum: {0: DIRVE_ENSTATE_MANUAL, 1: DIRVE_ENSTATE_AUTO, 2: DIRVE_ENSTATE_TAKEOVER,
+        3: DIRVE_ENSTATE_STANDBY}
+      is_signed_var: false
+      len: 2
+      name: Dirve_EnState
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|2]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+  '501':
+    id: '501'
+    name: brake_report_501
+    protocol_type: report
+    sender: VCU
+    vars:
+    - {bit: 31, is_signed_var: false, len: 16, name: Brake_PedalActual, offset: 0.0,
+      order: motorola, physical_range: '[0|100]', physical_unit: '%', precision: 0.1,
+      type: double}
+    - bit: 23
+      description: Brake system communication fault
+      enum: {0: BRAKE_FLT2_NO_FAULT, 1: BRAKE_FLT2_BRAKE_SYSTEM_COMUNICATION_FAULT}
+      is_signed_var: false
+      len: 8
+      name: Brake_Flt2
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 15
+      description: Brake system hardware fault
+      enum: {0: BRAKE_FLT1_NO_FAULT, 1: BRAKE_FLT1_BRAKE_SYSTEM_HARDWARE_FAULT}
+      is_signed_var: false
+      len: 8
+      name: Brake_Flt1
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 1
+      enum: {0: BRAKE_ENSTATE_MANUAL, 1: BRAKE_ENSTATE_AUTO, 2: BRAKE_ENSTATE_TAKEOVER,
+        3: BRAKE_ENSTATE_STANDBY}
+      is_signed_var: false
+      len: 2
+      name: Brake_EnState
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|2]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+  '502':
+    id: '502'
+    name: steering_report_502
+    protocol_type: report
+    sender: VCU
+    vars:
+    - {bit: 47, is_signed_var: false, len: 16, name: Steer_AngleRear_Actual, offset: -500.0,
+      order: motorola, physical_range: '[-500|500]', physical_unit: deg, precision: 1.0,
+      type: int}
+    - {bit: 63, is_signed_var: false, len: 8, name: Steer_AngleSpeedActual, offset: 0.0,
+      order: motorola, physical_range: '[0|250]', physical_unit: deg/s, precision: 1.0,
+      type: int}
+    - bit: 23
+      description: Steer system communication fault
+      enum: {0: STEER_FLT2_NO_FAULT, 1: STEER_FLT2_STEER_SYSTEM_COMUNICATION_FAULT}
+      is_signed_var: false
+      len: 8
+      name: Steer_Flt2
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|255]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 15
+      description: Steer system hardware fault
+      enum: {0: STEER_FLT1_NO_FAULT, 1: STEER_FLT1_STEER_SYSTEM_HARDWARE_FAULT}
+      is_signed_var: false
+      len: 8
+      name: Steer_Flt1
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|255]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 1
+      enum: {0: STEER_ENSTATE_MANUAL, 1: STEER_ENSTATE_AUTO, 2: STEER_ENSTATE_TAKEOVER,
+        3: STEER_ENSTATE_STANDBY}
+      is_signed_var: false
+      len: 2
+      name: Steer_EnState
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|2]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - {bit: 31, is_signed_var: false, len: 16, name: Steer_AngleActual, offset: -500.0,
+      order: motorola, physical_range: '[-500|500]', physical_unit: deg, precision: 1.0,
+      type: int}
+  '503':
+    id: '503'
+    name: gear_report_503
+    protocol_type: report
+    sender: VCU
+    vars:
+    - bit: 15
+      enum: {0: GEAR_FLT_NO_FAULT, 1: GEAR_FLT_FAULT}
+      is_signed_var: false
+      len: 8
+      name: Gear_Flt
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 2
+      enum: {0: GEAR_ACTUAL_INVALID, 1: GEAR_ACTUAL_PARK, 2: GEAR_ACTUAL_REVERSE,
+        3: GEAR_ACTUAL_NEUTRAL, 4: GEAR_ACTUAL_DRIVE}
+      is_signed_var: false
+      len: 3
+      name: Gear_Actual
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|4]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+  '504':
+    id: '504'
+    name: park_report_504
+    protocol_type: report
+    sender: VCU
+    vars:
+    - bit: 0
+      enum: {0: PARKING_ACTUAL_RELEASE, 1: PARKING_ACTUAL_PARKING_TRIGGER}
+      is_signed_var: false
+      len: 1
+      name: Parking_Actual
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 15
+      enum: {0: PARK_FLT_NO_FAULT, 1: PARK_FLT_FAULT}
+      is_signed_var: false
+      len: 8
+      name: Park_Flt
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+  '505':
+    id: '505'
+    name: vcu_report_505
+    protocol_type: report
+    sender: VCU
+    vars:
+    - bit: 51
+      enum: {0: CARWORK_STATE_INIT, 1: CARWORK_STATE_1, 2: CARWORK_STATE_2, 3: CARWORK_STATE_3,
+        4: CARWORK_STATE_WORK, 5: CARWORK_STATE_E_STOP, 6: CARWORK_STATE_ERROR, 7: CARWORK_STATE_CRASH}
+      is_signed_var: false
+      len: 4
+      name: CarWork_State
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 53
+      enum: {0: CARPOWER_STATE_OFF, 1: CARPOWER_STATE_ON, 2: CARPOWER_STATE_READY}
+      is_signed_var: false
+      len: 2
+      name: CarPower_State
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 59
+      enum: {0: HEADLIGHT_ACTUAL_OFF, 1: HEADLIGHT_ACTUAL_ON}
+      is_signed_var: false
+      len: 1
+      name: Headlight_Actual
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 58
+      enum: {0: AEB_TRIGGER_STATE_NOTRIGGER, 1: AEB_TRIGGER_STATE_FRONTTRIGGER, 2: AEB_TRIGGER_STATE_BACKTRIGGER,
+        4: AEB_TRIGGER_STATE_LEFTTRIGGER, 8: AEB_TRIGGER_STATE_RIGHTTRIGGER}
+      is_signed_var: false
+      len: 1
+      name: AEB_Trigger_State
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 11
+      enum: {0: BRAKE_LIGHTACTUAL_BRAKELIGHT_OFF, 1: BRAKE_LIGHTACTUAL_BRAKELIGHT_ON}
+      is_signed_var: false
+      len: 1
+      name: Brake_LightActual
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 57
+      enum: {0: TURNLIGHT_ACTUAL_TURNLAMPSTS_OFF, 1: TURNLIGHT_ACTUAL_LEFT_TURNLAMPSTS_ON,
+        2: TURNLIGHT_ACTUAL_RIGHT_TURNLAMPSTS_ON, 3: TURNLIGHT_ACTUAL_HAZARD_WARNING_LAMPSTS_ON}
+      is_signed_var: false
+      len: 2
+      name: TurnLight_Actual
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - {bit: 47, is_signed_var: false, len: 8, name: Vehicle_Errcode, offset: 0.0,
+      order: motorola, physical_range: '[0|255]', physical_unit: '', precision: 1.0,
+      type: int}
+    - bit: 39
+      enum: {0: DRIVE_MODESTATUS_THROTTLE_PADDLE_DRIVE_MODE, 1: DRIVE_MODESTATUS_SPEED_DRIVE_MODE}
+      is_signed_var: false
+      len: 3
+      name: Drive_ModeStatus
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|7]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 10
+      enum: {0: STEER_MODESTATUS_STANDARD_STEER_MODE, 1: STEER_MODESTATUS_NON_DIRECTION_STEER_MODE,
+        2: STEER_MODESTATUS_SYNC_DIRECTION_STEER_MODE}
+      is_signed_var: false
+      len: 3
+      name: Steer_ModeStatus
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|7]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 36
+      enum: {0: VEHICLE_MODESTATE_MANUAL_REMOTE_MODE, 1: VEHICLE_MODESTATE_AUTO_MODE,
+        2: VEHICLE_MODESTATE_EMERGENCY_MODE, 3: VEHICLE_MODESTATE_STANDBY_MODE}
+      is_signed_var: false
+      len: 2
+      name: Vehicle_ModeState
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 33
+      enum: {0: VEHICLE_FRONTCRASHSTATE_NO_EVENT, 1: VEHICLE_FRONTCRASHSTATE_CRASH_EVENT}
+      is_signed_var: false
+      len: 1
+      name: Vehicle_FrontCrashState
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 34
+      enum: {0: BACKCRASH_STATE_NO_EVENT, 1: BACKCRASH_STATE_CRASH_EVENT}
+      is_signed_var: false
+      len: 1
+      name: BackCrash_State
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 32
+      enum: {0: AEB_BRAKESTATE_INACTIVE, 1: AEB_BRAKESTATE_ACTIVE}
+      is_signed_var: false
+      len: 1
+      name: AEB_BrakeState
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - {bit: 7, is_signed_var: true, len: 12, name: Vehicle_Acc, offset: 0.0, order: motorola,
+      physical_range: '[-10|10]', physical_unit: m/s^2, precision: 0.01, type: double}
+    - {bit: 23, is_signed_var: true, len: 16, name: Vehicle_Speed, offset: 0.0, order: motorola,
+      physical_range: '[-32.768|32.767]', physical_unit: m/s, precision: 0.001, type: double}
+  '506':
+    id: '506'
+    name: wheelspeed_report_506
+    protocol_type: report
+    sender: VCU
+    vars:
+    - {bit: 55, is_signed_var: false, len: 16, name: WheelSpeedRR, offset: 0.0, order: motorola,
+      physical_range: '[0|65.535]', physical_unit: m/s, precision: 0.001, type: double}
+    - {bit: 39, is_signed_var: false, len: 16, name: WheelSpeedRL, offset: 0.0, order: motorola,
+      physical_range: '[0|65.535]', physical_unit: m/s, precision: 0.001, type: double}
+    - {bit: 23, is_signed_var: false, len: 16, name: WheelSpeedFR, offset: 0.0, order: motorola,
+      physical_range: '[0|65.535]', physical_unit: m/s, precision: 0.001, type: double}
+    - {bit: 7, is_signed_var: false, len: 16, name: WheelSpeedFL, offset: 0.0, order: motorola,
+      physical_range: '[0|65.535]', physical_unit: m/s, precision: 0.001, type: double}
+  '512':
+    id: '512'
+    name: bms_report_512
+    protocol_type: report
+    sender: VCU
+    vars:
+    - {bit: 41, is_signed_var: false, len: 2, name: WirelessCharging_Sta, offset: 0.0,
+      order: motorola, physical_range: '[0|0]', physical_unit: '', precision: 1.0,
+      type: int}
+    - {bit: 55, is_signed_var: false, len: 8, name: BatteryLeadacid_Voltage, offset: 0.0,
+      order: motorola, physical_range: '[0|0]', physical_unit: V, precision: 0.1,
+      type: double}
+    - {bit: 23, description: Battery Total Current, is_signed_var: false, len: 16,
+      name: Battery_Current, offset: -3200.0, order: motorola, physical_range: '[-3200|3353.5]',
+      physical_unit: A, precision: 0.1, type: double}
+    - {bit: 7, description: Battery Total Voltage, is_signed_var: false, len: 16,
+      name: Battery_Voltage, offset: 0.0, order: motorola, physical_range: '[0|300]',
+      physical_unit: V, precision: 0.01, type: double}
+    - {bit: 39, description: Battery Soc percentage, is_signed_var: false, len: 8,
+      name: Battery_Soc, offset: 0.0, order: motorola, physical_range: '[0|100]',
+      physical_unit: '%', precision: 1.0, type: int}
+  '517':
+    id: '517'
+    name: vcu2acu_sweepstafb_517
+    protocol_type: report
+    sender: VCU
+    vars:
+    - {bit: 3, is_signed_var: false, len: 1, name: SCU_SweepLifeEnd, offset: 0.0,
+      order: motorola, physical_range: '[0|0]', physical_unit: '', precision: 1.0,
+      type: bool}
+    - {bit: 4, is_signed_var: false, len: 1, name: SCU_FilterClogging, offset: 0.0,
+      order: motorola, physical_range: '[0|0]', physical_unit: '', precision: 1.0,
+      type: bool}
+    - {bit: 0, is_signed_var: false, len: 1, name: SCU_LiquidLevelLow, offset: 0.0,
+      order: motorola, physical_range: '[0|1]', physical_unit: '', precision: 1.0,
+      type: bool}
+    - {bit: 1, is_signed_var: false, len: 1, name: SCU_LiquidLeveHigh, offset: 0.0,
+      order: motorola, physical_range: '[0|1]', physical_unit: '', precision: 1.0,
+      type: bool}
+    - {bit: 15, is_signed_var: false, len: 8, name: SCU_LiquidLeve, offset: 0.0, order: motorola,
+      physical_range: '[0|1]', physical_unit: '', precision: 1.0, type: int}
+    - {bit: 2, is_signed_var: false, len: 1, name: SCU_DustbinFull, offset: 0.0, order: motorola,
+      physical_range: '[0|1]', physical_unit: '', precision: 1.0, type: bool}
+    - {bit: 7, is_signed_var: false, len: 1, name: SCU_Heartbeat, offset: 0.0, order: motorola,
+      physical_range: '[0|1]', physical_unit: '', precision: 1.0, type: bool}
+    - {bit: 23, is_signed_var: false, len: 16, name: SCU_FanSpeedFb, offset: 0.0,
+      order: motorola, physical_range: '[0|1]', physical_unit: '', precision: 1.0,
+      type: int}
+    - {bit: 39, is_signed_var: false, len: 16, name: SCU_MowingSpeedFb, offset: 0.0,
+      order: motorola, physical_range: '[0|1]', physical_unit: '', precision: 1.0,
+      type: int}
+    - {bit: 55, is_signed_var: false, len: 16, name: SCU_SweepSpeedFb, offset: 0.0,
+      order: motorola, physical_range: '[0|1]', physical_unit: '', precision: 1.0,
+      type: int}
+  '518':
+    id: '518'
+    name: vcu2acu_sweepfansta_518
+    protocol_type: report
+    sender: VCU
+    vars:
+    - {bit: 7, is_signed_var: false, len: 16, name: SCU_FanConntorllerMainVoltage,
+      offset: 0.0, order: motorola, physical_range: '[0|500]', physical_unit: V, precision: 1.0,
+      type: int}
+    - {bit: 23, is_signed_var: false, len: 16, name: SCU_FanConntorllerCurrent, offset: -2000.0,
+      order: motorola, physical_range: '[-2000|2000]', physical_unit: A, precision: 1.0,
+      type: int}
+    - {bit: 39, is_signed_var: false, len: 8, name: SCU_FanMotorTemp, offset: -40.0,
+      order: motorola, physical_range: '[-40|210]', physical_unit: "\u2103", precision: 1.0,
+      type: int}
+    - {bit: 47, is_signed_var: false, len: 8, name: SCU_FanConntorllerTemp, offset: -40.0,
+      order: motorola, physical_range: '[-40|160]', physical_unit: "\u2103", precision: 1.0,
+      type: int}
+    - {bit: 55, is_signed_var: false, len: 8, name: SCU_FanConntorllerErr1, offset: 0.0,
+      order: motorola, physical_range: '[0|1]', physical_unit: '', precision: 1.0,
+      type: int}
+    - {bit: 63, is_signed_var: false, len: 8, name: SCU_FanConntorllerErr2, offset: 0.0,
+      order: motorola, physical_range: '[0|1]', physical_unit: '', precision: 1.0,
+      type: int}
+  '519':
+    id: '519'
+    name: vcu2acu_sweepsta_519
+    protocol_type: report
+    sender: VCU
+    vars:
+    - {bit: 7, is_signed_var: false, len: 8, name: SCU_SweepTravel_mm, offset: 0.0,
+      order: motorola, physical_range: '[0|255]', physical_unit: mm, precision: 1.0,
+      type: int}
+    - {bit: 15, is_signed_var: false, len: 8, name: SCU_SweepSpeed, offset: 0.0, order: motorola,
+      physical_range: '[0|255]', physical_unit: rpm, precision: 1.0, type: int}
+    - {bit: 23, is_signed_var: false, len: 16, name: SCU_SweepConntrollerVoltage,
+      offset: 0.0, order: motorola, physical_range: '[0|1]', physical_unit: '', precision: 1.0,
+      type: int}
+    - {bit: 39, is_signed_var: false, len: 16, name: SCU_SweepConntrollerCurrent,
+      offset: 0.0, order: motorola, physical_range: '[0|1]', physical_unit: '', precision: 1.0,
+      type: int}
+    - {bit: 55, is_signed_var: false, len: 8, name: SCU_SweepConntorllerErr1, offset: 0.0,
+      order: motorola, physical_range: '[0|1]', physical_unit: '', precision: 1.0,
+      type: int}
+    - {bit: 63, is_signed_var: false, len: 8, name: SCU_SweepConntorllerErr2, offset: 0.0,
+      order: motorola, physical_range: '[0|1]', physical_unit: '', precision: 1.0,
+      type: int}
+  '520':
+    id: '520'
+    name: vcu2acu_sweepweedingsta_520
+    protocol_type: report
+    sender: VCU
+    vars:
+    - {bit: 7, is_signed_var: false, len: 8, name: SCU_WeedingSta, offset: 0.0, order: motorola,
+      physical_range: '[0|1]', physical_unit: '', precision: 1.0, type: int}
+  '521':
+    id: '521'
+    name: vcu2acu_sweepworksta_521
+    protocol_type: report
+    sender: VCU
+    vars:
+    - {bit: 10, description: "\u6E05\u626B\u7CFB\u7EDF\u7D27\u6025\u505C\u6B62\u53CD\
+        \u9988", is_signed_var: false, len: 1, name: SweepEmergencySigFb, offset: 0.0,
+      order: motorola, physical_range: '[0|1]', physical_unit: '', precision: 1.0,
+      type: bool}
+    - bit: 9
+      description: "\u626B\u76D8\u5347\u964D\u72B6\u6001\u53CD\u9988"
+      enum: {0: VCU_SWEEPPLATEUPDOWNSTAFB_NO, 1: VCU_SWEEPPLATEUPDOWNSTAFB_UP, 2: VCU_SWEEPPLATEUPDOWNSTAFB_DOWN}
+      is_signed_var: false
+      len: 2
+      name: VCU_SweepPlateUpDownStaFb
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 1
+      description: "\u4E00\u952E\u503E\u5012\u72B6\u6001\u53CD\u9988"
+      enum: {0: VCU_AUTOGARBAGEDUMPSTAFB_OFF, 1: VCU_AUTOGARBAGEDUMPSTAFB_ON}
+      is_signed_var: false
+      len: 1
+      name: VCU_AutoGarbageDumpStaFb
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 0
+      description: "\u4E00\u952E\u6E05\u626B\u72B6\u6001\u53CD\u9988"
+      enum: {0: VCU_AUTOCLEANINGSTAFB_OFF, 1: VCU_AUTOCLEANINGSTAFB_ON}
+      is_signed_var: false
+      len: 1
+      name: VCU_AutoCleaningStaFb
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum

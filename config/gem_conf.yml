@@ -1,0 +1,11 @@
+dbc_file: fulongma_sweeper.dbc
+protocol_conf: fulongma.yml
+car_type: Apollo_ACU
+sender_list: []
+sender: ACU
+black_list: []
+
+output_dir: output/
+config_dir: config/
+
+

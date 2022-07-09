@@ -1,0 +1,26 @@
+# brake_command_101.cc    文件名称 protocol["name"]
+  # Brakecommand101      类名称    protocol["name"].replace('_', '').capitalize()
+
+  # set_p_aeb_en_ctrl    成员函数名称 var["name"].lower()
+  # 
+
+# brake_report_501.hpp  文件名称  protocol["name"]
+  # Brakereport501      类名称    protocol["name"].replace('_', '').capitalize()
+
+  # BrakePedalActual    成员函数名称 var["name"].replace('_', '')
+  # brake_pedal_actual  成员变量名称 var["name"].lower()
+
+# {can_name} = protocol["name"].rsplit('_', 1)[0]
+# command_node.cc      文件名称
+  # #include "pix_driver_msgs/throttle_command_100.h"  protocol["name"]
+  # #include "throttle_command_100.hpp"                protocol["name"]
+  # static pix_driver_msgs::throttle_command_100 throttle_command_100_msg;    protocol["name"]
+  # static can_msgs::Frame can_throttle;               protocol["name"].rsplit('_', 1)[0]
+  # static Throttlecommand100 throttle_command_100_entity;   protocol["name"].replace('_', '').capitalize()
+  # static bool throttle_enable   {can_name}
+  # static int throttle_prev_t=0  {can_name}
+  # throttle_command_100_msg.Vel_Target,  var["name"]
+  # ros::Subscriber sub_throttle = nh.subscribe("/pix/throttle_command", 1, throttle_callback);
+    # protocol["name"].rsplit("_", 1)[0]
+
+
