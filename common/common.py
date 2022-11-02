@@ -1,8 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 def get_tpl_fmt(tpl_file):
-    """
-        get fmt from tpl_file
+    """è·å–æ¨¡ç‰ˆæ–‡ä»¶str
+
+    Args:
+        tpl_file (str): æ¨¡ç‰ˆæ–‡ä»¶åœ°å€
+
+    Returns:
+        str: æ¨¡ç‰ˆæ–‡ä»¶çš„str
     """
     with open(tpl_file, 'r') as tpl:
         fmt = tpl.readlines()
@@ -10,8 +15,8 @@ def get_tpl_fmt(tpl_file):
     return fmt
 
 def get_Name_info(protocols):
-    # »ñÈ¡canIDµÄ»ù±¾µÄĞÅÏ¢£º messageÃû³Æ£¬ signalÃû³Æ
-    # infoList ÒıÓÃÁĞ±í
+    # è·å–canIDçš„åŸºæœ¬çš„ä¿¡æ¯ï¼š messageåç§°ï¼Œ signalåç§°
+    # infoList å¼•ç”¨åˆ—è¡¨
     message_name_list = {}
     message_name_list["report"] = list()
     message_name_list["control"] = list()
@@ -29,7 +34,7 @@ def get_Name_info(protocols):
 
     
 def gen_esd_can_extended(str):
-    # canID ´óÓÚ 0x800Ê±[Óë»ò]´¦Àí
+    # canID å¤§äº 0x800æ—¶[ä¸æˆ–]å¤„ç†
     """
         id string:
     """

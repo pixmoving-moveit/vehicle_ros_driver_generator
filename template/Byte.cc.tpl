@@ -19,10 +19,9 @@ int32_t Byte::get_byte(uint start, uint len)
 
 uint8_t Byte::return_byte_t()
 {
-
     return byte_t;
 }
-// ��������ֵ����canԭʼֵ
+
 void Byte::set_value(uint8_t value, uint start, uint len)
 {
     value >>= (8-len);

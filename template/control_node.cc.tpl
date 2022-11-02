@@ -45,7 +45,7 @@ static bool %(global_variable_Enable)s
 static int %(global_variable_sendTimeStamp)s
 
 
-int time_diff = 200000;
+static int time_diff = 100000000;
 static ros::Publisher pub_can;
 
 
@@ -56,12 +56,11 @@ static ros::Publisher pub_can;
 //  define timer callback function
 void timer_callback(const ros::TimerEvent &te)
 {
-    int time_diff;
     int now;
     now = ros::Time::now().toNSec();
     /*Example: 
     // brake
-    if(now-brake_prev_t>30000000)
+    if(now-brake_prev_t>time_diff)
     {
         for(uint i=0;i<8;i++)
         {   
@@ -79,14 +78,14 @@ void timer_callback(const ros::TimerEvent &te)
 
 int main(int argc, char* argv[])
 {
-    ros::init(argc, argv, "pix_driver_command_node");
+    ros::init(argc, argv, "pix_%(car_type)s_driver_command_node");
     ros::NodeHandle nh;
 
     // creat ros Subscriber
     // Example: ros::Subscriber sub_brake = nh.subscribe("/pix/brake_command", 1, brake_callback);
     %(gen_Subscriber_list)s
     //  creat ros publisher
-    pub_can = nh.advertise<can_msgs::Frame>("/sent_messages", 5, true);
+    pub_can = nh.advertise<can_msgs::Frame>("/sent_messages", 10, false);
 
     ros::Timer set_speed = nh.createTimer(ros::Duration(1/50.0), timer_callback);
     ros::spin();

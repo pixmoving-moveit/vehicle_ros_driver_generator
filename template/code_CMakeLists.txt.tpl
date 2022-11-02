@@ -1,18 +1,17 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(pix_driver)
+project(pix_%(car_type)s_driver)
 
 find_package(catkin REQUIRED COMPONENTS
-  autoware_msgs
   can_msgs
   roscpp
   std_msgs
-  pix_driver_msgs
+  pix_%(car_type)s_driver_msgs
 )
 
 catkin_package(
  INCLUDE_DIRS include
- LIBRARIES pix_driver
- CATKIN_DEPENDS autoware_msgs can_msgs roscpp std_msgs pix_driver_msgs
+ LIBRARIES pix_%(car_type)s_driver
+ CATKIN_DEPENDS can_msgs roscpp std_msgs pix_%(car_type)s_driver_msgs
 # DEPENDS system_lib
 )
 
@@ -61,12 +60,12 @@ target_link_libraries(${PROJECT_NAME}_command_node
 install(TARGETS ${PROJECT_NAME}_report_node
   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-  RUNTIME DESTINATION ${CATKIN_GLOBAL_BIN_DESTINATION}
+  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
 install(TARGETS ${PROJECT_NAME}_command_node
   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-  RUNTIME DESTINATION ${CATKIN_GLOBAL_BIN_DESTINATION}
+  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 

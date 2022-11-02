@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(pix_driver_msgs)
+project(pix_%(car_type)s_driver_msgs)
 
 find_package(catkin REQUIRED COMPONENTS
   message_generation
@@ -20,7 +20,7 @@ add_message_files(
 generate_messages(
   DEPENDENCIES
   std_msgs
-  pix_driver_msgs
+  pix_%(car_type)s_driver_msgs
 )
 
 catkin_package(

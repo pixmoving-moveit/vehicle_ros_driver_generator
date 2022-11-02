@@ -33,7 +33,8 @@ def gen_report_header(car_type, protocol, output_dir):
     """
     report_header_tpl_file = "template/report_protocol.h.tpl"
     FMT = get_tpl_fmt(report_header_tpl_file)
-    report_header_file = output_dir + "pix_driver/include/%s.hpp" % protocol["name"]
+    report_header_file = output_dir + "/pix_"+car_type + \
+        "_driver/include/%s.hpp" % protocol["name"]
     with open(report_header_file, 'w') as h_fp:
         fmt_val = {}
         fmt_val["car_type_lower"] = car_type.lower()
@@ -50,10 +51,11 @@ def gen_report_header(car_type, protocol, output_dir):
                 # returntype = protocol["name"].capitalize(
                 # ) + "::" + var["name"].capitalize() + "Type"
                 returntype = "int"
-            declare = fmt % (str(var), returntype, var["name"].replace('_', ''))
+            declare = fmt % (str(var), returntype,
+                             var["name"].replace('_', ''))
             func_declare_list.append(declare)
         fmt_val["func_declare_list"] = "\n".join(func_declare_list)
-        
+
         # sssssssssssssssssss
         signal_type = ""
         signal_name = ""
@@ -63,10 +65,11 @@ def gen_report_header(car_type, protocol, output_dir):
                 signal_type = "int"
             else:
                 signal_type = vars["type"]
-            
-            signal_name =  vars["name"].lower()
-            signalname_variable+= "".join("%s %s;\n    "%(signal_type, signal_name))
-        
+
+            signal_name = vars["name"].lower()
+            signalname_variable += "".join("%s %s;\n    " %
+                                           (signal_type, signal_name))
+
         fmt_val["signalname_variable"] = signalname_variable
         h_fp.write(FMT % fmt_val)
 
@@ -77,13 +80,13 @@ def gen_report_cpp(car_type, protocol, output_dir):
     """
     report_cpp_tpl_file = "template/report_protocol.cc.tpl"
     FMT = get_tpl_fmt(report_cpp_tpl_file)
-    report_cpp_file = output_dir + "pix_driver/src/%s.cc" % protocol["name"]
+    report_cpp_file = output_dir + "/pix_"+car_type + \
+        "_driver/src/%s.cc" % protocol["name"]
     with open(report_cpp_file, 'w') as fp:
         fmt_val = {}
         fmt_val["car_type_lower"] = car_type
         fmt_val["protocol_name_lower"] = protocol["name"]
-        classname = protocol["name"].replace('_', '').capitalize()
-        fmt_val["classname"] = classname
+        fmt_val["classname"] = protocol["name"].replace('_', '').capitalize()
         protocol_id = int(protocol["id"].upper(), 16)
         if protocol_id > 2048:
             fmt_val["id_upper"] = gen_esd_can_extended(protocol["id"].upper())
@@ -103,8 +106,9 @@ def gen_report_cpp(car_type, protocol, output_dir):
             fmt = """
 // config detail: %s
 %s %s::%s() {"""
-            impl = fmt % (str(var), returntype, classname, var["name"].replace('_', ''))
-            
+            impl = fmt % (str(var), returntype,
+                          fmt_val["classname"], var["name"].replace('_', ''))
+
             byte_info = get_byte_info(var)
             impl = impl + gen_parse_value_impl(var, byte_info)
 
@@ -115,7 +119,8 @@ def gen_report_cpp(car_type, protocol, output_dir):
             proto_set_fmt = "  %s = %s();"
             func_name = var["name"]
             # sssssssssssssssssssssssssss
-            proto_set = proto_set_fmt % (var["name"].lower(), var["name"].replace('_', ''))
+            proto_set = proto_set_fmt % (
+                var["name"].lower(), var["name"].replace('_', ''))
             set_var_to_protocol_list.append(proto_set)
         fmt_val["set_var_to_protocol_list"] = "\n".join(
             set_var_to_protocol_list)
@@ -182,7 +187,8 @@ def gen_control_header(car_type, protocol, output_dir):
     """
     control_header_tpl_file = "template/control_protocol.h.tpl"
     FMT = get_tpl_fmt(control_header_tpl_file)
-    control_header_file = output_dir + "pix_driver/include/%s.hpp" % protocol["name"]
+    control_header_file = output_dir + "/pix_"+car_type + \
+        "_driver/include/%s.hpp" % protocol["name"]
     with open(control_header_file, 'w') as h_fp:
         fmt_val = {}
         fmt_val["car_type_lower"] = car_type
@@ -230,10 +236,10 @@ def gen_control_header(car_type, protocol, output_dir):
                 signal_type = "int"
             else:
                 signal_type = vars["type"]
-            
-            signal_name =  vars["name"].lower()
-            signalname_list+= "".join("%s %s_, "%(signal_type, signal_name))
-        
+
+            signal_name = vars["name"].lower()
+            signalname_list += "".join("%s %s_, " % (signal_type, signal_name))
+
         signalname_list = signalname_list[:-2]
         fmt_val["signalname_list"] = signalname_list
         h_fp.write(FMT % fmt_val)
@@ -315,7 +321,7 @@ def gen_control_encode_one_byte_value_impl(var, byte_info):
   to_set.set_value(x, %d, %d);
   data[%d] += to_set.return_byte_t();
   
-""" 
+"""
     # print(byte_info)
     return fmt % (byte_info["start_bit"], byte_info["len"], byte_info["byte"])
 
@@ -376,7 +382,7 @@ void %(classname)s::set_p_%(var_name)s(%(var_type)s %(var_name)s) {"""
     if var["type"] == "enum":
         # returntype = protocol["name"].capitalize() + "::" + var["name"].capitalize(
         # ) + "Type"
-        returntype ="int"
+        returntype = "int"
     fmt_val["var_type"] = returntype
     fmt_val["config"] = str(var)
     impl = impl + fmt % fmt_val
@@ -399,7 +405,8 @@ def gen_control_cpp(car_type, protocol, output_dir):
     """
     control_cpp_tpl_file = "template/control_protocol.cc.tpl"
     FMT = get_tpl_fmt(control_cpp_tpl_file)
-    control_cpp_file = output_dir + "pix_driver/src/%s.cc" % protocol["name"]
+    control_cpp_file = output_dir + "/pix_" + \
+        car_type+"_driver/src/%s.cc" % protocol["name"]
     with open(control_cpp_file, 'w') as fp:
         fmt_val = {}
         fmt_val["car_type_lower"] = car_type
@@ -420,15 +427,12 @@ def gen_control_cpp(car_type, protocol, output_dir):
                 signal_type = "int"
             else:
                 signal_type = vars["type"]
-            
-            signal_name =  vars["name"].lower()
-            signalname_list+= "".join("%s %s_, "%(signal_type, signal_name))
-        
+
+            signal_name = vars["name"].lower()
+            signalname_list += "".join("%s %s_, " % (signal_type, signal_name))
+
         signalname_list = signalname_list[:-2]
         fmt_val["signalname_list"] = signalname_list
-           
-            
-        
 
         set_private_var_list = []
         set_private_var_init_list = []
@@ -437,7 +441,7 @@ def gen_control_cpp(car_type, protocol, output_dir):
             func_impl = gen_control_value_func_impl(classname, var, protocol)
             set_func_impl_list.append(func_impl)
             set_private_var = "  set_p_%s(%s_);" % (var["name"].lower(),
-                                                          var["name"].lower())
+                                                    var["name"].lower())
             set_private_var_list.append(set_private_var)
             init_val = "0"
             if var["type"] == "double":
@@ -460,7 +464,9 @@ def gen_control_cpp(car_type, protocol, output_dir):
         fmt_val["set_func_impl_list"] = "\n".join(set_func_impl_list)
         fp.write(FMT % fmt_val)
 
-#  °´ÐÐ¶ÁÈ¡Ä£°å,·µ»ØÒ»¸öÐÐ×é³ÉµÄµü´ú¶ÔÏó
+#  ï¿½ï¿½ï¿½Ð¶ï¿½È¡Ä£ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÉµÄµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+
+
 def get_tpl_fmt(tpl_file):
     """
         get fmt from tpl_file
@@ -483,17 +489,16 @@ def gen_build_file(car_type, work_dir):
         build_fp.write(fmt % fmt_var)
 
 
-def gen_protocols(protocol_conf_file, protocol_dir):
+def gen_protocols(protocol_conf_file, protocol_dir, car_type):
     """
         doc string:
     """
     print("Generating protocols")
-    if not os.path.exists(protocol_dir + "pix_driver/src/"):
-        os.makedirs(protocol_dir+ "pix_driver/src/")
-    if not os.path.exists(protocol_dir + "pix_driver/include/"):
-        os.makedirs(protocol_dir + "pix_driver/include/")
-        
-        
+    if not os.path.exists(protocol_dir + "/pix_"+car_type+"_driver/src/"):
+        os.makedirs(protocol_dir + "/pix_"+car_type+"_driver/src/")
+    if not os.path.exists(protocol_dir + "/pix_"+car_type+"_driver/include/"):
+        os.makedirs(protocol_dir + "/pix_"+car_type+"_driver/include/")
+
     with open(protocol_conf_file, 'r') as fp:
         content = yaml.safe_load(fp)
         protocols = content["protocols"]
@@ -510,7 +515,6 @@ def gen_protocols(protocol_conf_file, protocol_dir):
 
             else:
                 print("Unknown protocol_type:%s" % protocol["protocol_type"])
-        # gen_build_file(car_type, protocol_dir)
 
 
 def gen_esd_can_extended(str):
@@ -532,7 +536,7 @@ if __name__ == "__main__":
         conf = yaml.safe_load(fp)
     protocol_conf = conf["protocol_conf"]
 
-    protocol_dir = conf["output_dir"] + "vehicle/" 
+    protocol_dir = conf["output_dir"] + "vehicle/"
     shutil.rmtree(protocol_dir, True)
     os.makedirs(protocol_dir)
     gen_protocols(protocol_conf, protocol_dir)

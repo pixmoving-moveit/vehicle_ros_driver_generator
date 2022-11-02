@@ -36,7 +36,7 @@ static void can_callback(const can_msgs::Frame &msg)
 
 int main(int argc, char* argv[])
 {
-    ros::init(argc, argv, "pix_driver_report_node");
+    ros::init(argc, argv, "pix_%(car_type)s_driver_report_node");
     ros::NodeHandle nh;
 
     ros::Subscriber sub = nh.subscribe("/received_messages", 1, can_callback);

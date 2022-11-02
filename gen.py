@@ -29,7 +29,7 @@ def gen(conf):
     output_dir = conf["output_dir"]
 
     # extract dbc file meta to an internal config file
-    # 1. dbc ×ª yml
+    # 1. dbc è½¬ yml
     if not extract_dbc_meta(dbc_file, protocol_conf_file, car_type, black_list,
                             sender_list, sender):
         return
@@ -39,15 +39,15 @@ def gen(conf):
     # gen_proto_file(protocol_conf_file, proto_dir)
 
     # gen protocol  
-    # 2. ´úÂëÉú³É - ½âÎöcanÔ­Ê¼
+    # 2. ä»£ç ç”Ÿæˆ - è§£æcanåŸå§‹
     # protocol_dir = output_dir + "vehicle/" 
-    gen_protocols(protocol_conf_file, output_dir)
+    gen_protocols(protocol_conf_file, output_dir, car_type)
 
-    # 3. ´úÂëÉú³É - Éú³É¶©ÔÄ·¢²¼ros½Úµã
-    gen_ros_node.gen_protocols(protocol_conf_file, output_dir)
-    # msgÎÄ¼şÉú³É
+    # 3. ä»£ç ç”Ÿæˆ - ç”Ÿæˆè®¢é˜…å‘å¸ƒrosèŠ‚ç‚¹
+    gen_ros_node.gen_protocols(protocol_conf_file, output_dir, car_type)
+    # msgæ–‡ä»¶ç”Ÿæˆ
     gen_msg_file.gen_proto_file(protocol_conf_file, output_dir)
-    # ±àÒëÎÄ¼şÉú³É
+    # ç¼–è¯‘æ–‡ä»¶ç”Ÿæˆ
     gen_config_file.gen_protocols(protocol_conf_file, output_dir)
     
     

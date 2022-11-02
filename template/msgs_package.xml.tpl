@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>pix_driver_msgs</name>
+  <name>pix_%(car_type)s_driver_msgs</name>
   <version>0.0.0</version>
-  <description>The pix_driver_msg package</description>
-  <maintainer email="team1@todo.todo">team1</maintainer>
+  <description>The pix_%(car_type)s_driver_msg package</description>
+  <maintainer email="pixmoving@pixmoving.net">pixmoving</maintainer>
 
   <license>TODO</license>
 

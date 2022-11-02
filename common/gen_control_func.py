@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 def msg_signal_list(protocol):
-    # »ñÈ¡canIDµÄmsgÐÅºÅ
-    # protocol  canIDµÄÐÅºÅÐÅÏ¢ yam¶ÔÏó
+    # èŽ·å–canIDçš„msgä¿¡å·
+    # protocol  canIDçš„ä¿¡å·ä¿¡æ¯ yamå¯¹è±¡
     prefix = "\t%s_msg."%(protocol["name"])
     signal_list = []
     for var in protocol["vars"]:
@@ -12,12 +12,12 @@ def msg_signal_list(protocol):
     
     return result
 
-# msg µ½ canÔ­Ê¼º¯Êý
-def sendCanID_callback_func_list(protocol):
+# msg åˆ° canåŽŸå§‹å‡½æ•°
+def sendCanID_callback_func_list(protocol, car_type):
     message_name = protocol["name"]
-    func = """\nstatic void %s_callback(const pix_driver_msgs::%s &msg)
+    func = """\nstatic void %s_callback(const pix_%s_driver_msgs::%s &msg)
 {
-    """%(message_name.split("_",1)[0], message_name)
+    """%(message_name, car_type, message_name)
 
     fmt = """
     {name}_entity.Reset();
@@ -41,16 +41,16 @@ def sendCanID_callback_func_list(protocol):
     {can_name}_prev_t = t_nsec;
 }}\n
     """.format(name=message_name, \
-        can_name=message_name.split("_",1)[0], \
+        can_name=message_name, \
         name_msg_signal_list=msg_signal_list(protocol))
     return func + fmt
 
-# timer_callback_func Ê±¼ä»Øµ÷º¯Êý
+# timer_callback_func æ—¶é—´å›žè°ƒå‡½æ•°
 def timer_callback_func(protocol):
     message_name = protocol["name"]
     if_canID_prev_t = """
     // {can_name}
-    if(now - {can_name}_prev_t>30000000)
+    if(now - {can_name}_prev_t>time_diff)
     {{
         for(uint i=0; i<8; i++)
         {{   
@@ -63,11 +63,12 @@ def timer_callback_func(protocol):
         pub_can.publish(can_{can_name});
     }}
     """.format(name=message_name, \
-        can_name=message_name.split("_",1)[0])
+        can_name=message_name)
     
     return if_canID_prev_t
 
-def gen_Subscriber_list(protocol):
+def gen_Subscriber_list(protocol, car_type):
     message_name = protocol["name"]
-    template = 'ros::Subscriber sub_{can_name} = nh.subscribe("/pix/{name}", 1, {can_name}_callback);\n\t'
-    return template.format(name=message_name.rsplit("_", 1)[0], can_name=message_name.split("_",1)[0])
+    template = 'ros::Subscriber sub_{can_name} = nh.subscribe("/pix_{car_type}/{name}", 1, {can_name}_callback);\n\t'
+    # return template.format(name=message_name.rsplit("_", 1)[0], can_name=message_name.rsplit("_",1)[0])
+    return template.format(car_type=car_type, name=message_name, can_name=message_name)

@@ -52,14 +52,15 @@ def gen_proto_file(config_file, work_dir):
         config_file ： yaml解析文件路径
         work_dir  : msg生成文件存储路径
     """
-    # 判断文件存储路径是否存在，没有则生成目录路径
-    work_dir = work_dir + "pix_driver_msgs/msg/"
-    if not os.path.exists(work_dir):
-        os.makedirs(work_dir)
     # 读取DBC解析的yaml文件
     with open(config_file, 'r') as fp:
         content = yaml.safe_load(fp)
         protocols = content["protocols"]
+        car_type = content["car_type"]
+        # 判断文件存储路径是否存在，没有则生成目录路径
+        work_dir = work_dir + "/pix_"+car_type+"_driver_msgs/msg/"
+        if not os.path.exists(work_dir):
+            os.makedirs(work_dir)
         # 迭代每一帧生成msg文件
         for pid in protocols:
             p = protocols[pid]
