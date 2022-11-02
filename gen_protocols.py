@@ -464,7 +464,7 @@ def gen_control_cpp(car_type, protocol, output_dir):
         fmt_val["set_func_impl_list"] = "\n".join(set_func_impl_list)
         fp.write(FMT % fmt_val)
 
-#  ���ж�ȡģ��,����һ������ɵĵ�������
+#  按行读取模板,返回一个行组成的迭代对象
 
 
 def get_tpl_fmt(tpl_file):

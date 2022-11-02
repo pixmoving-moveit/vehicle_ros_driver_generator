@@ -12,16 +12,16 @@ from common import common
 
 # ���� CMakeList.txt package.xml
 def gen_protocols(protocol_conf_file, protocol_dir):
-    # ����yaml�ļ�������c++ ros��������
-    # protocol_conf_file yaml�ļ�·��
-    # protocol_dir       ���ɵĴ�����·��
+    # 解析yaml文件，生成c++ ros驱动代码
+    # protocol_conf_file yaml文件路径 
+    # protocol_dir       生成的代码存放路径  
 
     print("Generating canID Config file")
-    # �жϴ��·���Ƿ����
+    # 判断存放路径是否存在
     if not os.path.exists(protocol_dir):
         os.makedirs(protocol_dir)
 
-    # ��ȡyaml�ļ����� �� yaml����-content
+    # 读取yaml文件内容 到 yaml对象-content
     with open(protocol_conf_file, 'r') as fp:
         content = yaml.safe_load(fp)
     protocols = content["protocols"]
@@ -98,7 +98,7 @@ if __name__ == "__main__":
     protocol_dir = conf["output_dir"]
     output_dir = conf["output_dir"]
 
-    # �ݹ�ɾ���ļ�����������
+    # 递归删除文件夹所有内容
     shutil.rmtree(output_dir, True)
     os.makedirs(output_dir)
     # generate protocols
