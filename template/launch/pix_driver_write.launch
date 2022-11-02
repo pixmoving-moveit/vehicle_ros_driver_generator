@@ -1,0 +1,4 @@
+<launch>
+    <include file="/home/t/ros_driver/catkin_ws_control/src/pix_driver-robobus/launch/pix_driver.launch"/>
+    <include file="/home/t/ros_driver/catkin_ws_control/src/ros_canopen-pixmoving/socketcan_bridge/launch/socketcan_bridge.launch"/>    
+</launch>
