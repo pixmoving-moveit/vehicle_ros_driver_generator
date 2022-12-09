@@ -24,7 +24,7 @@ uint8_t Byte::return_byte_t()
 
 void Byte::set_value(uint8_t value, uint start, uint len)
 {
-    value >>= (8-len);
-    value <<= (8-start-len);
+    value <<= (8-len);
+    value >>= (8-start-len);
     byte_t += value;
 }
