@@ -1,71 +1,35 @@
-cmake_minimum_required(VERSION 3.0.2)
+cmake_minimum_required(VERSION 3.5)
 project(pix_%(car_type)s_driver)
 
-find_package(catkin REQUIRED COMPONENTS
-  can_msgs
-  roscpp
-  std_msgs
-  pix_%(car_type)s_driver_msgs
+find_package(ament_cmake_auto REQUIRED)
+ament_auto_find_build_dependencies()
+
+if(NOT CMAKE_CXX_STANDARD)
+  set(CMAKE_CXX_STANDARD 14)
+  set(CMAKE_CXX_STANDARD_REQUIRED ON)
+  set(CMAKE_CXX_EXTENSIONS OFF)
+endif()
+if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+  add_compile_options(-Wall -Wextra -Wpedantic)
+endif()
+
+ament_auto_add_executable(${PROJECT_NAME}_control_command_node
+  %(command_cpp_list)s
+  src/Byte.cc
+  src/control_command.cpp
+  src/control_command_node.cpp
 )
 
-catkin_package(
- INCLUDE_DIRS include
- LIBRARIES pix_%(car_type)s_driver
- CATKIN_DEPENDS can_msgs roscpp std_msgs pix_%(car_type)s_driver_msgs
-# DEPENDS system_lib
+ament_auto_add_executable(${PROJECT_NAME}_report_parser_node
+  %(report_cpp_list)s
+  src/Byte.cc
+  src/report_parser.cpp
+  src/report_parser_node.cpp
 )
 
-include_directories(
- include
-  ${catkin_INCLUDE_DIRS}
+# install
+ament_auto_package(
+  INSTALL_TO_SHARE
+  launch
+  # config
 )
-
-## Declare a C++ library
-# add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/pix_driver.cpp
-# )
-
-# src/steering_report_502.cc
-# src/{name}.cc
-add_executable(${PROJECT_NAME}_report_node 
-%(report_cpp_list)s
-
-src/report_node.cc
-src/Byte.cc
-)
-
-# src/steering_command_102.cc
-# src/{name}.cc
-add_executable(${PROJECT_NAME}_command_node
-%(command_cpp_list)s
-
-src/command_node.cc
-src/Byte.cc
-)
-
-
-add_dependencies(${PROJECT_NAME}_report_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-add_dependencies(${PROJECT_NAME}_command_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-
-## Specify libraries to link a library or executable target against
-target_link_libraries(${PROJECT_NAME}_report_node
-  ${catkin_LIBRARIES}
-)
-
-target_link_libraries(${PROJECT_NAME}_command_node
-  ${catkin_LIBRARIES}
-)
-
-
-install(TARGETS ${PROJECT_NAME}_report_node
-  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-)
-
-install(TARGETS ${PROJECT_NAME}_command_node
-  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-)
-

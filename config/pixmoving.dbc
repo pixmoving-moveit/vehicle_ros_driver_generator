@@ -36,303 +36,303 @@ BS_:
 BU_: VCU ACU
 
 
-BO_ 1328 V2A_DriveStaFb: 8 VCU
- SG_ VCU_ChassisDriverEnSta : 0|1@1+ (1,0) [0|1] ""  ACU
- SG_ VCU_ChassisDiverSlopover : 1|1@1+ (1,0) [0|1] ""  ACU
- SG_ VCU_ChassisDriverModeSta : 2|2@1+ (1,0) [0|3] ""  VCU
- SG_ VCU_ChassisGearFb : 4|2@1+ (1,0) [0|3] ""  ACU
- SG_ VCU_ChassisSpeedFb : 8|16@1- (0.01,0) [-50|50] "m/s"  ACU
- SG_ VCU_ChassisThrottlePaldFb : 24|10@1+ (0.1,0) [0|100] "%"  ACU
- SG_ VCU_ChassisAccelerationFb : 40|16@1- (0.01,0) [-20|20] "m/s2"  ACU
+BO_ 1328 DriveStaFb: 8 VCU
+ SG_ ChassisDriverEnSta : 0|1@1+ (1,0) [0|1] ""  ACU
+ SG_ ChassisDiverSlopover : 1|1@1+ (1,0) [0|1] ""  ACU
+ SG_ ChassisDriverModeSta : 2|2@1+ (1,0) [0|3] ""  VCU
+ SG_ ChassisGearFb : 4|2@1+ (1,0) [0|3] ""  ACU
+ SG_ ChassisSpeedFb : 8|16@1- (0.01,0) [-50|50] "m/s"  ACU
+ SG_ ChassisThrottlePaldFb : 24|10@1+ (0.1,0) [0|100] "%"  ACU
+ SG_ ChassisAccelerationFb : 40|16@1- (0.01,0) [-20|20] "m/s2"  ACU
 
-BO_ 1329 V2A_BrakeStaFb: 8 VCU
- SG_ VCU_ChassisBrakeEnSta : 0|1@1+ (1,0) [0|1] ""  ACU
- SG_ VCU_VehicleBrakeLampFb : 2|1@1+ (1,0) [0|1] ""  ACU
- SG_ VCU_ChassisEpbFb : 4|2@1+ (1,0) [0|3] ""  ACU
- SG_ VCU_ChassisBrakePadlFb : 8|10@1+ (0.1,0) [0|100] "%"  ACU
- SG_ VCU_AebEnStaFb : 24|1@1+ (1,0) [0|1] ""  ACU
- SG_ VCU_AebTriggerStaFb : 26|1@1+ (1,0) [0|1] ""  ACU
+BO_ 1329 BrakeStaFb: 8 VCU
+ SG_ ChassisBrakeEnSta : 0|1@1+ (1,0) [0|1] ""  ACU
+ SG_ VehicleBrakeLampFb : 2|1@1+ (1,0) [0|1] ""  ACU
+ SG_ ChassisEpbFb : 4|2@1+ (1,0) [0|3] ""  ACU
+ SG_ ChassisBrakePadlFb : 8|10@1+ (0.1,0) [0|100] "%"  ACU
+ SG_ AebEnStaFb : 24|1@1+ (1,0) [0|1] ""  ACU
+ SG_ AebTriggerStaFb : 26|1@1+ (1,0) [0|1] ""  ACU
 
-BO_ 1330 V2A_SteerStaFb: 8 VCU
- SG_ VCU_ChassisSteerEnSta : 0|1@1+ (1,0) [0|1] ""  ACU
- SG_ VCU_ChassisSteerSlopover : 1|1@1+ (1,0) [0|1] ""  ACU
- SG_ VCU_ChassisSteerWorkMode : 2|2@1+ (1,0) [0|3] ""  ACU
- SG_ VCU_ChassisSteerModeFb : 4|4@1+ (1,0) [0|15] ""  VCU
- SG_ VCU_ChassisSteerAngleFb : 8|16@1- (1,0) [-500|500] "deg"  ACU
- SG_ VCU_ChassisSteerAngleRearFb : 24|16@1- (1,0) [-500|500] "deg"  ACU
- SG_ VCU_ChassisSteerAngleSpeedFb : 40|8@1+ (2,0) [0|500] "deg/s"  ACU
+BO_ 1330 SteerStaFb: 8 VCU
+ SG_ ChassisSteerEnSta : 0|1@1+ (1,0) [0|1] ""  ACU
+ SG_ ChassisSteerSlopover : 1|1@1+ (1,0) [0|1] ""  ACU
+ SG_ ChassisSteerWorkMode : 2|2@1+ (1,0) [0|3] ""  ACU
+ SG_ ChassisSteerModeFb : 4|4@1+ (1,0) [0|15] ""  VCU
+ SG_ ChassisSteerAngleFb : 8|16@1- (1,0) [-500|500] "deg"  ACU
+ SG_ ChassisSteerAngleRearFb : 24|16@1- (1,0) [-500|500] "deg"  ACU
+ SG_ ChassisSteerAngleSpeedFb : 40|8@1+ (2,0) [0|500] "deg/s"  ACU
 
-BO_ 1332 V2A_VehicleWorkStaFb: 8 VCU
- SG_ VCU_DrivingModeFb : 0|2@1+ (1,0) [0|3] ""  ACU
- SG_ VCU_ChassisPowerStaFb : 2|2@1+ (1,0) [0|3] ""  ACU
- SG_ VCU_ChassisPowerDcSta : 4|2@1+ (1,0) [0|3] ""  ACU
- SG_ VCU_ChassisSpeedLimitedModeFb : 8|1@1+ (1,0) [0|1] ""  ACU
- SG_ VCU_ChassisPowerLimiteSta : 9|1@1+ (1,0) [0|1] ""  ACU
- SG_ VCU_SysEcoMode : 10|2@1+ (1,0) [0|3] ""  ACU
- SG_ VCU_ChassisSpeedLimitedValFb : 16|16@1+ (0.1,0) [0|50] "m/s"  ACU
- SG_ VCU_ChassisLowPowerVoltSta : 32|8@1+ (0.1,0) [0|25] "V"  ACU
- SG_ VCU_ChassisEStopStaFb : 40|4@1+ (1,0) [0|15] ""  ACU
- SG_ VCU_CrashFrontSta : 44|1@1+ (1,0) [0|1] ""  ACU
- SG_ VCU_CrashRearSta : 45|1@1+ (1,0) [0|1] ""  ACU
- SG_ VCU_CrashLeftSta : 46|1@1+ (1,0) [0|1] ""  ACU
- SG_ VCU_CrashRightSta : 47|1@1+ (1,0) [0|1] ""  ACU
- SG_ VCU_Life : 48|4@1+ (1,0) [0|15] ""  ACU
- SG_ VCU_CheckSum : 56|8@1+ (1,0) [0|255] ""  ACU
+BO_ 1332 VehicleWorkStaFb: 8 VCU
+ SG_ DrivingModeFb : 0|2@1+ (1,0) [0|3] ""  ACU
+ SG_ ChassisPowerStaFb : 2|2@1+ (1,0) [0|3] ""  ACU
+ SG_ ChassisPowerDcSta : 4|2@1+ (1,0) [0|3] ""  ACU
+ SG_ ChassisSpeedLimitedModeFb : 8|1@1+ (1,0) [0|1] ""  ACU
+ SG_ ChassisPowerLimiteSta : 9|1@1+ (1,0) [0|1] ""  ACU
+ SG_ SysEcoMode : 10|2@1+ (1,0) [0|3] ""  ACU
+ SG_ ChassisSpeedLimitedValFb : 16|16@1+ (0.1,0) [0|50] "m/s"  ACU
+ SG_ ChassisLowPowerVoltSta : 32|8@1+ (0.1,0) [0|25] "V"  ACU
+ SG_ ChassisEStopStaFb : 40|4@1+ (1,0) [0|15] ""  ACU
+ SG_ CrashFrontSta : 44|1@1+ (1,0) [0|1] ""  ACU
+ SG_ CrashRearSta : 45|1@1+ (1,0) [0|1] ""  ACU
+ SG_ CrashLeftSta : 46|1@1+ (1,0) [0|1] ""  ACU
+ SG_ CrashRightSta : 47|1@1+ (1,0) [0|1] ""  ACU
+ SG_ Life : 48|4@1+ (1,0) [0|15] ""  ACU
+ SG_ CheckSum : 56|8@1+ (1,0) [0|255] ""  ACU
 
-BO_ 1333 V2A_PowerStaFb: 8 VCU
- SG_ VCU_ChassisBmsReserved_1 : 0|4@1+ (1,0) [0|15] ""  ACU
- SG_ VCU_ChassisPowerChargeSta : 4|2@1+ (1,0) [0|3] ""  ACU
- SG_ VCU_ChassisPowerChargeSockSta : 6|1@1+ (1,0) [0|1] ""  ACU
- SG_ VCU_ChassisPowerSocFb : 8|8@1+ (1,0) [0|100] "%"  ACU
- SG_ VCU_ChassisPowerVoltFb : 16|16@1+ (0.1,0) [0|1000] "V"  ACU
- SG_ VCU_ChassisPowerCurrFb : 32|16@1+ (0.1,-1000) [-1000|1000] "A"  ACU
- SG_ VCU_ChassisBmsMaxTemp : 48|8@1+ (1,-40) [-40|80] "℃"  ACU
- SG_ VCU_ChassisBmsReserved_2 : 56|8@1+ (1,0) [0|255] ""  ACU
+BO_ 1333 PowerStaFb: 8 VCU
+ SG_ ChassisBmsReserved_1 : 0|4@1+ (1,0) [0|15] ""  ACU
+ SG_ ChassisPowerChargeSta : 4|2@1+ (1,0) [0|3] ""  ACU
+ SG_ ChassisPowerChargeSockSta : 6|1@1+ (1,0) [0|1] ""  ACU
+ SG_ ChassisPowerSocFb : 8|8@1+ (1,0) [0|100] "%"  ACU
+ SG_ ChassisPowerVoltFb : 16|16@1+ (0.1,0) [0|1000] "V"  ACU
+ SG_ ChassisPowerCurrFb : 32|16@1+ (0.1,-1000) [-1000|1000] "A"  ACU
+ SG_ ChassisBmsMaxTemp : 48|8@1+ (1,-40) [-40|80] "℃"  ACU
+ SG_ ChassisBmsReserved_2 : 56|8@1+ (1,0) [0|255] ""  ACU
 
-BO_ 1334 V2A_VehicleStaFb: 8 VCU
- SG_ VCU_VehiclePosLampFb : 0|1@1+ (1,0) [0|1] ""  ACU
- SG_ VCU_VehicleHeadLampFb : 1|1@1+ (1,0) [0|1] ""  ACU
- SG_ VCU_VehicleLeftLampFb : 2|1@1+ (1,0) [0|1] ""  ACU
- SG_ VCU_VehicleRightLampFb : 3|1@1+ (1,0) [0|1] ""  ACU
- SG_ VCU_VehicleHighBeamFb : 4|1@1+ (1,0) [0|1] ""  ACU
- SG_ VCU_VehicleFogLampFb : 5|1@1+ (1,0) [0|1] ""  ACU
- SG_ VCU_VehicleHazardWarLampFb : 6|1@1+ (1,0) [0|1] ""  ACU
- SG_ VCU_VehicleBodyLampFb : 7|1@1+ (1,0) [0|1] ""  ACU
- SG_ VCU_VehicleReadLampFb : 8|1@1+ (1,0) [0|1] ""  ACU
- SG_ ACU_VehicleWindowFb : 9|4@1+ (1,0) [0|15] ""  ACU
- SG_ VCU_VehicleDoorStaFb : 16|4@1+ (1,0) [0|15] ""  ACU
- SG_ VCU_VehicleWipersStaFb : 20|2@1+ (1,0) [0|3] ""  ACU
- SG_ VCU_VehicleSafetyBelt1 : 24|2@1+ (1,0) [0|3] ""  ACU
- SG_ VCU_VehicleSafetyBelt2 : 26|2@1+ (1,0) [0|3] ""  ACU
- SG_ VCU_VehicleSafetyBelt3 : 28|2@1+ (1,0) [0|3] ""  ACU
- SG_ VCU_VehicleSafetyBelt4 : 30|2@1+ (1,0) [0|3] ""  ACU
+BO_ 1334 VehicleStaFb: 8 VCU
+ SG_ VehiclePosLampFb : 0|1@1+ (1,0) [0|1] ""  ACU
+ SG_ VehicleHeadLampFb : 1|1@1+ (1,0) [0|1] ""  ACU
+ SG_ VehicleLeftLampFb : 2|1@1+ (1,0) [0|1] ""  ACU
+ SG_ VehicleRightLampFb : 3|1@1+ (1,0) [0|1] ""  ACU
+ SG_ VehicleHighBeamFb : 4|1@1+ (1,0) [0|1] ""  ACU
+ SG_ VehicleFogLampFb : 5|1@1+ (1,0) [0|1] ""  ACU
+ SG_ VehicleHazardWarLampFb : 6|1@1+ (1,0) [0|1] ""  ACU
+ SG_ VehicleBodyLampFb : 7|1@1+ (1,0) [0|1] ""  ACU
+ SG_ VehicleReadLampFb : 8|1@1+ (1,0) [0|1] ""  ACU
+ SG_ VehicleWindowFb : 9|4@1+ (1,0) [0|15] ""  ACU
+ SG_ VehicleDoorStaFb : 16|4@1+ (1,0) [0|15] ""  ACU
+ SG_ VehicleWipersStaFb : 20|2@1+ (1,0) [0|3] ""  ACU
+ SG_ VehicleSafetyBelt1 : 24|2@1+ (1,0) [0|3] ""  ACU
+ SG_ VehicleSafetyBelt2 : 26|2@1+ (1,0) [0|3] ""  ACU
+ SG_ VehicleSafetyBelt3 : 28|2@1+ (1,0) [0|3] ""  ACU
+ SG_ VehicleSafetyBelt4 : 30|2@1+ (1,0) [0|3] ""  ACU
 
-BO_ 1335 V2A_VehicleFltSta: 8 VCU
- SG_ VCU_SysMotorOverTempSta : 0|1@1+ (1,0) [0|1] ""  ACU
- SG_ VCU_SysBmsOverTempSta : 1|1@1+ (1,0) [0|1] ""  ACU
- SG_ VCU_SysBrakeOverTempSta : 2|1@1+ (1,0) [0|1] ""  ACU
- SG_ VCU_SysSteerOverTempSta : 3|1@1+ (1,0) [0|1] ""  ACU
- SG_ VCU_SysUnderVolt : 4|1@1+ (1,0) [0|1] ""  ACU
- SG_ VCU_SysFlt : 8|4@1+ (1,0) [0|15] ""  ACU
- SG_ VCU_SysBrakeFlt : 12|4@1+ (1,0) [0|15] ""  ACU
- SG_ VCU_SysParkingFlt : 16|4@1+ (1,0) [0|15] ""  ACU
- SG_ VCU_SysSteerFrontFlt : 20|4@1+ (1,0) [0|15] ""  ACU
- SG_ VCU_SysSteerBackFlt : 24|4@1+ (1,0) [0|15] ""  ACU
- SG_ VCU_SysMotorLfFlt : 28|4@1+ (1,0) [0|15] ""  ACU
- SG_ VCU_SysMotorRfFlt : 32|4@1+ (1,0) [0|15] ""  ACU
- SG_ VCU_SysMotorLrFlt : 36|4@1+ (1,0) [0|15] ""  ACU
- SG_ VCU_SysMotorRrFlt : 40|4@1+ (1,0) [0|15] ""  ACU
- SG_ VCU_SysBmsFlt : 44|4@1+ (1,0) [0|15] ""  ACU
- SG_ VCU_SysDcFlt : 48|4@1+ (1,0) [0|15] ""  ACU
+BO_ 1335 VehicleFltSta: 8 VCU
+ SG_ SysMotorOverTempSta : 0|1@1+ (1,0) [0|1] ""  ACU
+ SG_ SysBmsOverTempSta : 1|1@1+ (1,0) [0|1] ""  ACU
+ SG_ SysBrakeOverTempSta : 2|1@1+ (1,0) [0|1] ""  ACU
+ SG_ SysSteerOverTempSta : 3|1@1+ (1,0) [0|1] ""  ACU
+ SG_ SysUnderVolt : 4|1@1+ (1,0) [0|1] ""  ACU
+ SG_ SysFlt : 8|4@1+ (1,0) [0|15] ""  ACU
+ SG_ SysBrakeFlt : 12|4@1+ (1,0) [0|15] ""  ACU
+ SG_ SysParkingFlt : 16|4@1+ (1,0) [0|15] ""  ACU
+ SG_ SysSteerFrontFlt : 20|4@1+ (1,0) [0|15] ""  ACU
+ SG_ SysSteerBackFlt : 24|4@1+ (1,0) [0|15] ""  ACU
+ SG_ SysMotorLfFlt : 28|4@1+ (1,0) [0|15] ""  ACU
+ SG_ SysMotorRfFlt : 32|4@1+ (1,0) [0|15] ""  ACU
+ SG_ SysMotorLrFlt : 36|4@1+ (1,0) [0|15] ""  ACU
+ SG_ SysMotorRrFlt : 40|4@1+ (1,0) [0|15] ""  ACU
+ SG_ SysBmsFlt : 44|4@1+ (1,0) [0|15] ""  ACU
+ SG_ SysDcFlt : 48|4@1+ (1,0) [0|15] ""  ACU
 
-BO_ 1337 V2A_ChassisWheelRpmFb: 8 VCU
- SG_ VCU_ChassisWheelRpmLf : 0|16@1- (1,0) [-2000|2000] "rpm"  ACU
- SG_ VCU_ChassisWheelRpmRf : 16|16@1- (1,0) [-2000|2000] "rpm"  ACU
- SG_ VCU_ChassisWheelRpmLr : 32|16@1- (1,0) [-2000|2000] "rpm"  ACU
- SG_ VCU_ChassisWheelRpmRr : 48|16@1- (1,0) [-2000|2000] "rpm"  ACU
+BO_ 1337 ChassisWheelRpmFb: 8 VCU
+ SG_ ChassisWheelRpmLf : 0|16@1- (1,0) [-2000|2000] "rpm"  ACU
+ SG_ ChassisWheelRpmRf : 16|16@1- (1,0) [-2000|2000] "rpm"  ACU
+ SG_ ChassisWheelRpmLr : 32|16@1- (1,0) [-2000|2000] "rpm"  ACU
+ SG_ ChassisWheelRpmRr : 48|16@1- (1,0) [-2000|2000] "rpm"  ACU
 
-BO_ 1344 V2A_ChassisWheelTirePressFb: 8 VCU
- SG_ VCU_ChassisWheelTirePressLf : 0|12@1+ (0.01,0) [0|20] "bar"  ACU
- SG_ VCU_ChassisWheelTirePressRf : 16|12@1+ (0.01,0) [0|20] "bar"  ACU
- SG_ VCU_ChassisWheelTirePressLr : 32|12@1+ (0.01,0) [0|20] "bar"  ACU
- SG_ VCU_ChassisWheelTirePressRr : 48|12@1+ (0.01,0) [0|20] "bar"  ACU
+BO_ 1344 ChassisWheelTirePressFb: 8 VCU
+ SG_ ChassisWheelTirePressLf : 0|12@1+ (0.01,0) [0|20] "bar"  ACU
+ SG_ ChassisWheelTirePressRf : 16|12@1+ (0.01,0) [0|20] "bar"  ACU
+ SG_ ChassisWheelTirePressLr : 32|12@1+ (0.01,0) [0|20] "bar"  ACU
+ SG_ ChassisWheelTirePressRr : 48|12@1+ (0.01,0) [0|20] "bar"  ACU
 
-BO_ 1345 V2A_ChassisWheelAngleFb: 8 VCU
- SG_ VCU_ChassisWheelAngleLf : 0|12@1- (0.1,0) [-90|90] "deg"  ACU
- SG_ VCU_ChassisWheelAngleRf : 16|12@1- (0.1,0) [-90|90] "deg"  ACU
- SG_ VCU_ChassisWheelAngleLr : 32|12@1- (0.1,0) [-90|90] "deg"  ACU
- SG_ VCU_ChassisWheelAngleRr : 48|12@1- (0.1,0) [-90|90] "deg"  ACU
+BO_ 1345 ChassisWheelAngleFb: 8 VCU
+ SG_ ChassisWheelAngleLf : 0|12@1- (0.1,0) [-90|90] "deg"  ACU
+ SG_ ChassisWheelAngleRf : 16|12@1- (0.1,0) [-90|90] "deg"  ACU
+ SG_ ChassisWheelAngleLr : 32|12@1- (0.1,0) [-90|90] "deg"  ACU
+ SG_ ChassisWheelAngleRr : 48|12@1- (0.1,0) [-90|90] "deg"  ACU
 
-BO_ 304 A2V_DriveCtrl: 8 ACU
- SG_ ACU_ChassisDriverEnCtrl : 0|1@1+ (1,0) [0|1] ""  VCU
- SG_ ACU_ChassisDriverModeCtrl : 2|2@1+ (1,0) [0|3] ""  VCU
- SG_ ACU_ChassisGearCtrl : 4|4@1+ (1,0) [0|15] ""  VCU
- SG_ ACU_ChassisSpeedCtrl : 8|16@1+ (0.01,0) [0|50] "m/s"  VCU
- SG_ ACU_ChassisThrottlePdlTarget : 24|10@1+ (0.1,0) [0|100] "%"  VCU
- SG_ ACU_DriveLifeSig : 48|4@1+ (1,0) [0|15] ""  VCU
- SG_ ACU_CheckSum_130 : 56|8@1+ (1,0) [0|255] ""  VCU
+BO_ 304 DriveCtrl: 8 ACU
+ SG_ ChassisDriverEnCtrl : 0|1@1+ (1,0) [0|1] ""  VCU
+ SG_ ChassisDriverModeCtrl : 2|2@1+ (1,0) [0|3] ""  VCU
+ SG_ ChassisGearCtrl : 4|4@1+ (1,0) [0|15] ""  VCU
+ SG_ ChassisSpeedCtrl : 8|16@1+ (0.01,0) [0|50] "m/s"  VCU
+ SG_ ChassisThrottlePdlTarget : 24|10@1+ (0.1,0) [0|100] "%"  VCU
+ SG_ DriveLifeSig : 48|4@1+ (1,0) [0|15] ""  VCU
+ SG_ CheckSum_130 : 56|8@1+ (1,0) [0|255] ""  VCU
 
-BO_ 305 A2V_BrakeCtrl: 8 ACU
- SG_ ACU_ChassisBrakeEn : 0|1@1+ (1,0) [0|1] ""  VCU
- SG_ ACU_ChassisAebCtrl : 4|1@1+ (1,0) [0|1] ""  VCU
- SG_ ACU_ChassisBrakePdlTarget : 8|10@1+ (0.1,0) [0|100] "%"  VCU
- SG_ ACU_ChassisEpbCtrl : 24|2@1+ (1,0) [0|3] ""  VCU
- SG_ ACU_BrakeLifeSig : 48|4@1+ (1,0) [0|15] ""  VCU
- SG_ ACU_CheckSum_131 : 56|8@1+ (1,0) [0|255] ""  VCU
+BO_ 305 BrakeCtrl: 8 ACU
+ SG_ ChassisBrakeEn : 0|1@1+ (1,0) [0|1] ""  VCU
+ SG_ ChassisAebCtrl : 4|1@1+ (1,0) [0|1] ""  VCU
+ SG_ ChassisBrakePdlTarget : 8|10@1+ (0.1,0) [0|100] "%"  VCU
+ SG_ ChassisEpbCtrl : 24|2@1+ (1,0) [0|3] ""  VCU
+ SG_ BrakeLifeSig : 48|4@1+ (1,0) [0|15] ""  VCU
+ SG_ CheckSum_131 : 56|8@1+ (1,0) [0|255] ""  VCU
 
-BO_ 306 A2V_SteerCtrl: 8 ACU
- SG_ ACU_ChassisSteerEnCtrl : 0|1@1+ (1,0) [0|1] ""  VCU
- SG_ ACU_ChassisSteerModeCtrl : 4|4@1+ (1,0) [0|15] ""  VCU
- SG_ ACU_ChassisSteerAngleTarget : 8|16@1- (1,0) [-500|500] "deg"  VCU
- SG_ ACU_ChassisSteerAngleRearTarget : 24|16@1- (1,0) [-500|500] "deg"  VCU
- SG_ ACU_ChassisSteerAngleSpeedCtrl : 40|8@1+ (2,0) [0|500] "deg/s"  VCU
- SG_ ACU_CheckSum_132 : 56|8@1+ (1,0) [0|255] ""  VCU
+BO_ 306 SteerCtrl: 8 ACU
+ SG_ ChassisSteerEnCtrl : 0|1@1+ (1,0) [0|1] ""  VCU
+ SG_ ChassisSteerModeCtrl : 4|4@1+ (1,0) [0|15] ""  VCU
+ SG_ ChassisSteerAngleTarget : 8|16@1- (1,0) [-500|500] "deg"  VCU
+ SG_ ChassisSteerAngleRearTarget : 24|16@1- (1,0) [-500|500] "deg"  VCU
+ SG_ ChassisSteerAngleSpeedCtrl : 40|8@1+ (2,0) [0|500] "deg/s"  VCU
+ SG_ CheckSum_132 : 56|8@1+ (1,0) [0|255] ""  VCU
 
-BO_ 307 A2V_VehicleCtrl: 8 ACU
- SG_ ACU_VehiclePosLampCtrl : 0|1@1+ (1,0) [0|1] ""  VCU
- SG_ ACU_VehicleHeadLampCtrl : 1|1@1+ (1,0) [0|1] ""  VCU
- SG_ ACU_VehicleLeftLampCtrl : 2|1@1+ (1,0) [0|1] ""  VCU
- SG_ ACU_VehicleRightLampCtrl : 3|1@1+ (1,0) [0|1] ""  VCU
- SG_ ACU_VehicleHighBeamCtrl : 4|1@1+ (1,0) [0|1] ""  VCU
- SG_ ACU_VehicleFogLampCtrl : 5|1@1+ (1,0) [0|1] ""  VCU
- SG_ ACU_VehicleBodyLightCtrl : 6|1@1+ (1,0) [0|1] ""  VCU
- SG_ ACU_VehicleReadLightCtrl : 7|1@1+ (1,0) [0|1] ""  VCU
- SG_ ACU_VehicleVoice : 8|2@1+ (1,0) [0|3] ""  VCU
- SG_ ACU_VehicleWipersCtrl : 10|2@1+ (1,0) [0|3] ""  VCU
- SG_ ACU_VehicleDoorCtrl : 12|2@1+ (1,0) [0|3] ""  VCU
- SG_ ACU_VehicleWindowCtrl : 14|3@1+ (1,0) [0|7] ""  VCU
- SG_ ACU_ChassisSpeedLimiteMode : 24|1@1+ (1,0) [0|1] ""  VCU
- SG_ ACU_ChassisSpeedLimiteVal : 32|16@1+ (1,0) [5|20] "m/s"  VCU
- SG_ ACU_CheckSumEn : 48|1@1+ (1,0) [0|1] ""  VCU
+BO_ 307 VehicleCtrl: 8 ACU
+ SG_ VehiclePosLampCtrl : 0|1@1+ (1,0) [0|1] ""  VCU
+ SG_ VehicleHeadLampCtrl : 1|1@1+ (1,0) [0|1] ""  VCU
+ SG_ VehicleLeftLampCtrl : 2|1@1+ (1,0) [0|1] ""  VCU
+ SG_ VehicleRightLampCtrl : 3|1@1+ (1,0) [0|1] ""  VCU
+ SG_ VehicleHighBeamCtrl : 4|1@1+ (1,0) [0|1] ""  VCU
+ SG_ VehicleFogLampCtrl : 5|1@1+ (1,0) [0|1] ""  VCU
+ SG_ VehicleBodyLightCtrl : 6|1@1+ (1,0) [0|1] ""  VCU
+ SG_ VehicleReadLightCtrl : 7|1@1+ (1,0) [0|1] ""  VCU
+ SG_ VehicleVoice : 8|2@1+ (1,0) [0|3] ""  VCU
+ SG_ VehicleWipersCtrl : 10|2@1+ (1,0) [0|3] ""  VCU
+ SG_ VehicleDoorCtrl : 12|2@1+ (1,0) [0|3] ""  VCU
+ SG_ VehicleWindowCtrl : 14|3@1+ (1,0) [0|7] ""  VCU
+ SG_ ChassisSpeedLimiteMode : 24|1@1+ (1,0) [0|1] ""  VCU
+ SG_ ChassisSpeedLimiteVal : 32|16@1+ (1,0) [5|20] "m/s"  VCU
+ SG_ CheckSumEn : 48|1@1+ (1,0) [0|1] ""  VCU
 
-BO_ 309 A2V_WheelCtrl: 8 ACU
- SG_ ACU_MotorTorqueLfCtrl : 0|16@1- (0.1,0) [-200|200] "Nm"  VCU
- SG_ ACU_MotorTorqueRfCtrl : 16|16@1- (0.1,0) [-200|200] "Nm"  VCU
- SG_ ACU_MotorTorqueLrCtrl : 32|16@1- (0.1,0) [-200|200] "Nm"  VCU
- SG_ ACU_MotorTorqueRrCtrl : 48|16@1- (0.1,0) [-200|200] "Nm"  VCU
+BO_ 309 WheelCtrl: 8 ACU
+ SG_ MotorTorqueLfCtrl : 0|16@1- (0.1,0) [-200|200] "Nm"  VCU
+ SG_ MotorTorqueRfCtrl : 16|16@1- (0.1,0) [-200|200] "Nm"  VCU
+ SG_ MotorTorqueLrCtrl : 32|16@1- (0.1,0) [-200|200] "Nm"  VCU
+ SG_ MotorTorqueRrCtrl : 48|16@1- (0.1,0) [-200|200] "Nm"  VCU
 
 
 
 CM_ BO_ 1328 "车辆驱动状态反馈";
-CM_ SG_ 1328 VCU_ChassisDriverEnSta "驱动使能状态";
-CM_ SG_ 1328 VCU_ChassisDiverSlopover "驱动控制越界提醒";
-CM_ SG_ 1328 VCU_ChassisDriverModeSta "驱动模式反馈";
-CM_ SG_ 1328 VCU_ChassisGearFb "档位状态";
-CM_ SG_ 1328 VCU_ChassisSpeedFb "车速实际反馈";
-CM_ SG_ 1328 VCU_ChassisThrottlePaldFb "油门请求值反馈";
-CM_ SG_ 1328 VCU_ChassisAccelerationFb "车辆加速度";
+CM_ SG_ 1328 ChassisDriverEnSta "驱动使能状态";
+CM_ SG_ 1328 ChassisDiverSlopover "驱动控制越界提醒";
+CM_ SG_ 1328 ChassisDriverModeSta "驱动模式反馈";
+CM_ SG_ 1328 ChassisGearFb "档位状态";
+CM_ SG_ 1328 ChassisSpeedFb "车速实际反馈";
+CM_ SG_ 1328 ChassisThrottlePaldFb "油门请求值反馈";
+CM_ SG_ 1328 ChassisAccelerationFb "车辆加速度";
 CM_ BO_ 1329 "车辆制动状态反馈";
-CM_ SG_ 1329 VCU_ChassisBrakeEnSta "制动使能状态";
-CM_ SG_ 1329 VCU_VehicleBrakeLampFb "制动灯状态反馈";
-CM_ SG_ 1329 VCU_ChassisEpbFb "驻车状态";
-CM_ SG_ 1329 VCU_ChassisBrakePadlFb "制动实际反馈";
-CM_ SG_ 1329 VCU_AebEnStaFb "AEB开启状态反馈";
-CM_ SG_ 1329 VCU_AebTriggerStaFb "AEB触发状态反馈";
+CM_ SG_ 1329 ChassisBrakeEnSta "制动使能状态";
+CM_ SG_ 1329 VehicleBrakeLampFb "制动灯状态反馈";
+CM_ SG_ 1329 ChassisEpbFb "驻车状态";
+CM_ SG_ 1329 ChassisBrakePadlFb "制动实际反馈";
+CM_ SG_ 1329 AebEnStaFb "AEB开启状态反馈";
+CM_ SG_ 1329 AebTriggerStaFb "AEB触发状态反馈";
 CM_ BO_ 1330 "车辆转向状态反馈";
-CM_ SG_ 1330 VCU_ChassisSteerEnSta "转向使能状态";
-CM_ SG_ 1330 VCU_ChassisSteerSlopover "转向控制越界提醒";
-CM_ SG_ 1330 VCU_ChassisSteerWorkMode "转向线控模式反馈";
-CM_ SG_ 1330 VCU_ChassisSteerModeFb "转向模式反馈";
-CM_ SG_ 1330 VCU_ChassisSteerAngleFb "前转向方向盘转角反馈";
-CM_ SG_ 1330 VCU_ChassisSteerAngleRearFb "后转向方向盘转角反馈";
-CM_ SG_ 1330 VCU_ChassisSteerAngleSpeedFb "设置的转向转角速度反馈";
+CM_ SG_ 1330 ChassisSteerEnSta "转向使能状态";
+CM_ SG_ 1330 ChassisSteerSlopover "转向控制越界提醒";
+CM_ SG_ 1330 ChassisSteerWorkMode "转向线控模式反馈";
+CM_ SG_ 1330 ChassisSteerModeFb "转向模式反馈";
+CM_ SG_ 1330 ChassisSteerAngleFb "前转向方向盘转角反馈";
+CM_ SG_ 1330 ChassisSteerAngleRearFb "后转向方向盘转角反馈";
+CM_ SG_ 1330 ChassisSteerAngleSpeedFb "设置的转向转角速度反馈";
 CM_ BO_ 1332 "车辆工作状态反馈";
-CM_ SG_ 1332 VCU_DrivingModeFb "驾驶模式反馈";
-CM_ SG_ 1332 VCU_ChassisPowerStaFb "车辆上电状态反馈";
-CM_ SG_ 1332 VCU_ChassisPowerDcSta "DC工作状态";
-CM_ SG_ 1332 VCU_ChassisSpeedLimitedModeFb "车辆限速状态";
-CM_ SG_ 1332 VCU_ChassisPowerLimiteSta "功率限制状态";
-CM_ SG_ 1332 VCU_SysEcoMode "节能模式反馈";
-CM_ SG_ 1332 VCU_ChassisSpeedLimitedValFb "车辆限速值反馈";
-CM_ SG_ 1332 VCU_ChassisLowPowerVoltSta "低压蓄电池电压";
-CM_ SG_ 1332 VCU_ChassisEStopStaFb "紧急停车状态反馈";
-CM_ SG_ 1332 VCU_CrashFrontSta "车辆前碰撞传感器反馈";
-CM_ SG_ 1332 VCU_CrashRearSta "车辆后碰撞传感器反馈";
-CM_ SG_ 1332 VCU_CrashLeftSta "车辆左碰撞传感器反馈";
-CM_ SG_ 1332 VCU_CrashRightSta "车辆右碰撞传感器反馈";
-CM_ SG_ 1332 VCU_Life "VCU循环计数";
-CM_ SG_ 1332 VCU_CheckSum "校验sum=byte0 xor byte1 xor...byte6";
+CM_ SG_ 1332 DrivingModeFb "驾驶模式反馈";
+CM_ SG_ 1332 ChassisPowerStaFb "车辆上电状态反馈";
+CM_ SG_ 1332 ChassisPowerDcSta "DC工作状态";
+CM_ SG_ 1332 ChassisSpeedLimitedModeFb "车辆限速状态";
+CM_ SG_ 1332 ChassisPowerLimiteSta "功率限制状态";
+CM_ SG_ 1332 SysEcoMode "节能模式反馈";
+CM_ SG_ 1332 ChassisSpeedLimitedValFb "车辆限速值反馈";
+CM_ SG_ 1332 ChassisLowPowerVoltSta "低压蓄电池电压";
+CM_ SG_ 1332 ChassisEStopStaFb "紧急停车状态反馈";
+CM_ SG_ 1332 CrashFrontSta "车辆前碰撞传感器反馈";
+CM_ SG_ 1332 CrashRearSta "车辆后碰撞传感器反馈";
+CM_ SG_ 1332 CrashLeftSta "车辆左碰撞传感器反馈";
+CM_ SG_ 1332 CrashRightSta "车辆右碰撞传感器反馈";
+CM_ SG_ 1332 Life "VCU循环计数";
+CM_ SG_ 1332 CheckSum "校验sum=byte0 xor byte1 xor...byte6";
 CM_ BO_ 1333 "车辆动力电源状态反馈";
-CM_ SG_ 1333 VCU_ChassisBmsReserved_1 "预留";
-CM_ SG_ 1333 VCU_ChassisPowerChargeSta "车辆充电状态";
-CM_ SG_ 1333 VCU_ChassisPowerChargeSockSta "充电枪连接状态";
-CM_ SG_ 1333 VCU_ChassisPowerSocFb "车辆动力电池电量";
-CM_ SG_ 1333 VCU_ChassisPowerVoltFb "车辆动力电池电压";
-CM_ SG_ 1333 VCU_ChassisPowerCurrFb "车辆动力电池电流";
-CM_ SG_ 1333 VCU_ChassisBmsMaxTemp "BMS最高单体温度";
-CM_ SG_ 1333 VCU_ChassisBmsReserved_2 "预留";
+CM_ SG_ 1333 ChassisBmsReserved_1 "预留";
+CM_ SG_ 1333 ChassisPowerChargeSta "车辆充电状态";
+CM_ SG_ 1333 ChassisPowerChargeSockSta "充电枪连接状态";
+CM_ SG_ 1333 ChassisPowerSocFb "车辆动力电池电量";
+CM_ SG_ 1333 ChassisPowerVoltFb "车辆动力电池电压";
+CM_ SG_ 1333 ChassisPowerCurrFb "车辆动力电池电流";
+CM_ SG_ 1333 ChassisBmsMaxTemp "BMS最高单体温度";
+CM_ SG_ 1333 ChassisBmsReserved_2 "预留";
 CM_ BO_ 1334 "车辆车身及灯光反馈";
-CM_ SG_ 1334 VCU_VehiclePosLampFb "位置灯状态反馈";
-CM_ SG_ 1334 VCU_VehicleHeadLampFb "近光灯状态反馈";
-CM_ SG_ 1334 VCU_VehicleLeftLampFb "左转向灯状态反馈";
-CM_ SG_ 1334 VCU_VehicleRightLampFb "右转向灯状态反馈";
-CM_ SG_ 1334 VCU_VehicleHighBeamFb "远光灯状态反馈";
-CM_ SG_ 1334 VCU_VehicleFogLampFb "雾灯状态反馈";
-CM_ SG_ 1334 VCU_VehicleHazardWarLampFb "危险警示灯开关状态";
-CM_ SG_ 1334 VCU_VehicleBodyLampFb "车外氛围灯状态反馈";
-CM_ SG_ 1334 VCU_VehicleReadLampFb "车内灯光状态反馈";
-CM_ SG_ 1334 ACU_VehicleWindowFb "车内车窗状态反馈（预留）";
-CM_ SG_ 1334 VCU_VehicleDoorStaFb "车门状态反馈";
-CM_ SG_ 1334 VCU_VehicleWipersStaFb "雨刮状态反馈";
-CM_ SG_ 1334 VCU_VehicleSafetyBelt1 "安全带状态1反馈";
-CM_ SG_ 1334 VCU_VehicleSafetyBelt2 "安全带状态2反馈";
-CM_ SG_ 1334 VCU_VehicleSafetyBelt3 "安全带状态3反馈";
-CM_ SG_ 1334 VCU_VehicleSafetyBelt4 "安全带状态4反馈";
+CM_ SG_ 1334 VehiclePosLampFb "位置灯状态反馈";
+CM_ SG_ 1334 VehicleHeadLampFb "近光灯状态反馈";
+CM_ SG_ 1334 VehicleLeftLampFb "左转向灯状态反馈";
+CM_ SG_ 1334 VehicleRightLampFb "右转向灯状态反馈";
+CM_ SG_ 1334 VehicleHighBeamFb "远光灯状态反馈";
+CM_ SG_ 1334 VehicleFogLampFb "雾灯状态反馈";
+CM_ SG_ 1334 VehicleHazardWarLampFb "危险警示灯开关状态";
+CM_ SG_ 1334 VehicleBodyLampFb "车外氛围灯状态反馈";
+CM_ SG_ 1334 VehicleReadLampFb "车内灯光状态反馈";
+CM_ SG_ 1334 VehicleWindowFb "车内车窗状态反馈（预留）";
+CM_ SG_ 1334 VehicleDoorStaFb "车门状态反馈";
+CM_ SG_ 1334 VehicleWipersStaFb "雨刮状态反馈";
+CM_ SG_ 1334 VehicleSafetyBelt1 "安全带状态1反馈";
+CM_ SG_ 1334 VehicleSafetyBelt2 "安全带状态2反馈";
+CM_ SG_ 1334 VehicleSafetyBelt3 "安全带状态3反馈";
+CM_ SG_ 1334 VehicleSafetyBelt4 "安全带状态4反馈";
 CM_ BO_ 1335 "车辆警告和故障";
-CM_ SG_ 1335 VCU_SysMotorOverTempSta "电机系统过温";
-CM_ SG_ 1335 VCU_SysBmsOverTempSta "电池系统过温";
-CM_ SG_ 1335 VCU_SysBrakeOverTempSta "制动系统过温";
-CM_ SG_ 1335 VCU_SysSteerOverTempSta "转向系统过温";
-CM_ SG_ 1335 VCU_SysUnderVolt "蓄电池电压过低";
-CM_ SG_ 1335 VCU_SysFlt "系统故障";
-CM_ SG_ 1335 VCU_SysBrakeFlt "制动系统故障";
-CM_ SG_ 1335 VCU_SysParkingFlt "驻车系统故障";
-CM_ SG_ 1335 VCU_SysSteerFrontFlt "前转向系统故障";
-CM_ SG_ 1335 VCU_SysSteerBackFlt "后转向系统故障";
-CM_ SG_ 1335 VCU_SysMotorLfFlt "左前电机系统故障";
-CM_ SG_ 1335 VCU_SysMotorRfFlt "右前电机系统故障";
-CM_ SG_ 1335 VCU_SysMotorLrFlt "左后电机系统故障";
-CM_ SG_ 1335 VCU_SysMotorRrFlt "右后电机系统故障";
-CM_ SG_ 1335 VCU_SysBmsFlt "BMS系统故障";
-CM_ SG_ 1335 VCU_SysDcFlt "DC系统故障";
+CM_ SG_ 1335 SysMotorOverTempSta "电机系统过温";
+CM_ SG_ 1335 SysBmsOverTempSta "电池系统过温";
+CM_ SG_ 1335 SysBrakeOverTempSta "制动系统过温";
+CM_ SG_ 1335 SysSteerOverTempSta "转向系统过温";
+CM_ SG_ 1335 SysUnderVolt "蓄电池电压过低";
+CM_ SG_ 1335 SysFlt "系统故障";
+CM_ SG_ 1335 SysBrakeFlt "制动系统故障";
+CM_ SG_ 1335 SysParkingFlt "驻车系统故障";
+CM_ SG_ 1335 SysSteerFrontFlt "前转向系统故障";
+CM_ SG_ 1335 SysSteerBackFlt "后转向系统故障";
+CM_ SG_ 1335 SysMotorLfFlt "左前电机系统故障";
+CM_ SG_ 1335 SysMotorRfFlt "右前电机系统故障";
+CM_ SG_ 1335 SysMotorLrFlt "左后电机系统故障";
+CM_ SG_ 1335 SysMotorRrFlt "右后电机系统故障";
+CM_ SG_ 1335 SysBmsFlt "BMS系统故障";
+CM_ SG_ 1335 SysDcFlt "DC系统故障";
 CM_ BO_ 1337 "车轮转速反馈";
-CM_ SG_ 1337 VCU_ChassisWheelRpmLf "左前轮转速";
-CM_ SG_ 1337 VCU_ChassisWheelRpmRf "右前轮转速";
-CM_ SG_ 1337 VCU_ChassisWheelRpmLr "左后轮转速";
-CM_ SG_ 1337 VCU_ChassisWheelRpmRr "右后轮转速";
+CM_ SG_ 1337 ChassisWheelRpmLf "左前轮转速";
+CM_ SG_ 1337 ChassisWheelRpmRf "右前轮转速";
+CM_ SG_ 1337 ChassisWheelRpmLr "左后轮转速";
+CM_ SG_ 1337 ChassisWheelRpmRr "右后轮转速";
 CM_ BO_ 1344 "车辆胎压(预留)";
-CM_ SG_ 1344 VCU_ChassisWheelTirePressLf "左前轮胎压";
-CM_ SG_ 1344 VCU_ChassisWheelTirePressRf "右前轮胎压";
-CM_ SG_ 1344 VCU_ChassisWheelTirePressLr "左后轮胎压";
-CM_ SG_ 1344 VCU_ChassisWheelTirePressRr "右后轮胎压";
+CM_ SG_ 1344 ChassisWheelTirePressLf "左前轮胎压";
+CM_ SG_ 1344 ChassisWheelTirePressRf "右前轮胎压";
+CM_ SG_ 1344 ChassisWheelTirePressLr "左后轮胎压";
+CM_ SG_ 1344 ChassisWheelTirePressRr "右后轮胎压";
 CM_ BO_ 1345 "车轮转角反馈(预留)";
-CM_ SG_ 1345 VCU_ChassisWheelAngleLf "左前轮转向转角度";
-CM_ SG_ 1345 VCU_ChassisWheelAngleRf "右前轮转向转角度";
-CM_ SG_ 1345 VCU_ChassisWheelAngleLr "左后轮转向转角度";
-CM_ SG_ 1345 VCU_ChassisWheelAngleRr "右后轮转向转角度";
+CM_ SG_ 1345 ChassisWheelAngleLf "左前轮转向转角度";
+CM_ SG_ 1345 ChassisWheelAngleRf "右前轮转向转角度";
+CM_ SG_ 1345 ChassisWheelAngleLr "左后轮转向转角度";
+CM_ SG_ 1345 ChassisWheelAngleRr "右后轮转向转角度";
 CM_ BO_ 304 "驱动控制报文";
-CM_ SG_ 304 ACU_ChassisDriverEnCtrl "车辆加速控制使能";
-CM_ SG_ 304 ACU_ChassisDriverModeCtrl "驱动模式控制";
-CM_ SG_ 304 ACU_ChassisGearCtrl "档位控制";
-CM_ SG_ 304 ACU_ChassisSpeedCtrl "车辆速度控制";
-CM_ SG_ 304 ACU_ChassisThrottlePdlTarget "车辆油门控制";
-CM_ SG_ 304 ACU_DriveLifeSig "循环计数0~15";
-CM_ SG_ 304 ACU_CheckSum_130 "校验sum=byte0 xor byte1 xor...byte6";
+CM_ SG_ 304 ChassisDriverEnCtrl "车辆加速控制使能";
+CM_ SG_ 304 ChassisDriverModeCtrl "驱动模式控制";
+CM_ SG_ 304 ChassisGearCtrl "档位控制";
+CM_ SG_ 304 ChassisSpeedCtrl "车辆速度控制";
+CM_ SG_ 304 ChassisThrottlePdlTarget "车辆油门控制";
+CM_ SG_ 304 DriveLifeSig "循环计数0~15";
+CM_ SG_ 304 CheckSum_130 "校验sum=byte0 xor byte1 xor...byte6";
 CM_ BO_ 305 "制动控制报文";
-CM_ SG_ 305 ACU_ChassisBrakeEn "车辆刹车控制使能";
-CM_ SG_ 305 ACU_ChassisAebCtrl "AEB使能（预留，自动驾驶实现）";
-CM_ SG_ 305 ACU_ChassisBrakePdlTarget "车辆刹车控制";
-CM_ SG_ 305 ACU_ChassisEpbCtrl "驻车控制";
-CM_ SG_ 305 ACU_BrakeLifeSig "循环计数0~15";
-CM_ SG_ 305 ACU_CheckSum_131 "校验sum=byte0 xor byte1 xor...byte6";
+CM_ SG_ 305 ChassisBrakeEn "车辆刹车控制使能";
+CM_ SG_ 305 ChassisAebCtrl "AEB使能（预留，自动驾驶实现）";
+CM_ SG_ 305 ChassisBrakePdlTarget "车辆刹车控制";
+CM_ SG_ 305 ChassisEpbCtrl "驻车控制";
+CM_ SG_ 305 BrakeLifeSig "循环计数0~15";
+CM_ SG_ 305 CheckSum_131 "校验sum=byte0 xor byte1 xor...byte6";
 CM_ BO_ 306 "转向控制报文";
-CM_ SG_ 306 ACU_ChassisSteerEnCtrl "车辆转向控制使能";
-CM_ SG_ 306 ACU_ChassisSteerModeCtrl "转向模式控制";
-CM_ SG_ 306 ACU_ChassisSteerAngleTarget "车辆转向控制（前）";
-CM_ SG_ 306 ACU_ChassisSteerAngleRearTarget "车辆转向控制（后）";
-CM_ SG_ 306 ACU_ChassisSteerAngleSpeedCtrl "车辆方向盘转角速度控制";
-CM_ SG_ 306 ACU_CheckSum_132 "校验sum=byte0 xor byte1 xor...byte6";
+CM_ SG_ 306 ChassisSteerEnCtrl "车辆转向控制使能";
+CM_ SG_ 306 ChassisSteerModeCtrl "转向模式控制";
+CM_ SG_ 306 ChassisSteerAngleTarget "车辆转向控制（前）";
+CM_ SG_ 306 ChassisSteerAngleRearTarget "车辆转向控制（后）";
+CM_ SG_ 306 ChassisSteerAngleSpeedCtrl "车辆方向盘转角速度控制";
+CM_ SG_ 306 CheckSum_132 "校验sum=byte0 xor byte1 xor...byte6";
 CM_ BO_ 307 "车身控制1";
-CM_ SG_ 307 ACU_VehiclePosLampCtrl "位置灯控制";
-CM_ SG_ 307 ACU_VehicleHeadLampCtrl "近光灯控制";
-CM_ SG_ 307 ACU_VehicleLeftLampCtrl "左转向灯控制";
-CM_ SG_ 307 ACU_VehicleRightLampCtrl "右转向灯控制";
-CM_ SG_ 307 ACU_VehicleHighBeamCtrl "远光灯控制";
-CM_ SG_ 307 ACU_VehicleFogLampCtrl "雾灯控制";
-CM_ SG_ 307 ACU_VehicleBodyLightCtrl "氛围灯控制";
-CM_ SG_ 307 ACU_VehicleReadLightCtrl "车内灯光总控制";
-CM_ SG_ 307 ACU_VehicleVoice "提示音控制";
-CM_ SG_ 307 ACU_VehicleWipersCtrl "雨刮控制";
-CM_ SG_ 307 ACU_VehicleDoorCtrl "车门控制";
-CM_ SG_ 307 ACU_VehicleWindowCtrl "车窗控制（预留）";
-CM_ SG_ 307 ACU_ChassisSpeedLimiteMode "限速控制";
-CM_ SG_ 307 ACU_ChassisSpeedLimiteVal "速度限制值";
-CM_ SG_ 307 ACU_CheckSumEn "校验模式使能(预留)";
+CM_ SG_ 307 VehiclePosLampCtrl "位置灯控制";
+CM_ SG_ 307 VehicleHeadLampCtrl "近光灯控制";
+CM_ SG_ 307 VehicleLeftLampCtrl "左转向灯控制";
+CM_ SG_ 307 VehicleRightLampCtrl "右转向灯控制";
+CM_ SG_ 307 VehicleHighBeamCtrl "远光灯控制";
+CM_ SG_ 307 VehicleFogLampCtrl "雾灯控制";
+CM_ SG_ 307 VehicleBodyLightCtrl "氛围灯控制";
+CM_ SG_ 307 VehicleReadLightCtrl "车内灯光总控制";
+CM_ SG_ 307 VehicleVoice "提示音控制";
+CM_ SG_ 307 VehicleWipersCtrl "雨刮控制";
+CM_ SG_ 307 VehicleDoorCtrl "车门控制";
+CM_ SG_ 307 VehicleWindowCtrl "车窗控制（预留）";
+CM_ SG_ 307 ChassisSpeedLimiteMode "限速控制";
+CM_ SG_ 307 ChassisSpeedLimiteVal "速度限制值";
+CM_ SG_ 307 CheckSumEn "校验模式使能(预留)";
 CM_ BO_ 309 "电机单独控制(预留)";
-CM_ SG_ 309 ACU_MotorTorqueLfCtrl "左前电机扭矩";
-CM_ SG_ 309 ACU_MotorTorqueRfCtrl "右前电机扭矩";
-CM_ SG_ 309 ACU_MotorTorqueLrCtrl "左后电机扭矩";
-CM_ SG_ 309 ACU_MotorTorqueRrCtrl "右后电机扭矩";
+CM_ SG_ 309 MotorTorqueLfCtrl "左前电机扭矩";
+CM_ SG_ 309 MotorTorqueRfCtrl "右前电机扭矩";
+CM_ SG_ 309 MotorTorqueLrCtrl "左后电机扭矩";
+CM_ SG_ 309 MotorTorqueRrCtrl "右后电机扭矩";
 BA_DEF_ BO_  "GenMsgCycleTime" INT 0 65535;
 BA_DEF_ BO_  "GenMsgSendType" ENUM  "Cyclic","Event","IfActive","CE","CA","NoMsgSendType";
 BA_DEF_DEF_  "GenMsgCycleTime" 1000;
@@ -352,84 +352,84 @@ BA_ "GenMsgCycleTime" BO_ 305 20;
 BA_ "GenMsgCycleTime" BO_ 306 20;
 BA_ "GenMsgCycleTime" BO_ 307 200;
 BA_ "GenMsgCycleTime" BO_ 309 20;
-VAL_ 1328 VCU_ChassisDriverEnSta 0 "disable" 1 "enable" ;
-VAL_ 1328 VCU_ChassisDiverSlopover 0 "normal" 1 "over slop" ;
-VAL_ 1328 VCU_ChassisDriverModeSta 0 "speed ctrl mode" 1 "throttle ctrl mode" 2 "reserve" 3 "reserve" ;
-VAL_ 1328 VCU_ChassisGearFb 0 "no use" 1 "D" 2 "N" 3 "R" ;
-VAL_ 1329 VCU_ChassisBrakeEnSta 0 "disable" 1 "enable" ;
-VAL_ 1329 VCU_VehicleBrakeLampFb 0 "off" 1 "on" ;
-VAL_ 1329 VCU_ChassisEpbFb 0 "release" 1 "brake" 2 "releasing" 3 "braking" ;
-VAL_ 1329 VCU_AebEnStaFb 0 "off" 1 "on" ;
-VAL_ 1329 VCU_AebTriggerStaFb 0 "off" 1 "aeb trigger" ;
-VAL_ 1330 VCU_ChassisSteerEnSta 0 "disable" 1 "enable" ;
-VAL_ 1330 VCU_ChassisSteerSlopover 0 "normal" 1 "over slop" ;
-VAL_ 1330 VCU_ChassisSteerWorkMode 0 "machine" 1 "wire" 2 "power" ;
-VAL_ 1330 VCU_ChassisSteerModeFb 0 "front ackerman" 1 "same front and back" 2 "front different back" 3 "back ackrman" 4 "front back" ;
-VAL_ 1332 VCU_DrivingModeFb 0 "standby" 1 "self driving" 2 "remote" 3 "man" ;
-VAL_ 1332 VCU_ChassisPowerStaFb 0 "init" 1 "on acc" 2 "ready" 3 "off" ;
-VAL_ 1332 VCU_ChassisPowerDcSta 0 "off" 1 "on" 2 "standby" ;
-VAL_ 1332 VCU_ChassisSpeedLimitedModeFb 0 "default" 1 "limit" ;
-VAL_ 1332 VCU_ChassisPowerLimiteSta 0 "default" 1 "limit" ;
-VAL_ 1332 VCU_SysEcoMode 0 "default" 1 "eco" 2 "sport" ;
-VAL_ 1332 VCU_ChassisEStopStaFb 0 "no" 1 "chassis estop" 2 "remote estop" 3 "chassis err estop" ;
-VAL_ 1332 VCU_CrashFrontSta 0 "off" 1 "collide" ;
-VAL_ 1332 VCU_CrashRearSta 0 "off" 1 "collide" ;
-VAL_ 1332 VCU_CrashLeftSta 0 "off" 1 "collide" ;
-VAL_ 1332 VCU_CrashRightSta 0 "off" 1 "collide" ;
-VAL_ 1333 VCU_ChassisPowerChargeSta 0 "no charge" 1 "charge" 2 "charge full" ;
-VAL_ 1333 VCU_ChassisPowerChargeSockSta 0 "no connect" 1 "connect" ;
-VAL_ 1334 VCU_VehiclePosLampFb 0 "off" 1 "on" ;
-VAL_ 1334 VCU_VehicleHeadLampFb 0 "off" 1 "on" ;
-VAL_ 1334 VCU_VehicleLeftLampFb 0 "off" 1 "on" ;
-VAL_ 1334 VCU_VehicleRightLampFb 0 "off" 1 "on" ;
-VAL_ 1334 VCU_VehicleHighBeamFb 0 "off" 1 "on" ;
-VAL_ 1334 VCU_VehicleFogLampFb 0 "off" 1 "on" ;
-VAL_ 1334 VCU_VehicleHazardWarLampFb 0 "off" 1 "on" ;
-VAL_ 1334 VCU_VehicleBodyLampFb 0 "off" 1 "on" ;
-VAL_ 1334 VCU_VehicleReadLampFb 0 "off" 1 "on" ;
-VAL_ 1334 ACU_VehicleWindowFb 0 "invalid" 1 "opening" 2 "closing" 3 "open inplace" 4 "close inplace" 5 "open timeout" 6 "close timeout" ;
-VAL_ 1334 VCU_VehicleDoorStaFb 0 "invalid" 1 "opening" 2 "closing" 3 "open inplace" 4 "close inplace" 5 "open timeout" 6 "close timeout" ;
-VAL_ 1334 VCU_VehicleWipersStaFb 0 "off" 1 "low" 2 "mid" 3 "high" ;
-VAL_ 1334 VCU_VehicleSafetyBelt1 0 "no" 1 "sit" 2 "safetybelt" 3 "Unknow(传感器故障)" ;
-VAL_ 1334 VCU_VehicleSafetyBelt2 0 "no" 1 "sit" 2 "safetybelt" 3 "Unknow(传感器故障)" ;
-VAL_ 1334 VCU_VehicleSafetyBelt3 0 "no" 1 "sit" 2 "safetybelt" 3 "Unknow(传感器故障)" ;
-VAL_ 1334 VCU_VehicleSafetyBelt4 0 "no" 1 "sit" 2 "safetybelt" 3 "Unknow(传感器故障)" ;
-VAL_ 1335 VCU_SysMotorOverTempSta 0 "normal" 1 "over temp" ;
-VAL_ 1335 VCU_SysBmsOverTempSta 0 "normal" 1 "over temp" ;
-VAL_ 1335 VCU_SysBrakeOverTempSta 0 "normal" 1 "over temp" ;
-VAL_ 1335 VCU_SysSteerOverTempSta 0 "normal" 1 "over temp" ;
-VAL_ 1335 VCU_SysUnderVolt 0 "normal" 1 "under volt" ;
-VAL_ 1335 VCU_SysFlt 0 "normal" 1 "fault level 1" 2 "fault level 2" 3 "fault level 3" 4 "fault level 4" ;
-VAL_ 1335 VCU_SysBrakeFlt 0 "normal" 1 "fault level 1" 2 "fault level 2" 3 "fault level 3" 4 "fault level 4" ;
-VAL_ 1335 VCU_SysParkingFlt 0 "normal" 1 "fault level 1" 2 "fault level 2" 3 "fault level 3" 4 "fault level 4" ;
-VAL_ 1335 VCU_SysSteerFrontFlt 0 "normal" 1 "fault level 1" 2 "fault level 2" 3 "fault level 3" 4 "fault level 4" ;
-VAL_ 1335 VCU_SysSteerBackFlt 0 "normal" 1 "fault level 1" 2 "fault level 2" 3 "fault level 3" 4 "fault level 4" ;
-VAL_ 1335 VCU_SysMotorLfFlt 0 "normal" 1 "fault level 1" 2 "fault level 2" 3 "fault level 3" 4 "fault level 4" ;
-VAL_ 1335 VCU_SysMotorRfFlt 0 "normal" 1 "fault level 1" 2 "fault level 2" 3 "fault level 3" 4 "fault level 4" ;
-VAL_ 1335 VCU_SysMotorLrFlt 0 "normal" 1 "fault level 1" 2 "fault level 2" 3 "fault level 3" 4 "fault level 4" ;
-VAL_ 1335 VCU_SysMotorRrFlt 0 "normal" 1 "fault level 1" 2 "fault level 2" 3 "fault level 3" 4 "fault level 4" ;
-VAL_ 1335 VCU_SysBmsFlt 0 "normal" 1 "fault level 1" 2 "fault level 2" 3 "fault level 3" 4 "fault level 4" ;
-VAL_ 1335 VCU_SysDcFlt 0 "normal" 1 "fault level 1" 2 "fault level 2" 3 "fault level 3" 4 "fault level 4" ;
-VAL_ 304 ACU_ChassisDriverEnCtrl 0 "disable" 1 "enable" ;
-VAL_ 304 ACU_ChassisDriverModeCtrl 0 "speed ctrl mode" 1 "throttle ctrl mode" 2 "reserve" 3 "reserve" ;
-VAL_ 304 ACU_ChassisGearCtrl 0 "default N" 1 "D" 2 "N" 3 "R" ;
-VAL_ 305 ACU_ChassisBrakeEn 0 "disable" 1 "enable" ;
-VAL_ 305 ACU_ChassisAebCtrl 0 "disable" 1 "enable" ;
-VAL_ 305 ACU_ChassisEpbCtrl 0 "default" 1 "brake" 2 "release" ;
-VAL_ 306 ACU_ChassisSteerEnCtrl 0 "disable" 1 "enable" ;
-VAL_ 306 ACU_ChassisSteerModeCtrl 0 "front ackerman" 1 "same front and back" 2 "front different back" 3 "back ackrman" 4 "front back" ;
-VAL_ 307 ACU_VehiclePosLampCtrl 0 "off" 1 "on" ;
-VAL_ 307 ACU_VehicleHeadLampCtrl 0 "off" 1 "on" ;
-VAL_ 307 ACU_VehicleLeftLampCtrl 0 "off" 1 "on" ;
-VAL_ 307 ACU_VehicleRightLampCtrl 0 "off" 1 "on" ;
-VAL_ 307 ACU_VehicleHighBeamCtrl 0 "off" 1 "on" ;
-VAL_ 307 ACU_VehicleFogLampCtrl 0 "off" 1 "on" ;
-VAL_ 307 ACU_VehicleBodyLightCtrl 0 "off" 1 "on" ;
-VAL_ 307 ACU_VehicleReadLightCtrl 0 "off" 1 "on" ;
-VAL_ 307 ACU_VehicleVoice 0 "off" 1 "turn left" 2 "turn right" 3 "backward" ;
-VAL_ 307 ACU_VehicleWipersCtrl 0 "off" 1 "low" 2 "mid" 3 "high" ;
-VAL_ 307 ACU_VehicleDoorCtrl 0 "default" 1 "close" 2 "open" ;
-VAL_ 307 ACU_VehicleWindowCtrl 0 "default" 1 "close" 2 "open" ;
-VAL_ 307 ACU_ChassisSpeedLimiteMode 0 "default" 1 "limit" ;
-VAL_ 307 ACU_CheckSumEn 0 "enable" 1 "disable" ;
+VAL_ 1328 ChassisDriverEnSta 0 "disable" 1 "enable" ;
+VAL_ 1328 ChassisDiverSlopover 0 "normal" 1 "over slop" ;
+VAL_ 1328 ChassisDriverModeSta 0 "speed ctrl mode" 1 "throttle ctrl mode" 2 "reserve" 3 "reserve" ;
+VAL_ 1328 ChassisGearFb 0 "no use" 1 "D" 2 "N" 3 "R" ;
+VAL_ 1329 ChassisBrakeEnSta 0 "disable" 1 "enable" ;
+VAL_ 1329 VehicleBrakeLampFb 0 "off" 1 "on" ;
+VAL_ 1329 ChassisEpbFb 0 "release" 1 "brake" 2 "releasing" 3 "braking" ;
+VAL_ 1329 AebEnStaFb 0 "off" 1 "on" ;
+VAL_ 1329 AebTriggerStaFb 0 "off" 1 "aeb trigger" ;
+VAL_ 1330 ChassisSteerEnSta 0 "disable" 1 "enable" ;
+VAL_ 1330 ChassisSteerSlopover 0 "normal" 1 "over slop" ;
+VAL_ 1330 ChassisSteerWorkMode 0 "machine" 1 "wire" 2 "power" ;
+VAL_ 1330 ChassisSteerModeFb 0 "front ackerman" 1 "same front and back" 2 "front different back" 3 "back ackrman" 4 "front back" ;
+VAL_ 1332 DrivingModeFb 0 "standby" 1 "self driving" 2 "remote" 3 "man" ;
+VAL_ 1332 ChassisPowerStaFb 0 "init" 1 "on acc" 2 "ready" 3 "off" ;
+VAL_ 1332 ChassisPowerDcSta 0 "off" 1 "on" 2 "standby" ;
+VAL_ 1332 ChassisSpeedLimitedModeFb 0 "default" 1 "limit" ;
+VAL_ 1332 ChassisPowerLimiteSta 0 "default" 1 "limit" ;
+VAL_ 1332 SysEcoMode 0 "default" 1 "eco" 2 "sport" ;
+VAL_ 1332 ChassisEStopStaFb 0 "no" 1 "chassis estop" 2 "remote estop" 3 "chassis err estop" ;
+VAL_ 1332 CrashFrontSta 0 "off" 1 "collide" ;
+VAL_ 1332 CrashRearSta 0 "off" 1 "collide" ;
+VAL_ 1332 CrashLeftSta 0 "off" 1 "collide" ;
+VAL_ 1332 CrashRightSta 0 "off" 1 "collide" ;
+VAL_ 1333 ChassisPowerChargeSta 0 "no charge" 1 "charge" 2 "charge full" ;
+VAL_ 1333 ChassisPowerChargeSockSta 0 "no connect" 1 "connect" ;
+VAL_ 1334 VehiclePosLampFb 0 "off" 1 "on" ;
+VAL_ 1334 VehicleHeadLampFb 0 "off" 1 "on" ;
+VAL_ 1334 VehicleLeftLampFb 0 "off" 1 "on" ;
+VAL_ 1334 VehicleRightLampFb 0 "off" 1 "on" ;
+VAL_ 1334 VehicleHighBeamFb 0 "off" 1 "on" ;
+VAL_ 1334 VehicleFogLampFb 0 "off" 1 "on" ;
+VAL_ 1334 VehicleHazardWarLampFb 0 "off" 1 "on" ;
+VAL_ 1334 VehicleBodyLampFb 0 "off" 1 "on" ;
+VAL_ 1334 VehicleReadLampFb 0 "off" 1 "on" ;
+VAL_ 1334 VehicleWindowFb 0 "invalid" 1 "opening" 2 "closing" 3 "open inplace" 4 "close inplace" 5 "open timeout" 6 "close timeout" ;
+VAL_ 1334 VehicleDoorStaFb 0 "invalid" 1 "opening" 2 "closing" 3 "open inplace" 4 "close inplace" 5 "open timeout" 6 "close timeout" ;
+VAL_ 1334 VehicleWipersStaFb 0 "off" 1 "low" 2 "mid" 3 "high" ;
+VAL_ 1334 VehicleSafetyBelt1 0 "no" 1 "sit" 2 "safetybelt" 3 "Unknow(传感器故障)" ;
+VAL_ 1334 VehicleSafetyBelt2 0 "no" 1 "sit" 2 "safetybelt" 3 "Unknow(传感器故障)" ;
+VAL_ 1334 VehicleSafetyBelt3 0 "no" 1 "sit" 2 "safetybelt" 3 "Unknow(传感器故障)" ;
+VAL_ 1334 VehicleSafetyBelt4 0 "no" 1 "sit" 2 "safetybelt" 3 "Unknow(传感器故障)" ;
+VAL_ 1335 SysMotorOverTempSta 0 "normal" 1 "over temp" ;
+VAL_ 1335 SysBmsOverTempSta 0 "normal" 1 "over temp" ;
+VAL_ 1335 SysBrakeOverTempSta 0 "normal" 1 "over temp" ;
+VAL_ 1335 SysSteerOverTempSta 0 "normal" 1 "over temp" ;
+VAL_ 1335 SysUnderVolt 0 "normal" 1 "under volt" ;
+VAL_ 1335 SysFlt 0 "normal" 1 "fault level 1" 2 "fault level 2" 3 "fault level 3" 4 "fault level 4" ;
+VAL_ 1335 SysBrakeFlt 0 "normal" 1 "fault level 1" 2 "fault level 2" 3 "fault level 3" 4 "fault level 4" ;
+VAL_ 1335 SysParkingFlt 0 "normal" 1 "fault level 1" 2 "fault level 2" 3 "fault level 3" 4 "fault level 4" ;
+VAL_ 1335 SysSteerFrontFlt 0 "normal" 1 "fault level 1" 2 "fault level 2" 3 "fault level 3" 4 "fault level 4" ;
+VAL_ 1335 SysSteerBackFlt 0 "normal" 1 "fault level 1" 2 "fault level 2" 3 "fault level 3" 4 "fault level 4" ;
+VAL_ 1335 SysMotorLfFlt 0 "normal" 1 "fault level 1" 2 "fault level 2" 3 "fault level 3" 4 "fault level 4" ;
+VAL_ 1335 SysMotorRfFlt 0 "normal" 1 "fault level 1" 2 "fault level 2" 3 "fault level 3" 4 "fault level 4" ;
+VAL_ 1335 SysMotorLrFlt 0 "normal" 1 "fault level 1" 2 "fault level 2" 3 "fault level 3" 4 "fault level 4" ;
+VAL_ 1335 SysMotorRrFlt 0 "normal" 1 "fault level 1" 2 "fault level 2" 3 "fault level 3" 4 "fault level 4" ;
+VAL_ 1335 SysBmsFlt 0 "normal" 1 "fault level 1" 2 "fault level 2" 3 "fault level 3" 4 "fault level 4" ;
+VAL_ 1335 SysDcFlt 0 "normal" 1 "fault level 1" 2 "fault level 2" 3 "fault level 3" 4 "fault level 4" ;
+VAL_ 304 ChassisDriverEnCtrl 0 "disable" 1 "enable" ;
+VAL_ 304 ChassisDriverModeCtrl 0 "speed ctrl mode" 1 "throttle ctrl mode" 2 "reserve" 3 "reserve" ;
+VAL_ 304 ChassisGearCtrl 0 "default N" 1 "D" 2 "N" 3 "R" ;
+VAL_ 305 ChassisBrakeEn 0 "disable" 1 "enable" ;
+VAL_ 305 ChassisAebCtrl 0 "disable" 1 "enable" ;
+VAL_ 305 ChassisEpbCtrl 0 "default" 1 "brake" 2 "release" ;
+VAL_ 306 ChassisSteerEnCtrl 0 "disable" 1 "enable" ;
+VAL_ 306 ChassisSteerModeCtrl 0 "front ackerman" 1 "same front and back" 2 "front different back" 3 "back ackrman" 4 "front back" ;
+VAL_ 307 VehiclePosLampCtrl 0 "off" 1 "on" ;
+VAL_ 307 VehicleHeadLampCtrl 0 "off" 1 "on" ;
+VAL_ 307 VehicleLeftLampCtrl 0 "off" 1 "on" ;
+VAL_ 307 VehicleRightLampCtrl 0 "off" 1 "on" ;
+VAL_ 307 VehicleHighBeamCtrl 0 "off" 1 "on" ;
+VAL_ 307 VehicleFogLampCtrl 0 "off" 1 "on" ;
+VAL_ 307 VehicleBodyLightCtrl 0 "off" 1 "on" ;
+VAL_ 307 VehicleReadLightCtrl 0 "off" 1 "on" ;
+VAL_ 307 VehicleVoice 0 "off" 1 "turn left" 2 "turn right" 3 "backward" ;
+VAL_ 307 VehicleWipersCtrl 0 "off" 1 "low" 2 "mid" 3 "high" ;
+VAL_ 307 VehicleDoorCtrl 0 "default" 1 "close" 2 "open" ;
+VAL_ 307 VehicleWindowCtrl 0 "default" 1 "close" 2 "open" ;
+VAL_ 307 ChassisSpeedLimiteMode 0 "default" 1 "limit" ;
+VAL_ 307 CheckSumEn 0 "enable" 1 "disable" ;
 

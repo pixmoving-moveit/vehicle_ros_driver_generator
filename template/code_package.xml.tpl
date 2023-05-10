@@ -1,24 +1,21 @@
 <?xml version="1.0"?>
-<package format="2">
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
   <name>pix_%(car_type)s_driver</name>
-  <version>0.0.0</version>
+  <version>0.9.0</version>
   <description>The pix_%(car_type)s_driver package</description>
   <maintainer email="pixmoving@pixmoving.net">pixmoving</maintainer>
+  <license>Apache License 2.0</license>
 
-  <license>TODO</license>
-  <buildtool_depend>catkin</buildtool_depend>
-  <build_depend>can_msgs</build_depend>
-  <build_depend>roscpp</build_depend>
-  <build_depend>std_msgs</build_depend>
-  <build_depend>pix_%(car_type)s_driver_msgs</build_depend>
-  <build_export_depend>can_msgs</build_export_depend>
-  <build_export_depend>roscpp</build_export_depend>
-  <build_export_depend>std_msgs</build_export_depend>
-  <build_export_depend>pix_%(car_type)s_driver_msgs</build_export_depend>
-  <exec_depend>can_msgs</exec_depend>
-  <exec_depend>roscpp</exec_depend>
-  <exec_depend>std_msgs</exec_depend>
-  <exec_depend>pix_%(car_type)s_driver_msgs</exec_depend>
+  <depend>can_msgs</depend>
+  <depend>pix_%(car_type)s_driver_msgs</depend>
+  <depend>rclcpp</depend>
+  <depend>std_msgs</depend>
 
-  <export></export>
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>autoware_lint_common</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
 </package>

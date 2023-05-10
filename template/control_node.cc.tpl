@@ -1,5 +1,11 @@
-#include "ros/ros.h"
-#include "can_msgs/Frame.h"
+#include <string>
+#include <memory>
+
+#include <rclcpp/rclcpp.hpp>
+
+#include <std_msgs/msg/bool.hpp>
+
+#include <can_msgs/msg/frame.hpp>
 
 
 // include- msgs header file
@@ -13,16 +19,24 @@
 // #include protocols["name"].cpp
 %(include_ParseName_list)s
 
+namespace pix_%[car_type]s_driver
+{
+namespace control_command
+{
 
-// global variable: msg
-/*
-Example:
-static can_msgs::Frame can_brake;
-static pix_driver_msgs::BrakeCommand brake_command_msg;
+/**
+ * @brief param structure of control command node
+ * @param base_frame_id frame id of vehicle
+ * @param loop_rate loop rate of publishers in hz
+ * @param command_timeout_ms timeout threshold of control command msg from control converter in ms
+ */
+struct Param
+{
+  std::string base_frame_id;
+  double loop_rate;
+  int command_timeout_ms;
+};
 
-static can_msgs::Frame can_protocols["name"].split("_",1)[0];
-static pix_driver_msgs::protocols["name"] protocols["name"]_msg
-*/
 %(global_variable_vehicle_msg)s
 %(global_variable_ros_msg)s
 
@@ -93,3 +107,6 @@ int main(int argc, char* argv[])
     return 0;
 
 }
+
+} // control_command
+} // pix_%{car_type}s_driver

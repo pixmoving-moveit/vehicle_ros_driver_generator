@@ -1,7 +1,7 @@
 dbc_file: pixmoving.dbc
 protocol_conf: pixmoving.yml
-car_type: hooke
-sender_list: [A2V_DriveCtrl, A2V_BrakeCtrl, A2V_SteerCtrl, A2V_VehicleCtrl, A2V_WheelCtrl]
+car_type: hooke 
+sender_list: [DriveCtrl, BrakeCtrl, SteerCtrl, VehicleCtrl, WheelCtrl]
 sender: ACU
 black_list: []
 

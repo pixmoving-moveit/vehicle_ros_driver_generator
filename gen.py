@@ -8,7 +8,7 @@ import sys
 
 import yaml
 
-from gen_protocols import gen_protocols
+import  gen_protocols
 from extract_dbc_meta import extract_dbc_meta
 import  gen_ros_node
 import gen_msg_file
@@ -41,7 +41,7 @@ def gen(conf):
     # gen protocol  
     # 2. 代码生成 - 解析can原始
     # protocol_dir = output_dir + "vehicle/" 
-    gen_protocols(protocol_conf_file, output_dir, car_type)
+    gen_protocols.gen_protocols(protocol_conf_file, output_dir, car_type)
 
     # 3. 代码生成 - 生成订阅发布ros节点
     gen_ros_node.gen_protocols(protocol_conf_file, output_dir, car_type)
@@ -50,9 +50,6 @@ def gen(conf):
     # 编译文件生成
     gen_config_file.gen_protocols(protocol_conf_file, output_dir)
     
-    
-    
-
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:

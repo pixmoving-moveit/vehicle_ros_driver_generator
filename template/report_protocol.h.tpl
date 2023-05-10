@@ -1,11 +1,11 @@
 #pragma once
 
-#include "Byte.hpp"
+#include <pix_%(car_type_lower)s_driver/Byte.hpp>
 #include <iostream>
 
 class %(classname)s {
 public:
-    static  int32_t ID;
+    static const uint32_t ID = 0x%(id_upper)s;
     %(classname)s();
     void Parse();
     void update_bytes(uint8_t bytes_data[8]);

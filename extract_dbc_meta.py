@@ -25,13 +25,16 @@ import yaml
 
 MAX_CAN_ID = 4096000000  # 2048
 
+def camel_case_to_snake_case(camel_case: str):
+    snake_case = re.sub(r"(?P<key>[A-Z])", r"_\g<key>", camel_case)
+    return snake_case.lower().strip('_')
 
 def extract_var_info(items):
     """
        Desp: extract var info from line split items.
     """
     car_var = {}
-    car_var["name"] = items[1]
+    car_var["name"] = camel_case_to_snake_case(items[1])
     car_var["bit"] = int(items[3].split('|')[0])
     car_var["len"] = int(items[3].split('|')[1].split('@')[0])
     order_sign = items[3].split('|')[1].split('@')[1]
@@ -61,7 +64,6 @@ def extract_var_info(items):
     # print (car_var["name"])
     return car_var
 
-
 def extract_dbc_meta(dbc_file, out_file, car_type, black_list, sender_list,
                      sender):
     """
@@ -82,12 +84,12 @@ def extract_dbc_meta(dbc_file, out_file, car_type, black_list, sender_list,
             items = shlex.split(line)
             line_num = line_num + 1
             if len(items) == 5 and items[0] == "BO_":
-                p_name = items[2][:-1].lower()
+                p_name = camel_case_to_snake_case(items[2][:-1])
                 protocol = {}
                 if int(items[1]) > MAX_CAN_ID:
                     continue
                 protocol["id"] = "%x" % int(items[1])
-                protocol["name"] = "%s_%s" % (p_name, protocol["id"])
+                protocol["name"] = "%s" % (p_name)
                 protocol["sender"] = items[4]
                 if protocol["id"] in black_list:
                     continue

@@ -5,6 +5,19 @@ import sys
 import os
 import re
 
+def snake_case_to_camel_case(snake_str):
+    return "".join(x.capitalize() for x in snake_str.lower().split("_"))
+
+def to_lower_case(var_name):
+    lower_case_name = ''
+    for i, c in enumerate(var_name):
+        if c.isupper() and i > 0 and var_name[i-1] != '_':
+            lower_case_name += '_' + c.lower()
+        else:
+            lower_case_name += c.lower()
+    return lower_case_name
+
+
 def write_single_protocol_vars(pb_fp, p):
     """
     解析yaml文件，往msg文件填入信息
@@ -64,8 +77,8 @@ def gen_proto_file(config_file, work_dir):
         # 迭代每一帧生成msg文件
         for pid in protocols:
             p = protocols[pid]
-            with open("%s/%s.msg" % (work_dir, p["name"]), 'w') as pb_fp:
-                pb_fp.write("Header header \n")
+            with open("%s/%s.msg" % (work_dir, snake_case_to_camel_case(p["name"])), 'w') as pb_fp:
+                pb_fp.write("std_msgs/Header header \n")
                 write_single_protocol_vars(pb_fp, p)
             
 

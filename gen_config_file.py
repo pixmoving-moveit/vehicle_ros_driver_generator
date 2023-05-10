@@ -4,13 +4,20 @@ import datetime
 import os
 import shutil
 import sys
+import re
 
 import yaml
 from pprint import pprint
 from common import common
 
+def camel_case_to_snake_case(camel_case: str):
+    snake_case = re.sub(r"(?P<key>[A-Z])", r"_\g<key>", camel_case)
+    return snake_case.lower().strip('_')
 
-# ���� CMakeList.txt package.xml
+def snake_case_to_camel_case(snake_str):
+    return "".join(x.capitalize() for x in snake_str.lower().split("_"))
+
+#  generate CMakeList.txt package.xml
 def gen_protocols(protocol_conf_file, protocol_dir):
     # 解析yaml文件，生成c++ ros驱动代码
     # protocol_conf_file yaml文件路径 
@@ -52,7 +59,7 @@ def gen_protocols(protocol_conf_file, protocol_dir):
     msgs_xml_FMT = common.get_tpl_fmt(msgs_xml_tpl_file)
 
     message_name_list = common.get_Name_info(protocols)
-    # pprint(message_name_list["control"])
+    print(message_name_list["control"])
 
     fmt_code_message = {}
     a = ["src/%s.cc\n" % i for i in message_name_list["report"]]
@@ -73,7 +80,7 @@ def gen_protocols(protocol_conf_file, protocol_dir):
     a = message_name_list["report"]
     a.extend(message_name_list["control"])
     # pprint(a)
-    a = ["\t%s.msg\n" % i for i in a]
+    a = ['\t"msg/%s.msg"\n' % snake_case_to_camel_case(i) for i in a]
     fmt_msgs_message["canID_msg_list"] = "".join(a)
     fmt_msgs_message["car_type"] = car_type
 
@@ -94,7 +101,7 @@ if __name__ == "__main__":
     with open(sys.argv[1], 'r') as fp:
         conf = yaml.safe_load(fp)
 
-    protocol_conf = config["config_dir"] + conf["protocol_conf"]
+    protocol_conf = conf["config_dir"] + conf["protocol_conf"]
     protocol_dir = conf["output_dir"]
     output_dir = conf["output_dir"]
 

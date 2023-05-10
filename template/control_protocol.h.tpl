@@ -1,5 +1,5 @@
 #pragma once
-#include "Byte.hpp"
+#include <pix_%(car_type_lower)s_driver/Byte.hpp>
 
 class %(classname)s {
 public:
