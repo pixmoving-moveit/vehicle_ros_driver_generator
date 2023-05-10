@@ -12,6 +12,17 @@ This tool was inspired by the [Gen Vehicle Protocol Tool](https://github.com/Apo
 - `gen_config_file.py`:  generates `CMakeLists.txt` and `packages.xml` files
 
 ## HOW TO USE
+> Notice: The names of CAN frames and the names of variables in CAN frames should be camel case like below.
+```
+BO_ 1330 SteerStaFb: 8 VCU
+ SG_ ChassisSteerEnSta : 0|1@1+ (1,0) [0|1] ""  ACU
+ SG_ ChassisSteerSlopover : 1|1@1+ (1,0) [0|1] ""  ACU
+ SG_ ChassisSteerWorkMode : 2|2@1+ (1,0) [0|3] ""  ACU
+ SG_ ChassisSteerModeFb : 4|4@1+ (1,0) [0|15] ""  VCU
+ SG_ ChassisSteerAngleFb : 8|16@1- (1,0) [-500|500] "deg"  ACU
+ SG_ ChassisSteerAngleRearFb : 24|16@1- (1,0) [-500|500] "deg"  ACU
+ SG_ ChassisSteerAngleSpeedFb : 40|8@1+ (2,0) [0|500] "deg/s"  ACU
+```
 ### 1. copy the DBC file of your vehicle to `config` folder, for example `pixmocing.dbc`, for example `pix_moving_conf.yml`
 
 ```yaml
