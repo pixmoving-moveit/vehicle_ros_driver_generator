@@ -25,7 +25,6 @@ protocols:
       enum:
         1: THROTTLE_CTRL_MODE
         2: RESERVE
-        3: RESERVE
         8: SPEED_CTRL_MODE
       is_signed_var: false
       len: 2
@@ -568,7 +567,6 @@ protocols:
         0: SPEED_CTRL_MODE
         1: THROTTLE_CTRL_MODE
         2: RESERVE
-        3: RESERVE
       is_signed_var: false
       len: 2
       name: chassis_driver_mode_sta
@@ -1320,7 +1318,7 @@ protocols:
         0: 'NO'
         1: SIT
         2: SAFETYBELT
-        3: UNKNOW_传感器故障
+        3: UNKNOW
       is_signed_var: false
       len: 2
       name: vehicle_safety_belt1
@@ -1336,7 +1334,7 @@ protocols:
         0: 'NO'
         1: SIT
         2: SAFETYBELT
-        3: UNKNOW_传感器故障
+        3: UNKNOW
       is_signed_var: false
       len: 2
       name: vehicle_safety_belt2
@@ -1352,7 +1350,7 @@ protocols:
         0: 'NO'
         1: SIT
         2: SAFETYBELT
-        3: UNKNOW_传感器故障
+        3: UNKNOW
       is_signed_var: false
       len: 2
       name: vehicle_safety_belt3
@@ -1368,7 +1366,7 @@ protocols:
         0: 'NO'
         1: SIT
         2: SAFETYBELT
-        3: UNKNOW_传感器故障
+        3: UNKNOW
       is_signed_var: false
       len: 2
       name: vehicle_safety_belt4

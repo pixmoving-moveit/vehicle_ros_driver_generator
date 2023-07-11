@@ -28,7 +28,7 @@ def write_single_protocol_constants(pb_fp, p):
         else:
             enum_list1.append([[key], value])
             enum_list2.append(value)
-
+    i1 = 1  
     for var in enum_list1:
         fmt = "# constants for "
 
@@ -37,10 +37,12 @@ def write_single_protocol_constants(pb_fp, p):
         fmt = fmt + "\n"
         pb_fp.write(fmt)
 
-        fmt = "uint8 %s=%s \n"
+        fmt = f"uint8 %s_{i1}=%s \n"
+        
         for i  in set(var[1]):
             pb_fp.write(fmt%(i[1], i[0]))
         pb_fp.write("\n")
+        i1 = i1+1
 
 def write_single_protocol_vars(pb_fp, p):
     """
