@@ -45,6 +45,7 @@ cmake-build-debug/
 env/
 venv/
 ENV/
+output/**
 
 # Autoware Resources
 *.pcd
