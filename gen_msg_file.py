@@ -8,44 +8,50 @@ import re
 def snake_case_to_camel_case(snake_str):
     return "".join(x.capitalize() for x in snake_str.lower().split("_"))
 
-def to_lower_case(var_name):
-    lower_case_name = ''
-    for i, c in enumerate(var_name):
-        if c.isupper() and i > 0 and var_name[i-1] != '_':
-            lower_case_name += '_' + c.lower()
+def write_single_protocol_constants(pb_fp, p):
+    enum_list={}
+    for var in p["vars"]:
+        if(var["type"]!="enum"):
+            continue
+        enum_list[var["name"]]=[]
+        for key, value in var["enum"].items():
+             enum_list[var["name"]].append((key, value))
+             enum_list[var["name"]].append((key, value))
+    
+    enum_list1 = []
+    enum_list2 = []
+    for key, value in enum_list.items():
+        if value in enum_list2:
+            index_ = enum_list2.index(value)
+            enum_list1[index_][0].append(key)
+            
         else:
-            lower_case_name += c.lower()
-    return lower_case_name
+            enum_list1.append([[key], value])
+            enum_list2.append(value)
+    i1 = 1  
+    for var in enum_list1:
+        fmt = "# constants for "
 
+        for name in var[0]:
+            fmt = fmt + name + " "
+        fmt = fmt + "\n"
+        pb_fp.write(fmt)
+
+        fmt = f"uint8 %s_{i1}=%s \n"
+        
+        for i  in set(var[1]):
+            pb_fp.write(fmt%(i[1], i[0]))
+        pb_fp.write("\n")
+        i1 = i1+1
 
 def write_single_protocol_vars(pb_fp, p):
     """
-    解析yaml文件，往msg文件填入信息
-    params：
-        pb_fp：需要填写内容的文件对象
-        p:    yaml对象，帧ID的详细信息
+    解析yaml文件,往msg文件填入信息
+    params:
+        pb_fp:需要填写内容的文件对象
+        p:    yaml对象,帧ID的详细信息
     """
     for var in p["vars"]:
-        # 填入注释信息:信号描述， 单位， 物理量范围
-        # if "physical_range" in var:
-        #     physical_range = var["physical_range"]
-        #     re_math = "\[([0-9.-])+\|([0-9.-]+)\]"
-        #     searchObj = re.search(re_math, physical_range)
-        #     minnum = searchObj.group(1)
-        #     maxnum = searchObj.group(2)
-        #     # print(minnum, maxnum)
-        # else:
-        #     minnum = 1
-        #     maxnum = 2
-            
-        # # 过滤-相等的物理最值
-        # if minnum != maxnum:
-        if "description" in var:
-            notes = "# %s [%s] %s\n"%(var["description"], var["physical_unit"], var["physical_range"])
-            pb_fp.write(notes)
-        else:
-            notes = "# %s [%s] %s\n"%("", var["physical_unit"], var["physical_range"])
-            pb_fp.write(notes)
         # 填入msg 定义
         t = var["type"]
         if t == "int":
@@ -54,15 +60,22 @@ def write_single_protocol_vars(pb_fp, p):
             t = "int8"
         elif t== "double":
             t = "float32"
-        fmt = "%s %s \n"
+        fmt = "%s %s \t"
         pb_fp.write(fmt%(t, var["name"]))
+
+        if "description" in var:
+            notes = "# %s [%s] %s\n"%(var["description"], var["physical_unit"], var["physical_range"])
+            pb_fp.write(notes)
+        else:
+            notes = "# %s [%s] %s\n"%("", var["physical_unit"], var["physical_range"])
+            pb_fp.write(notes)
         
 
 def gen_proto_file(config_file, work_dir):
     """
-    解析的yaml文件，迭代生成msg文件，同时填入该帧的信号信息
+    解析的yaml文件,迭代生成msg文件,同时填入该帧的信号信息
     param: 
-        config_file ： yaml解析文件路径
+        config_file : yaml解析文件路径
         work_dir  : msg生成文件存储路径
     """
     # 读取DBC解析的yaml文件
@@ -70,7 +83,7 @@ def gen_proto_file(config_file, work_dir):
         content = yaml.safe_load(fp)
         protocols = content["protocols"]
         car_type = content["car_type"]
-        # 判断文件存储路径是否存在，没有则生成目录路径
+        # 判断文件存储路径是否存在,没有则生成目录路径
         work_dir = work_dir + "/pix_"+car_type+"_driver_msgs/msg/"
         if not os.path.exists(work_dir):
             os.makedirs(work_dir)
@@ -78,6 +91,9 @@ def gen_proto_file(config_file, work_dir):
         for pid in protocols:
             p = protocols[pid]
             with open("%s/%s.msg" % (work_dir, snake_case_to_camel_case(p["name"])), 'w') as pb_fp:
+                write_single_protocol_constants(pb_fp, p)
+                pb_fp.write("\n")
+                pb_fp.write("# variables \n")
                 pb_fp.write("std_msgs/Header header \n")
                 write_single_protocol_vars(pb_fp, p)
             

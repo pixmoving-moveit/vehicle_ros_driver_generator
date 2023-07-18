@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 
 ###############################################################################
 # Copyright 2017 The Apollo Authors. All Rights Reserved.
@@ -21,9 +21,11 @@ import shlex
 import sys
 
 import yaml
+import codecs
 
 
 MAX_CAN_ID = 4096000000  # 2048
+STANDARD_CAN_ID = 2048
 
 def camel_case_to_snake_case(camel_case: str):
     snake_case = re.sub(r"(?P<key>[A-Z])", r"_\g<key>", camel_case)
@@ -61,8 +63,9 @@ def extract_var_info(items):
         car_var["type"] = "double"
     else:
         car_var["type"] = "int"
-    # print (car_var["name"])
+
     return car_var
+
 
 def extract_dbc_meta(dbc_file, out_file, car_type, black_list, sender_list,
                      sender):
@@ -89,6 +92,8 @@ def extract_dbc_meta(dbc_file, out_file, car_type, black_list, sender_list,
                 if int(items[1]) > MAX_CAN_ID:
                     continue
                 protocol["id"] = "%x" % int(items[1])
+                if int(items[1]) > STANDARD_CAN_ID:
+                    protocol["id"] = gen_can_id_extended(protocol["id"])
                 protocol["name"] = "%s" % (p_name)
                 protocol["sender"] = items[4]
                 if protocol["id"] in black_list:
@@ -112,28 +117,30 @@ def extract_dbc_meta(dbc_file, out_file, car_type, black_list, sender_list,
                         protocols[protocol["id"]] = protocol
                         # print protocol
                         protocol = {}
-
             if len(items) == 5 and items[0] == "CM_" and items[1] == "SG_":
                 protocol_id = "%x" % int(items[2])
                 if int(items[2]) > MAX_CAN_ID:
                     continue
+                if int(items[2]) > STANDARD_CAN_ID:
+                    protocol_id = gen_can_id_extended(protocol_id)
                 for var in protocols[protocol_id]["vars"]:
-                    if var["name"] == items[3]:
+                    if var["name"] == camel_case_to_snake_case(items[3]):
                         var["description"] = items[4][:-1]
 
             if len(items) > 2 and items[0] == "VAL_":
                 protocol_id = "%x" % int(items[1])
                 if int(items[1]) > MAX_CAN_ID:
                     continue
+                if int(items[1]) > STANDARD_CAN_ID:
+                    protocol_id = gen_can_id_extended(protocol_id)
                 for var in protocols[protocol_id]["vars"]:
-                    if var["name"] == items[2]:
+                    if var["name"] == camel_case_to_snake_case(items[2]):
                         var["type"] = "enum"
                         var["enum"] = {}
                         for idx in range(3, len(items) - 1, 2):
                             enumtype = re.sub('\W+', ' ', items[idx + 1])
                             enumtype = enumtype.strip().replace(" ",
                                                                 "_").upper()
-                            enumtype = items[2].upper() + "_" + enumtype
                             var["enum"][int(items[idx])] = enumtype
 
         cpp_reserved_key_words = ['minor', 'major', 'long', 'int']
@@ -147,8 +154,7 @@ def extract_dbc_meta(dbc_file, out_file, car_type, black_list, sender_list,
         config["car_type"] = car_type
         config["protocols"] = protocols
         with open(out_file, 'w') as fp_write:
-            fp_write.write(yaml.dump(config))
-            # print(config)
+            fp_write.write(yaml.dump(config, allow_unicode=True))
 
         control_protocol_num =\
             len([key for key in protocols.keys()
@@ -162,6 +168,15 @@ def extract_dbc_meta(dbc_file, out_file, car_type, black_list, sender_list,
         print("Control protocols: %d" % control_protocol_num)
         print("Report protocols: %d" % report_protocol_num)
         return True
+
+def gen_can_id_extended(str):
+    """
+        id string:
+    """
+    int_id = int(str, 16)
+    int_id &= 0x1FFFFFFF
+    str = hex(int_id).replace('0x', '')
+    return str
 
 
 if __name__ == "__main__":

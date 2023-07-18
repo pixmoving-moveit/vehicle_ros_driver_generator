@@ -1,0 +1,1791 @@
+car_type: hooke
+protocols:
+  '130':
+    id: '130'
+    name: drive_ctrl
+    protocol_type: control
+    sender: ACU
+    vars:
+    - bit: 0
+      description: 车辆加速控制使能
+      enum:
+        0: DISABLE
+        1: ENABLE
+      is_signed_var: false
+      len: 1
+      name: chassis_driver_en_ctrl
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 2
+      description: 驱动模式控制
+      enum:
+        1: THROTTLE_CTRL_MODE
+        2: RESERVE
+        8: SPEED_CTRL_MODE
+      is_signed_var: false
+      len: 2
+      name: chassis_driver_mode_ctrl
+      offset: 0.0
+      order: intel
+      physical_range: '[0|3]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 4
+      description: 档位控制
+      enum:
+        0: DEFAULT_N
+        1: D
+        2: N
+        3: R
+      is_signed_var: false
+      len: 4
+      name: chassis_gear_ctrl
+      offset: 0.0
+      order: intel
+      physical_range: '[0|15]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 8
+      description: 车辆速度控制
+      is_signed_var: false
+      len: 16
+      name: chassis_speed_ctrl
+      offset: 0.0
+      order: intel
+      physical_range: '[0|50]'
+      physical_unit: m/s
+      precision: 0.01
+      type: double
+    - bit: 24
+      description: 车辆油门控制
+      is_signed_var: false
+      len: 10
+      name: chassis_throttle_pdl_target
+      offset: 0.0
+      order: intel
+      physical_range: '[0|100]'
+      physical_unit: '%'
+      precision: 0.1
+      type: double
+    - bit: 48
+      description: 循环计数0~15
+      is_signed_var: false
+      len: 4
+      name: drive_life_sig
+      offset: 0.0
+      order: intel
+      physical_range: '[0|15]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 56
+      description: 校验sum=byte0 xor byte1 xor...byte6
+      is_signed_var: false
+      len: 8
+      name: check_sum_130
+      offset: 0.0
+      order: intel
+      physical_range: '[0|255]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+  '131':
+    id: '131'
+    name: brake_ctrl
+    protocol_type: control
+    sender: ACU
+    vars:
+    - bit: 0
+      description: 车辆刹车控制使能
+      enum:
+        0: DISABLE
+        1: ENABLE
+      is_signed_var: false
+      len: 1
+      name: chassis_brake_en
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 4
+      description: AEB使能(预留，自动驾驶实现)
+      enum:
+        0: DISABLE
+        1: ENABLE
+      is_signed_var: false
+      len: 1
+      name: chassis_aeb_ctrl
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 8
+      description: 车辆刹车控制
+      is_signed_var: false
+      len: 10
+      name: chassis_brake_pdl_target
+      offset: 0.0
+      order: intel
+      physical_range: '[0|100]'
+      physical_unit: '%'
+      precision: 0.1
+      type: double
+    - bit: 24
+      description: 驻车控制
+      enum:
+        0: DEFAULT
+        1: BRAKE
+        2: RELEASE
+      is_signed_var: false
+      len: 2
+      name: chassis_epb_ctrl
+      offset: 0.0
+      order: intel
+      physical_range: '[0|3]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 48
+      description: 循环计数0~15
+      is_signed_var: false
+      len: 4
+      name: brake_life_sig
+      offset: 0.0
+      order: intel
+      physical_range: '[0|15]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 56
+      description: 校验sum=byte0 xor byte1 xor...byte6
+      is_signed_var: false
+      len: 8
+      name: check_sum_131
+      offset: 0.0
+      order: intel
+      physical_range: '[0|255]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+  '132':
+    id: '132'
+    name: steer_ctrl
+    protocol_type: control
+    sender: ACU
+    vars:
+    - bit: 0
+      description: 车辆转向控制使能
+      enum:
+        0: DISABLE
+        1: ENABLE
+      is_signed_var: false
+      len: 1
+      name: chassis_steer_en_ctrl
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 4
+      description: 转向模式控制
+      enum:
+        0: FRONT_ACKERMAN
+        1: SAME_FRONT_AND_BACK
+        2: FRONT_DIFFERENT_BACK
+        3: BACK_ACKRMAN
+        4: FRONT_BACK
+      is_signed_var: false
+      len: 4
+      name: chassis_steer_mode_ctrl
+      offset: 0.0
+      order: intel
+      physical_range: '[0|15]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 8
+      description: 车辆转向控制(前)
+      is_signed_var: true
+      len: 16
+      name: chassis_steer_angle_target
+      offset: 0.0
+      order: intel
+      physical_range: '[-500|500]'
+      physical_unit: deg
+      precision: 1.0
+      type: int
+    - bit: 24
+      description: 车辆转向控制(后)
+      is_signed_var: true
+      len: 16
+      name: chassis_steer_angle_rear_target
+      offset: 0.0
+      order: intel
+      physical_range: '[-500|500]'
+      physical_unit: deg
+      precision: 1.0
+      type: int
+    - bit: 40
+      description: 车辆方向盘转角速度控制
+      is_signed_var: false
+      len: 8
+      name: chassis_steer_angle_speed_ctrl
+      offset: 0.0
+      order: intel
+      physical_range: '[0|500]'
+      physical_unit: deg/s
+      precision: 2.0
+      type: double
+    - bit: 56
+      description: 校验sum=byte0 xor byte1 xor...byte6
+      is_signed_var: false
+      len: 8
+      name: check_sum_132
+      offset: 0.0
+      order: intel
+      physical_range: '[0|255]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+  '133':
+    id: '133'
+    name: vehicle_ctrl
+    protocol_type: control
+    sender: ACU
+    vars:
+    - bit: 0
+      description: 位置灯控制
+      enum:
+        0: 'OFF'
+        1: 'ON'
+      is_signed_var: false
+      len: 1
+      name: vehicle_pos_lamp_ctrl
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 1
+      description: 近光灯控制
+      enum:
+        0: 'OFF'
+        1: 'ON'
+      is_signed_var: false
+      len: 1
+      name: vehicle_head_lamp_ctrl
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 2
+      description: 左转向灯控制
+      enum:
+        0: 'OFF'
+        1: 'ON'
+      is_signed_var: false
+      len: 1
+      name: vehicle_left_lamp_ctrl
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 3
+      description: 右转向灯控制
+      enum:
+        0: 'OFF'
+        1: 'ON'
+      is_signed_var: false
+      len: 1
+      name: vehicle_right_lamp_ctrl
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 4
+      description: 远光灯控制
+      enum:
+        0: 'OFF'
+        1: 'ON'
+      is_signed_var: false
+      len: 1
+      name: vehicle_high_beam_ctrl
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 5
+      description: 雾灯控制
+      enum:
+        0: 'OFF'
+        1: 'ON'
+      is_signed_var: false
+      len: 1
+      name: vehicle_fog_lamp_ctrl
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 6
+      description: 氛围灯控制
+      enum:
+        0: 'OFF'
+        1: 'ON'
+      is_signed_var: false
+      len: 1
+      name: vehicle_body_light_ctrl
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 7
+      description: 车内灯光总控制
+      enum:
+        0: 'OFF'
+        1: 'ON'
+      is_signed_var: false
+      len: 1
+      name: vehicle_read_light_ctrl
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 8
+      description: 提示音控制
+      enum:
+        0: 'OFF'
+        1: TURN_LEFT
+        2: TURN_RIGHT
+        3: BACKWARD
+      is_signed_var: false
+      len: 2
+      name: vehicle_voice
+      offset: 0.0
+      order: intel
+      physical_range: '[0|3]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 10
+      description: 雨刮控制
+      enum:
+        0: 'OFF'
+        1: LOW
+        2: MID
+        3: HIGH
+      is_signed_var: false
+      len: 2
+      name: vehicle_wipers_ctrl
+      offset: 0.0
+      order: intel
+      physical_range: '[0|3]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 12
+      description: 车门控制
+      enum:
+        0: DEFAULT
+        1: CLOSE
+        2: OPEN
+      is_signed_var: false
+      len: 2
+      name: vehicle_door_ctrl
+      offset: 0.0
+      order: intel
+      physical_range: '[0|3]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 14
+      description: 车窗控制(预留)
+      enum:
+        0: DEFAULT
+        1: CLOSE
+        2: OPEN
+      is_signed_var: false
+      len: 3
+      name: vehicle_window_ctrl
+      offset: 0.0
+      order: intel
+      physical_range: '[0|7]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 24
+      description: 限速控制
+      enum:
+        0: DEFAULT
+        1: LIMIT
+      is_signed_var: false
+      len: 1
+      name: chassis_speed_limite_mode
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 32
+      description: 速度限制值
+      is_signed_var: false
+      len: 16
+      name: chassis_speed_limite_val
+      offset: 0.0
+      order: intel
+      physical_range: '[5|20]'
+      physical_unit: m/s
+      precision: 1.0
+      type: int
+    - bit: 48
+      description: 校验模式使能(预留)
+      enum:
+        0: ENABLE
+        1: DISABLE
+      is_signed_var: false
+      len: 1
+      name: check_sum_en
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+  '135':
+    id: '135'
+    name: wheel_ctrl
+    protocol_type: control
+    sender: ACU
+    vars:
+    - bit: 0
+      description: 左前电机扭矩
+      is_signed_var: true
+      len: 16
+      name: motor_torque_lf_ctrl
+      offset: 0.0
+      order: intel
+      physical_range: '[-200|200]'
+      physical_unit: Nm
+      precision: 0.1
+      type: double
+    - bit: 16
+      description: 右前电机扭矩
+      is_signed_var: true
+      len: 16
+      name: motor_torque_rf_ctrl
+      offset: 0.0
+      order: intel
+      physical_range: '[-200|200]'
+      physical_unit: Nm
+      precision: 0.1
+      type: double
+    - bit: 32
+      description: 左后电机扭矩
+      is_signed_var: true
+      len: 16
+      name: motor_torque_lr_ctrl
+      offset: 0.0
+      order: intel
+      physical_range: '[-200|200]'
+      physical_unit: Nm
+      precision: 0.1
+      type: double
+    - bit: 48
+      description: 右后电机扭矩
+      is_signed_var: true
+      len: 16
+      name: motor_torque_rr_ctrl
+      offset: 0.0
+      order: intel
+      physical_range: '[-200|200]'
+      physical_unit: Nm
+      precision: 0.1
+      type: double
+  '530':
+    id: '530'
+    name: drive_sta_fb
+    protocol_type: report
+    sender: VCU
+    vars:
+    - bit: 0
+      description: 驱动使能状态
+      enum:
+        0: DISABLE
+        1: ENABLE
+      is_signed_var: false
+      len: 1
+      name: chassis_driver_en_sta
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 1
+      description: 驱动控制越界提醒
+      enum:
+        0: NORMAL
+        1: OVER_SLOP
+      is_signed_var: false
+      len: 1
+      name: chassis_diver_slopover
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 2
+      description: 驱动模式反馈
+      enum:
+        0: SPEED_CTRL_MODE
+        1: THROTTLE_CTRL_MODE
+        2: RESERVE
+      is_signed_var: false
+      len: 2
+      name: chassis_driver_mode_sta
+      offset: 0.0
+      order: intel
+      physical_range: '[0|3]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 4
+      description: 档位状态
+      enum:
+        0: NO_USE
+        1: D
+        2: N
+        3: R
+      is_signed_var: false
+      len: 2
+      name: chassis_gear_fb
+      offset: 0.0
+      order: intel
+      physical_range: '[0|3]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 8
+      description: 车速实际反馈
+      is_signed_var: true
+      len: 16
+      name: chassis_speed_fb
+      offset: 0.0
+      order: intel
+      physical_range: '[-50|50]'
+      physical_unit: m/s
+      precision: 0.01
+      type: double
+    - bit: 24
+      description: 油门请求值反馈
+      is_signed_var: false
+      len: 10
+      name: chassis_throttle_pald_fb
+      offset: 0.0
+      order: intel
+      physical_range: '[0|100]'
+      physical_unit: '%'
+      precision: 0.1
+      type: double
+    - bit: 40
+      description: 车辆加速度
+      is_signed_var: true
+      len: 16
+      name: chassis_acceleration_fb
+      offset: 0.0
+      order: intel
+      physical_range: '[-20|20]'
+      physical_unit: m/s2
+      precision: 0.01
+      type: double
+  '531':
+    id: '531'
+    name: brake_sta_fb
+    protocol_type: report
+    sender: VCU
+    vars:
+    - bit: 0
+      description: 制动使能状态
+      enum:
+        0: DISABLE
+        1: ENABLE
+      is_signed_var: false
+      len: 1
+      name: chassis_brake_en_sta
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 2
+      description: 制动灯状态反馈
+      enum:
+        0: 'OFF'
+        1: 'ON'
+      is_signed_var: false
+      len: 1
+      name: vehicle_brake_lamp_fb
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 4
+      description: 驻车状态
+      enum:
+        0: RELEASE
+        1: BRAKE
+        2: RELEASING
+        3: BRAKING
+      is_signed_var: false
+      len: 2
+      name: chassis_epb_fb
+      offset: 0.0
+      order: intel
+      physical_range: '[0|3]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 8
+      description: 制动实际反馈
+      is_signed_var: false
+      len: 10
+      name: chassis_brake_padl_fb
+      offset: 0.0
+      order: intel
+      physical_range: '[0|100]'
+      physical_unit: '%'
+      precision: 0.1
+      type: double
+    - bit: 24
+      description: AEB开启状态反馈
+      enum:
+        0: 'OFF'
+        1: 'ON'
+      is_signed_var: false
+      len: 1
+      name: aeb_en_sta_fb
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 26
+      description: AEB触发状态反馈
+      enum:
+        0: 'OFF'
+        1: AEB_TRIGGER
+      is_signed_var: false
+      len: 1
+      name: aeb_trigger_sta_fb
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+  '532':
+    id: '532'
+    name: steer_sta_fb
+    protocol_type: report
+    sender: VCU
+    vars:
+    - bit: 0
+      description: 转向使能状态
+      enum:
+        0: DISABLE
+        1: ENABLE
+      is_signed_var: false
+      len: 1
+      name: chassis_steer_en_sta
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 1
+      description: 转向控制越界提醒
+      enum:
+        0: NORMAL
+        1: OVER_SLOP
+      is_signed_var: false
+      len: 1
+      name: chassis_steer_slopover
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 2
+      description: 转向线控模式反馈
+      enum:
+        0: MACHINE
+        1: WIRE
+        2: POWER
+      is_signed_var: false
+      len: 2
+      name: chassis_steer_work_mode
+      offset: 0.0
+      order: intel
+      physical_range: '[0|3]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 4
+      description: 转向模式反馈
+      enum:
+        0: FRONT_ACKERMAN
+        1: SAME_FRONT_AND_BACK
+        2: FRONT_DIFFERENT_BACK
+        3: BACK_ACKRMAN
+        4: FRONT_BACK
+      is_signed_var: false
+      len: 4
+      name: chassis_steer_mode_fb
+      offset: 0.0
+      order: intel
+      physical_range: '[0|15]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 8
+      description: 前转向方向盘转角反馈
+      is_signed_var: true
+      len: 16
+      name: chassis_steer_angle_fb
+      offset: 0.0
+      order: intel
+      physical_range: '[-500|500]'
+      physical_unit: deg
+      precision: 1.0
+      type: int
+    - bit: 24
+      description: 后转向方向盘转角反馈
+      is_signed_var: true
+      len: 16
+      name: chassis_steer_angle_rear_fb
+      offset: 0.0
+      order: intel
+      physical_range: '[-500|500]'
+      physical_unit: deg
+      precision: 1.0
+      type: int
+    - bit: 40
+      description: 设置的转向转角速度反馈
+      is_signed_var: false
+      len: 8
+      name: chassis_steer_angle_speed_fb
+      offset: 0.0
+      order: intel
+      physical_range: '[0|500]'
+      physical_unit: deg/s
+      precision: 2.0
+      type: double
+  '534':
+    id: '534'
+    name: vehicle_work_sta_fb
+    protocol_type: report
+    sender: VCU
+    vars:
+    - bit: 0
+      description: 驾驶模式反馈
+      enum:
+        0: STANDBY
+        1: SELF_DRIVING
+        2: REMOTE
+        3: MAN
+      is_signed_var: false
+      len: 2
+      name: driving_mode_fb
+      offset: 0.0
+      order: intel
+      physical_range: '[0|3]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 2
+      description: 车辆上电状态反馈
+      enum:
+        0: INIT
+        1: ON_ACC
+        2: READY
+        3: 'OFF'
+      is_signed_var: false
+      len: 2
+      name: chassis_power_sta_fb
+      offset: 0.0
+      order: intel
+      physical_range: '[0|3]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 4
+      description: DC工作状态
+      enum:
+        0: 'OFF'
+        1: 'ON'
+        2: STANDBY
+      is_signed_var: false
+      len: 2
+      name: chassis_power_dc_sta
+      offset: 0.0
+      order: intel
+      physical_range: '[0|3]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 8
+      description: 车辆限速状态
+      enum:
+        0: DEFAULT
+        1: LIMIT
+      is_signed_var: false
+      len: 1
+      name: chassis_speed_limited_mode_fb
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 9
+      description: 功率限制状态
+      enum:
+        0: DEFAULT
+        1: LIMIT
+      is_signed_var: false
+      len: 1
+      name: chassis_power_limite_sta
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 10
+      description: 节能模式反馈
+      enum:
+        0: DEFAULT
+        1: ECO
+        2: SPORT
+      is_signed_var: false
+      len: 2
+      name: sys_eco_mode
+      offset: 0.0
+      order: intel
+      physical_range: '[0|3]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 16
+      description: 车辆限速值反馈
+      is_signed_var: false
+      len: 16
+      name: chassis_speed_limited_val_fb
+      offset: 0.0
+      order: intel
+      physical_range: '[0|50]'
+      physical_unit: m/s
+      precision: 0.1
+      type: double
+    - bit: 32
+      description: 低压蓄电池电压
+      is_signed_var: false
+      len: 8
+      name: chassis_low_power_volt_sta
+      offset: 0.0
+      order: intel
+      physical_range: '[0|25]'
+      physical_unit: V
+      precision: 0.1
+      type: double
+    - bit: 40
+      description: 紧急停车状态反馈
+      enum:
+        0: 'NO'
+        1: CHASSIS_ESTOP
+        2: REMOTE_ESTOP
+        3: CHASSIS_ERR_ESTOP
+      is_signed_var: false
+      len: 4
+      name: chassis_e_stop_sta_fb
+      offset: 0.0
+      order: intel
+      physical_range: '[0|15]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 44
+      description: 车辆前碰撞传感器反馈
+      enum:
+        0: 'OFF'
+        1: COLLIDE
+      is_signed_var: false
+      len: 1
+      name: crash_front_sta
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 45
+      description: 车辆后碰撞传感器反馈
+      enum:
+        0: 'OFF'
+        1: COLLIDE
+      is_signed_var: false
+      len: 1
+      name: crash_rear_sta
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 46
+      description: 车辆左碰撞传感器反馈
+      enum:
+        0: 'OFF'
+        1: COLLIDE
+      is_signed_var: false
+      len: 1
+      name: crash_left_sta
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 47
+      description: 车辆右碰撞传感器反馈
+      enum:
+        0: 'OFF'
+        1: COLLIDE
+      is_signed_var: false
+      len: 1
+      name: crash_right_sta
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 48
+      description: VCU循环计数
+      is_signed_var: false
+      len: 4
+      name: life
+      offset: 0.0
+      order: intel
+      physical_range: '[0|15]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 56
+      description: 校验sum=byte0 xor byte1 xor...byte6
+      is_signed_var: false
+      len: 8
+      name: check_sum
+      offset: 0.0
+      order: intel
+      physical_range: '[0|255]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+  '535':
+    id: '535'
+    name: power_sta_fb
+    protocol_type: report
+    sender: VCU
+    vars:
+    - bit: 0
+      description: 预留
+      is_signed_var: false
+      len: 4
+      name: chassis_bms_reserved_1
+      offset: 0.0
+      order: intel
+      physical_range: '[0|15]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 4
+      description: 车辆充电状态
+      enum:
+        0: NO_CHARGE
+        1: CHARGE
+        2: CHARGE_FULL
+      is_signed_var: false
+      len: 2
+      name: chassis_power_charge_sta
+      offset: 0.0
+      order: intel
+      physical_range: '[0|3]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 6
+      description: 充电枪连接状态
+      enum:
+        0: NO_CONNECT
+        1: CONNECT
+      is_signed_var: false
+      len: 1
+      name: chassis_power_charge_sock_sta
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 8
+      description: 车辆动力电池电量
+      is_signed_var: false
+      len: 8
+      name: chassis_power_soc_fb
+      offset: 0.0
+      order: intel
+      physical_range: '[0|100]'
+      physical_unit: '%'
+      precision: 1.0
+      type: int
+    - bit: 16
+      description: 车辆动力电池电压
+      is_signed_var: false
+      len: 16
+      name: chassis_power_volt_fb
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1000]'
+      physical_unit: V
+      precision: 0.1
+      type: double
+    - bit: 32
+      description: 车辆动力电池电流
+      is_signed_var: false
+      len: 16
+      name: chassis_power_curr_fb
+      offset: -1000.0
+      order: intel
+      physical_range: '[-1000|1000]'
+      physical_unit: A
+      precision: 0.1
+      type: double
+    - bit: 48
+      description: BMS最高单体温度
+      is_signed_var: false
+      len: 8
+      name: chassis_bms_max_temp
+      offset: -40.0
+      order: intel
+      physical_range: '[-40|80]'
+      physical_unit: ℃
+      precision: 1.0
+      type: int
+    - bit: 56
+      description: 预留
+      is_signed_var: false
+      len: 8
+      name: chassis_bms_reserved_2
+      offset: 0.0
+      order: intel
+      physical_range: '[0|255]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+  '536':
+    id: '536'
+    name: vehicle_sta_fb
+    protocol_type: report
+    sender: VCU
+    vars:
+    - bit: 0
+      description: 位置灯状态反馈
+      enum:
+        0: 'OFF'
+        1: 'ON'
+      is_signed_var: false
+      len: 1
+      name: vehicle_pos_lamp_fb
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 1
+      description: 近光灯状态反馈
+      enum:
+        0: 'OFF'
+        1: 'ON'
+      is_signed_var: false
+      len: 1
+      name: vehicle_head_lamp_fb
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 2
+      description: 左转向灯状态反馈
+      enum:
+        0: 'OFF'
+        1: 'ON'
+      is_signed_var: false
+      len: 1
+      name: vehicle_left_lamp_fb
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 3
+      description: 右转向灯状态反馈
+      enum:
+        0: 'OFF'
+        1: 'ON'
+      is_signed_var: false
+      len: 1
+      name: vehicle_right_lamp_fb
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 4
+      description: 远光灯状态反馈
+      enum:
+        0: 'OFF'
+        1: 'ON'
+      is_signed_var: false
+      len: 1
+      name: vehicle_high_beam_fb
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 5
+      description: 雾灯状态反馈
+      enum:
+        0: 'OFF'
+        1: 'ON'
+      is_signed_var: false
+      len: 1
+      name: vehicle_fog_lamp_fb
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 6
+      description: 危险警示灯开关状态
+      enum:
+        0: 'OFF'
+        1: 'ON'
+      is_signed_var: false
+      len: 1
+      name: vehicle_hazard_war_lamp_fb
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 7
+      description: 车外氛围灯状态反馈
+      enum:
+        0: 'OFF'
+        1: 'ON'
+      is_signed_var: false
+      len: 1
+      name: vehicle_body_lamp_fb
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 8
+      description: 车内灯光状态反馈
+      enum:
+        0: 'OFF'
+        1: 'ON'
+      is_signed_var: false
+      len: 1
+      name: vehicle_read_lamp_fb
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 9
+      description: 车内车窗状态反馈(预留)
+      enum:
+        0: INVALID
+        1: OPENING
+        2: CLOSING
+        3: OPEN_INPLACE
+        4: CLOSE_INPLACE
+        5: OPEN_TIMEOUT
+        6: CLOSE_TIMEOUT
+      is_signed_var: false
+      len: 4
+      name: vehicle_window_fb
+      offset: 0.0
+      order: intel
+      physical_range: '[0|15]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 16
+      description: 车门状态反馈
+      enum:
+        0: INVALID
+        1: OPENING
+        2: CLOSING
+        3: OPEN_INPLACE
+        4: CLOSE_INPLACE
+        5: OPEN_TIMEOUT
+        6: CLOSE_TIMEOUT
+      is_signed_var: false
+      len: 4
+      name: vehicle_door_sta_fb
+      offset: 0.0
+      order: intel
+      physical_range: '[0|15]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 20
+      description: 雨刮状态反馈
+      enum:
+        0: 'OFF'
+        1: LOW
+        2: MID
+        3: HIGH
+      is_signed_var: false
+      len: 2
+      name: vehicle_wipers_sta_fb
+      offset: 0.0
+      order: intel
+      physical_range: '[0|3]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 24
+      description: 安全带状态1反馈
+      enum:
+        0: 'NO'
+        1: SIT
+        2: SAFETYBELT
+        3: UNKNOW
+      is_signed_var: false
+      len: 2
+      name: vehicle_safety_belt1
+      offset: 0.0
+      order: intel
+      physical_range: '[0|3]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 26
+      description: 安全带状态2反馈
+      enum:
+        0: 'NO'
+        1: SIT
+        2: SAFETYBELT
+        3: UNKNOW
+      is_signed_var: false
+      len: 2
+      name: vehicle_safety_belt2
+      offset: 0.0
+      order: intel
+      physical_range: '[0|3]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 28
+      description: 安全带状态3反馈
+      enum:
+        0: 'NO'
+        1: SIT
+        2: SAFETYBELT
+        3: UNKNOW
+      is_signed_var: false
+      len: 2
+      name: vehicle_safety_belt3
+      offset: 0.0
+      order: intel
+      physical_range: '[0|3]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 30
+      description: 安全带状态4反馈
+      enum:
+        0: 'NO'
+        1: SIT
+        2: SAFETYBELT
+        3: UNKNOW
+      is_signed_var: false
+      len: 2
+      name: vehicle_safety_belt4
+      offset: 0.0
+      order: intel
+      physical_range: '[0|3]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+  '537':
+    id: '537'
+    name: vehicle_flt_sta
+    protocol_type: report
+    sender: VCU
+    vars:
+    - bit: 0
+      description: 电机系统过温
+      enum:
+        0: NORMAL
+        1: OVER_TEMP
+      is_signed_var: false
+      len: 1
+      name: sys_motor_over_temp_sta
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 1
+      description: 电池系统过温
+      enum:
+        0: NORMAL
+        1: OVER_TEMP
+      is_signed_var: false
+      len: 1
+      name: sys_bms_over_temp_sta
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 2
+      description: 制动系统过温
+      enum:
+        0: NORMAL
+        1: OVER_TEMP
+      is_signed_var: false
+      len: 1
+      name: sys_brake_over_temp_sta
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 3
+      description: 转向系统过温
+      enum:
+        0: NORMAL
+        1: OVER_TEMP
+      is_signed_var: false
+      len: 1
+      name: sys_steer_over_temp_sta
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 4
+      description: 蓄电池电压过低
+      enum:
+        0: NORMAL
+        1: UNDER_VOLT
+      is_signed_var: false
+      len: 1
+      name: sys_under_volt
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 8
+      description: 系统故障
+      enum:
+        0: NORMAL
+        1: FAULT_LEVEL_1
+        2: FAULT_LEVEL_2
+        3: FAULT_LEVEL_3
+        4: FAULT_LEVEL_4
+      is_signed_var: false
+      len: 4
+      name: sys_flt
+      offset: 0.0
+      order: intel
+      physical_range: '[0|15]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 12
+      description: 制动系统故障
+      enum:
+        0: NORMAL
+        1: FAULT_LEVEL_1
+        2: FAULT_LEVEL_2
+        3: FAULT_LEVEL_3
+        4: FAULT_LEVEL_4
+      is_signed_var: false
+      len: 4
+      name: sys_brake_flt
+      offset: 0.0
+      order: intel
+      physical_range: '[0|15]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 16
+      description: 驻车系统故障
+      enum:
+        0: NORMAL
+        1: FAULT_LEVEL_1
+        2: FAULT_LEVEL_2
+        3: FAULT_LEVEL_3
+        4: FAULT_LEVEL_4
+      is_signed_var: false
+      len: 4
+      name: sys_parking_flt
+      offset: 0.0
+      order: intel
+      physical_range: '[0|15]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 20
+      description: 前转向系统故障
+      enum:
+        0: NORMAL
+        1: FAULT_LEVEL_1
+        2: FAULT_LEVEL_2
+        3: FAULT_LEVEL_3
+        4: FAULT_LEVEL_4
+      is_signed_var: false
+      len: 4
+      name: sys_steer_front_flt
+      offset: 0.0
+      order: intel
+      physical_range: '[0|15]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 24
+      description: 后转向系统故障
+      enum:
+        0: NORMAL
+        1: FAULT_LEVEL_1
+        2: FAULT_LEVEL_2
+        3: FAULT_LEVEL_3
+        4: FAULT_LEVEL_4
+      is_signed_var: false
+      len: 4
+      name: sys_steer_back_flt
+      offset: 0.0
+      order: intel
+      physical_range: '[0|15]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 28
+      description: 左前电机系统故障
+      enum:
+        0: NORMAL
+        1: FAULT_LEVEL_1
+        2: FAULT_LEVEL_2
+        3: FAULT_LEVEL_3
+        4: FAULT_LEVEL_4
+      is_signed_var: false
+      len: 4
+      name: sys_motor_lf_flt
+      offset: 0.0
+      order: intel
+      physical_range: '[0|15]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 32
+      description: 右前电机系统故障
+      enum:
+        0: NORMAL
+        1: FAULT_LEVEL_1
+        2: FAULT_LEVEL_2
+        3: FAULT_LEVEL_3
+        4: FAULT_LEVEL_4
+      is_signed_var: false
+      len: 4
+      name: sys_motor_rf_flt
+      offset: 0.0
+      order: intel
+      physical_range: '[0|15]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 36
+      description: 左后电机系统故障
+      enum:
+        0: NORMAL
+        1: FAULT_LEVEL_1
+        2: FAULT_LEVEL_2
+        3: FAULT_LEVEL_3
+        4: FAULT_LEVEL_4
+      is_signed_var: false
+      len: 4
+      name: sys_motor_lr_flt
+      offset: 0.0
+      order: intel
+      physical_range: '[0|15]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 40
+      description: 右后电机系统故障
+      enum:
+        0: NORMAL
+        1: FAULT_LEVEL_1
+        2: FAULT_LEVEL_2
+        3: FAULT_LEVEL_3
+        4: FAULT_LEVEL_4
+      is_signed_var: false
+      len: 4
+      name: sys_motor_rr_flt
+      offset: 0.0
+      order: intel
+      physical_range: '[0|15]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 44
+      description: BMS系统故障
+      enum:
+        0: NORMAL
+        1: FAULT_LEVEL_1
+        2: FAULT_LEVEL_2
+        3: FAULT_LEVEL_3
+        4: FAULT_LEVEL_4
+      is_signed_var: false
+      len: 4
+      name: sys_bms_flt
+      offset: 0.0
+      order: intel
+      physical_range: '[0|15]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 48
+      description: DC系统故障
+      enum:
+        0: NORMAL
+        1: FAULT_LEVEL_1
+        2: FAULT_LEVEL_2
+        3: FAULT_LEVEL_3
+        4: FAULT_LEVEL_4
+      is_signed_var: false
+      len: 4
+      name: sys_dc_flt
+      offset: 0.0
+      order: intel
+      physical_range: '[0|15]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+  '539':
+    id: '539'
+    name: chassis_wheel_rpm_fb
+    protocol_type: report
+    sender: VCU
+    vars:
+    - bit: 0
+      description: 左前轮转速
+      is_signed_var: true
+      len: 16
+      name: chassis_wheel_rpm_lf
+      offset: 0.0
+      order: intel
+      physical_range: '[-2000|2000]'
+      physical_unit: rpm
+      precision: 1.0
+      type: int
+    - bit: 16
+      description: 右前轮转速
+      is_signed_var: true
+      len: 16
+      name: chassis_wheel_rpm_rf
+      offset: 0.0
+      order: intel
+      physical_range: '[-2000|2000]'
+      physical_unit: rpm
+      precision: 1.0
+      type: int
+    - bit: 32
+      description: 左后轮转速
+      is_signed_var: true
+      len: 16
+      name: chassis_wheel_rpm_lr
+      offset: 0.0
+      order: intel
+      physical_range: '[-2000|2000]'
+      physical_unit: rpm
+      precision: 1.0
+      type: int
+    - bit: 48
+      description: 右后轮转速
+      is_signed_var: true
+      len: 16
+      name: chassis_wheel_rpm_rr
+      offset: 0.0
+      order: intel
+      physical_range: '[-2000|2000]'
+      physical_unit: rpm
+      precision: 1.0
+      type: int
+  '540':
+    id: '540'
+    name: chassis_wheel_tire_press_fb
+    protocol_type: report
+    sender: VCU
+    vars:
+    - bit: 0
+      description: 左前轮胎压
+      is_signed_var: false
+      len: 12
+      name: chassis_wheel_tire_press_lf
+      offset: 0.0
+      order: intel
+      physical_range: '[0|20]'
+      physical_unit: bar
+      precision: 0.01
+      type: double
+    - bit: 16
+      description: 右前轮胎压
+      is_signed_var: false
+      len: 12
+      name: chassis_wheel_tire_press_rf
+      offset: 0.0
+      order: intel
+      physical_range: '[0|20]'
+      physical_unit: bar
+      precision: 0.01
+      type: double
+    - bit: 32
+      description: 左后轮胎压
+      is_signed_var: false
+      len: 12
+      name: chassis_wheel_tire_press_lr
+      offset: 0.0
+      order: intel
+      physical_range: '[0|20]'
+      physical_unit: bar
+      precision: 0.01
+      type: double
+    - bit: 48
+      description: 右后轮胎压
+      is_signed_var: false
+      len: 12
+      name: chassis_wheel_tire_press_rr
+      offset: 0.0
+      order: intel
+      physical_range: '[0|20]'
+      physical_unit: bar
+      precision: 0.01
+      type: double
+  '541':
+    id: '541'
+    name: chassis_wheel_angle_fb
+    protocol_type: report
+    sender: VCU
+    vars:
+    - bit: 0
+      description: 左前轮转向转角度
+      is_signed_var: true
+      len: 12
+      name: chassis_wheel_angle_lf
+      offset: 0.0
+      order: intel
+      physical_range: '[-90|90]'
+      physical_unit: deg
+      precision: 0.1
+      type: double
+    - bit: 16
+      description: 右前轮转向转角度
+      is_signed_var: true
+      len: 12
+      name: chassis_wheel_angle_rf
+      offset: 0.0
+      order: intel
+      physical_range: '[-90|90]'
+      physical_unit: deg
+      precision: 0.1
+      type: double
+    - bit: 32
+      description: 左后轮转向转角度
+      is_signed_var: true
+      len: 12
+      name: chassis_wheel_angle_lr
+      offset: 0.0
+      order: intel
+      physical_range: '[-90|90]'
+      physical_unit: deg
+      precision: 0.1
+      type: double
+    - bit: 48
+      description: 右后轮转向转角度
+      is_signed_var: true
+      len: 12
+      name: chassis_wheel_angle_rr
+      offset: 0.0
+      order: intel
+      physical_range: '[-90|90]'
+      physical_unit: deg
+      precision: 0.1
+      type: double

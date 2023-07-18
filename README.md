@@ -23,6 +23,10 @@ BO_ 1330 SteerStaFb: 8 VCU
  SG_ ChassisSteerAngleRearFb : 24|16@1- (1,0) [-500|500] "deg"  ACU
  SG_ ChassisSteerAngleSpeedFb : 40|8@1+ (2,0) [0|500] "deg/s"  ACU
 ```
+> Constants should not have renames and Chinese names in the dbc file, as shown in the following error example:
+
+![](./imags/error.jpg)
+
 ### 1. copy the DBC file of your vehicle to `config` folder, for example `pixmocing.dbc`, for example `pix_moving_conf.yml`
 
 ```yaml
