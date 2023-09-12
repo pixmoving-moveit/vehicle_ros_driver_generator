@@ -11,6 +11,11 @@ This tool was inspired by the [Gen Vehicle Protocol Tool](https://github.com/Apo
 - `gen_ros_node.py`:  generates the ROS nodes of `control_command` and `report_parser`
 - `gen_config_file.py`:  generates `CMakeLists.txt` and `packages.xml` files
 
+## Installation of dependencies
+```shell
+pip3 install cantools
+```
+
 ## HOW TO USE
 > Notice: The names of CAN frames and the names of variables in CAN frames should be camel case like below.
 ```
