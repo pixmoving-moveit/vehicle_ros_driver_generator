@@ -11,6 +11,7 @@ if len(sys.argv) < 2:
     exit(1)
 
 source_dbc_file = sys.argv[1]
+# source_dbc_file = "/home/dept/zymouse/workspace/dbc_naming_conventions/vehicle_ros_driver_generator/source.dbc"
 if not os.path.exists(source_dbc_file):
     print(f"'{source_dbc_file}' File does not exist.")
     exit(1)
@@ -59,6 +60,10 @@ def pascal_case(text):
         if re.match(r'^[A-Z0-9]+$', parts[i]):
             parts[i]=parts[i].lower().capitalize()
     
+    # 单词全小写时-变大驼峰
+    for i in range(len(parts)):
+        if re.match(r'^[a-z0-9]+$', parts[i]):
+            parts[i]=parts[i].lower().capitalize()
     # 按首字母大写分词
     words = []
     for part in parts:
