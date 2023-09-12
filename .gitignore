@@ -50,6 +50,7 @@ ENV/
 *.pcd
 *.bag
 *.csv
+robobus*.dbc
 
 /.metadata/
 

@@ -85,7 +85,7 @@ for message in db.messages:
         signal.name = a
 
 base_name, file_extension = os.path.splitext(source_dbc_file)
-output_dbc_file = source_dbc_file + '_standardize' + file_extension
+output_dbc_file = base_name + '_standardize' + file_extension
 cantools.database.dump_file(db, output_dbc_file, encoding='utf-8', sort_signals=lambda signals: list(sorted(signals, key=lambda sig: sig.start)) )
 
 
