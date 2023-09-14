@@ -1,9 +1,9 @@
-dbc_file: pixmoving.dbc
-protocol_conf: pixmoving.yml
-car_type: hooke 
+dbc_file: chassis-vcu-protocol-file/BusSCANCommunicationsMatrixACAN.dbc
+protocol_conf: robobus.yml
+car_type: robobus 
 sender_list: [DriveCtrl, BrakeCtrl, SteerCtrl, VehicleCtrl, WheelCtrl]
-sender: ACU
-black_list: []
+sender: RMT
+black_list: ['Throttle_Command', 'Brake_Command', 'Steering_Command', 'Gear_Command', 'Park_Command', 'Vehicle_Mode_Command', ]
 
 output_dir: output
 config_dir: config/

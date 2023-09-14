@@ -6,12 +6,12 @@ import sys
 import os
 
 
-if len(sys.argv) < 2:
-    print( "usage: dbc_naming_conventions.py [your_dbc_file]")
-    exit(1)
+# if len(sys.argv) < 2:
+#     print( "usage: dbc_naming_conventions.py [your_dbc_file]")
+#     exit(1)
 
-source_dbc_file = sys.argv[1]
-# source_dbc_file = "/home/dept/zymouse/workspace/dbc_naming_conventions/vehicle_ros_driver_generator/source.dbc"
+# source_dbc_file = sys.argv[1]
+source_dbc_file = "/home/pixkit/zymouse/vehicle_ros_driver_generator/config/chassis-vcu-protocol-file/BusSCANCommunicationsMatrixACAN.dbc"
 if not os.path.exists(source_dbc_file):
     print(f"'{source_dbc_file}' File does not exist.")
     exit(1)
@@ -64,10 +64,24 @@ def pascal_case(text):
     for i in range(len(parts)):
         if re.match(r'^[a-z0-9]+$', parts[i]):
             parts[i]=parts[i].lower().capitalize()
+    
+    if parts[0].isdigit():
+        print("开头为数值")
+        exit(0)
+        
+    parts_1 = []
+    for i in range(len(parts)):
+        if parts[i].isdigit():
+            parts_1[i-1] = parts_1[i-1] + parts[i]
+        else:
+            parts_1.append(parts[i])
+    parts = parts_1
     # 按首字母大写分词
     words = []
     for part in parts:
-        words.extend(re.findall('[A-Z][a-z0-9]*', part))    
+        result = [match.group(0) for match in re.finditer(r'[A-Z]?[a-z0-9]*', part)] 
+        result = [s for s in result if s]
+        words = words+result
     
     return ''.join(word.lower().capitalize() for word in words)
 
