@@ -11,6 +11,11 @@ This tool was inspired by the [Gen Vehicle Protocol Tool](https://github.com/Apo
 - `gen_ros_node.py`:  generates the ROS nodes of `control_command` and `report_parser`
 - `gen_config_file.py`:  generates `CMakeLists.txt` and `packages.xml` files
 
+## Installation of dependencies
+```shell
+pip3 install cantools
+```
+
 ## HOW TO USE
 > Notice: The names of CAN frames and the names of variables in CAN frames should be camel case like below.
 ```
@@ -23,10 +28,19 @@ BO_ 1330 SteerStaFb: 8 VCU
  SG_ ChassisSteerAngleRearFb : 24|16@1- (1,0) [-500|500] "deg"  ACU
  SG_ ChassisSteerAngleSpeedFb : 40|8@1+ (2,0) [0|500] "deg/s"  ACU
 ```
+> Notice: Execute naming normalization scripts for quick normalization
+
+```shell
+dbc_naming_conventions.py [source_dbc_file_path]
+```
+> Notice: If there is still some irregular naming after execution, you can add the irregular word in the original dbc file, 'BU_'
+
+![](./image/Xnip2023-09-12_13-29-30.jpg)
+
 ### 1. copy the DBC file of your vehicle to `config` folder, for example `pixmocing.dbc`, for example `pix_moving_conf.yml`
 
 ```yaml
-dbc_file: pixmoving.dbc # DBC file
+dbc_file: pixmoving_standardize.dbc # DBC file
 protocol_conf: pixmoving.yml # generated canbus protocol file
 car_type: hooke # name of vehicle, if it is hooke, the generated packages should be 'pix_hooke_driver` and `pix_hooke_driver_msgs`
 sender_list: [DriveCtrl, BrakeCtrl, SteerCtrl, VehicleCtrl, WheelCtrl] # name of CAN Frames that be sent to vehicle
@@ -37,7 +51,7 @@ output_dir: output # output directory
 config_dir: config/ # config file directory
 
 ```
-### 3. run `gen.py`
+### 2. run `gen.py`
 #### run code
 ```bash
 python3 gen.py config/pixmoving_conf.yml
@@ -57,7 +71,7 @@ Generating canID Config file
 ['drive_ctrl', 'brake_ctrl', 'steer_ctrl', 'vehicle_ctrl', 'wheel_ctrl']
 ```
 
-### 4. Auto-generated code
+### 3. Auto-generated code
 the structure of auto-generated code are shown below.
 
 ```bash
