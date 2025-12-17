@@ -19,7 +19,7 @@
 import re
 import shlex
 import sys
-
+import os
 import yaml
 
 
@@ -65,7 +65,7 @@ def extract_var_info(items):
     return car_var
 
 def extract_dbc_meta(dbc_file, out_file, car_type, black_list, sender_list,
-                     sender):
+                     sender,version_major,version_minor):
     """
         the main gen_config func, use dbc file to gen a yaml file
         parse every line, if the line is:
@@ -136,7 +136,7 @@ def extract_dbc_meta(dbc_file, out_file, car_type, black_list, sender_list,
                             enumtype = items[2].upper() + "_" + enumtype
                             var["enum"][int(items[idx])] = enumtype
 
-        cpp_reserved_key_words = ['minor', 'major', 'long', 'int']
+        cpp_reserved_key_words = ['minor', 'major', 'long', 'int', 'auto']
         for key in protocols:
             for var in protocols[key]["vars"]:
                 if var["name"].lower() in cpp_reserved_key_words:
@@ -145,6 +145,8 @@ def extract_dbc_meta(dbc_file, out_file, car_type, black_list, sender_list,
         # print protocols
         config = {}
         config["car_type"] = car_type
+        config["version_major"] = version_major
+        config["version_minor"] = version_minor
         config["protocols"] = protocols
         with open(out_file, 'w') as fp_write:
             fp_write.write(yaml.dump(config))
@@ -170,11 +172,15 @@ if __name__ == "__main__":
         sys.exit(0)
     with open(sys.argv[1], 'r') as fp:
         conf = yaml.safe_load(fp)
-    dbc_file = conf["dbc_file"]
-    protocol_conf_file = conf["protocol_conf"]
+    dbc_file = os.path.join(conf["config_dir"], conf["dbc_file"])
+    protocol_conf = os.path.join(conf["output_dir"], conf["protocol_conf"])
+    
     car_type = conf["car_type"]
     black_list = conf["black_list"]
+    version_major = conf["version_major"]
+    version_minor = conf["version_minor"]
     sender_list = conf["sender_list"]
     sender = conf["sender"]
-    extract_dbc_meta(dbc_file, protocol_conf_file, car_type, black_list,
-                     sender_list, sender)
+    extract_dbc_meta(dbc_file, protocol_conf, car_type, black_list,
+                     sender_list, sender,
+                     )

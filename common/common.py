@@ -14,19 +14,17 @@ def get_tpl_fmt(tpl_file):
     fmt = "".join(fmt)
     return fmt
 
-def get_Name_info(protocols):
-    # 获取canID的基本的信息： message名称， signal名称
+def get_name_info(protocols:dict):
+    # message名称 + CAN-ID = va_vcu_sofver_0x10f
     # infoList 引用列表
     message_name_list = {}
     message_name_list["report"] = list()
     message_name_list["control"] = list()
-    vars_name_dict = {}
-    for i in protocols:
-        protocol = protocols[i]
+    for protocol in protocols.values():
         if protocol["protocol_type"] == "report":
-            message_name_list["report"].append(protocol["name"])
+            message_name_list["report"].append(f"{protocol['name']}")
         elif protocol["protocol_type"] == "control":
-            message_name_list["control"].append(protocol["name"])
+            message_name_list["control"].append(f"{protocol['name']}")
         else:
             print("Unknown protocol_type:%s" % protocol["protocol_type"])
             

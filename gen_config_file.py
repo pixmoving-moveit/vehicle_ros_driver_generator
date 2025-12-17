@@ -58,13 +58,14 @@ def gen_protocols(protocol_conf_file, protocol_dir):
     msgs_CMake_FMT = common.get_tpl_fmt(msgs_CMake_tpl_file)
     msgs_xml_FMT = common.get_tpl_fmt(msgs_xml_tpl_file)
 
-    message_name_list = common.get_Name_info(protocols)
+    message_name_list = common.get_name_info(protocols)
+    print(message_name_list["report"])
     print(message_name_list["control"])
 
     fmt_code_message = {}
-    a = ["src/%s.cc\n" % i for i in message_name_list["report"]]
+    a = ["\tsrc/libs/%s.cc\n" % i for i in message_name_list["report"]]
     fmt_code_message["report_cpp_list"] = "".join(a)
-    a = ["src/%s.cc\n" % i for i in message_name_list["control"]]
+    a = ["\tsrc/libs/%s.cc\n" % i for i in message_name_list["control"]]
     fmt_code_message["command_cpp_list"] = "".join(a)
     fmt_code_message["car_type"] = car_type
 
@@ -79,7 +80,6 @@ def gen_protocols(protocol_conf_file, protocol_dir):
     fmt_msgs_message = {}
     a = message_name_list["report"]
     a.extend(message_name_list["control"])
-    # pprint(a)
     a = ['\t"msg/%s.msg"\n' % snake_case_to_camel_case(i) for i in a]
     fmt_msgs_message["canID_msg_list"] = "".join(a)
     fmt_msgs_message["car_type"] = car_type
@@ -101,13 +101,13 @@ if __name__ == "__main__":
     with open(sys.argv[1], 'r') as fp:
         conf = yaml.safe_load(fp)
 
-    protocol_conf = conf["config_dir"] + conf["protocol_conf"]
     protocol_dir = conf["output_dir"]
     output_dir = conf["output_dir"]
+    protocol_conf = os.path.join(conf["output_dir"], conf["protocol_conf"])
 
     # 递归删除文件夹所有内容
-    shutil.rmtree(output_dir, True)
-    os.makedirs(output_dir)
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+    
     # generate protocols
     gen_protocols(protocol_conf, protocol_dir)
-    # os.makedirs(output_dir+"/dsads/")

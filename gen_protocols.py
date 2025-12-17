@@ -26,6 +26,8 @@ import sys
 import re
 
 import yaml
+from common import common
+
 
 def camel_case_to_snake_case(camel_case: str):
     snake_case = re.sub(r"(?P<key>[A-Z])", r"_\g<key>", camel_case)
@@ -34,20 +36,20 @@ def camel_case_to_snake_case(camel_case: str):
 def snake_case_to_camel_case(snake_str):
     return "".join(x.capitalize() for x in snake_str.lower().split("_"))
 
-def gen_report_header(car_type, protocol, output_dir):
+def gen_report_header(car_type, protocol, output_root_dir):
     """
         doc string:
     """
-    report_header_tpl_file = "template/report_protocol.h.tpl"
+    report_header_tpl_file = "template/protocol_report.h.tpl"
     FMT = get_tpl_fmt(report_header_tpl_file)
-    report_header_file = output_dir + "/pix_"+car_type + \
-        "_driver/include/pix_"+car_type+"_driver/%s.hpp" % protocol["name"]
+    report_header_file = output_root_dir + "/%s.hpp"% (protocol["name"])
     with open(report_header_file, 'w') as h_fp:
         fmt_val = {}
         fmt_val["car_type_lower"] = car_type.lower()
         fmt_val["car_type_upper"] = car_type.upper()
-        fmt_val["protocol_name_upper"] = protocol["name"].upper()
-        fmt_val["classname"] = snake_case_to_camel_case(protocol["name"])
+        message = f'{protocol["name"]}'
+        fmt_val["protocol_name_upper"] = message.upper()
+        fmt_val["classname"] = snake_case_to_camel_case(message)
         protocol_id = int(protocol["id"].upper(), 16)
         if protocol_id > 2048:
             fmt_val["id_upper"] = gen_esd_can_extended(protocol["id"].upper())
@@ -79,26 +81,25 @@ def gen_report_header(car_type, protocol, output_dir):
                 signal_type = vars["type"]
 
             signal_name = vars["name"].lower()
-            signalname_variable += "".join("%s %s_;\n    " %
+            signalname_variable += "".join("%s %s_;\n  " %
                                            (signal_type, signal_name))
 
         fmt_val["signalname_variable"] = signalname_variable
         h_fp.write(FMT % fmt_val)
 
-
-def gen_report_cpp(car_type, protocol, output_dir):
+def gen_report_cpp(car_type, protocol, output_root_dir):
     """
         doc string:
     """
-    report_cpp_tpl_file = "template/report_protocol.cc.tpl"
+    report_cpp_tpl_file = "template/protocol_report.cc.tpl"
     FMT = get_tpl_fmt(report_cpp_tpl_file)
-    report_cpp_file = output_dir + "/pix_"+car_type + \
-        "_driver/src/%s.cc" % protocol["name"]
+    report_cpp_file = output_root_dir + "%s.cc" % (protocol["name"])
     with open(report_cpp_file, 'w') as fp:
         fmt_val = {}
         fmt_val["car_type_lower"] = car_type
-        fmt_val["protocol_name_lower"] = protocol["name"]
-        fmt_val["classname"] = snake_case_to_camel_case(protocol["name"])
+        message = f'{protocol["name"]}'
+        fmt_val["protocol_name_lower"] = message
+        fmt_val["classname"] = snake_case_to_camel_case(message)
         protocol_id = int(protocol["id"].upper(), 16)
         if protocol_id > 2048:
             fmt_val["id_upper"] = gen_esd_can_extended(protocol["id"].upper())
@@ -111,10 +112,7 @@ def gen_report_cpp(car_type, protocol, output_dir):
 
             returntype = var["type"]
             if var["type"] == "enum":
-                # returntype = protocol["name"].capitalize(
-                # ) + "::" + var["name"].capitalize() + "Type"
                 returntype = "int"
-            # gen func top
             fmt = """
 // config detail: %s
 %s %s::%s() {"""
@@ -129,8 +127,6 @@ def gen_report_cpp(car_type, protocol, output_dir):
 
             func_impl_list.append(impl)
             proto_set_fmt = "  %s_ = %s();"
-            func_name = var["name"]
-            # sssssssssssssssssssssssssss
             proto_set = proto_set_fmt % (
                 var["name"].lower(), var["name"].replace('_', ''))
             set_var_to_protocol_list.append(proto_set)
@@ -139,7 +135,6 @@ def gen_report_cpp(car_type, protocol, output_dir):
         fmt_val["func_impl_list"] = "\n".join(func_impl_list)
         fp.write(FMT % fmt_val)
 
-
 def gen_report_value_offset_precision(var, protocol):
     """
         doc string:
@@ -147,14 +142,11 @@ def gen_report_value_offset_precision(var, protocol):
     impl = ""
     if var["is_signed_var"]:
         fmt = "\n  x <<= %d;\n  x >>= %d;\n"
-        # x is an int32_t var
         shift_bit = 32 - var["len"]
         impl = impl + fmt % (shift_bit, shift_bit)
 
     returntype = var["type"]
     if var["type"] == "enum":
-        # returntype = protocol["name"].capitalize() + "::" + var["name"].capitalize(
-        # ) + "Type"
         returntype = "int"
     impl = impl + "\n  " + returntype + " ret = "
 
@@ -193,53 +185,34 @@ def gen_parse_value_impl(var, byte_info):
     return impl
 
 
-def gen_control_header(car_type, protocol, output_dir):
+def gen_control_header(car_type, protocol, output_root_dir):
     """
         doc string:
     """
-    control_header_tpl_file = "template/control_protocol.h.tpl"
+    control_header_tpl_file = "template/protocol_control.h.tpl"
     FMT = get_tpl_fmt(control_header_tpl_file)
-    control_header_file = output_dir + "/pix_"+car_type + \
-        "_driver/include/pix_"+car_type+"_driver/%s.hpp" % protocol["name"]
+    control_header_file = output_root_dir + "/%s.hpp"% (protocol["name"])
     with open(control_header_file, 'w') as h_fp:
         fmt_val = {}
         fmt_val["car_type_lower"] = car_type
         fmt_val["car_type_upper"] = car_type.upper()
-        fmt_val["protocol_name_upper"] = protocol["name"].upper()
-        classname = snake_case_to_camel_case(protocol["name"])
+        message = f'{protocol["name"]}'
+        fmt_val["protocol_name_upper"] = message.upper()
+        classname = snake_case_to_camel_case(message)
         fmt_val["classname"] = classname
-        # declare_public_func_list = []
         declare_private_func_list = []
-        # declare_private_var_list = []
 
-        # fmtpub = "\n  // config detail: %s\n  %s* set_%s(%s %s);"
         fmtpri = "\n  // config detail: %s\n  void set_p_%s(%s %s);"
         for var in protocol["vars"]:
             returntype = var["type"]
             if var["type"] == "enum":
-                # returntype = protocol["name"].capitalize(
-                # ) + "::" + var["name"].capitalize() + "Type"
                 returntype = "int"
-            private_var = ""
-            # public_func_declare = fmtpub % (str(var), classname,
-            #                                 var["name"].lower(), returntype,
-            #                                 var["name"].lower())
             private_func_declare = fmtpri % (str(var), var["name"].lower(),
                                              returntype, var["name"].lower())
-
-            private_var = "  %s %s;" % (returntype, var["name"].lower())
-
-            # declare_private_var_list.append(private_var)
-            # declare_public_func_list.append(public_func_declare)
             declare_private_func_list.append(private_func_declare)
 
-        # fmt_val["declare_public_func_list"] = "\n".join(
-        #     declare_public_func_list)
         fmt_val["declare_private_func_list"] = "\n".join(
             declare_private_func_list)
-        # fmt_val["declare_private_var_list"] = "\n".join(
-        #     declare_private_var_list)
-        # sssssssssssssssssss
         signal_type = ""
         signal_name = ""
         signalname_list = ""
@@ -411,26 +384,25 @@ void %(classname)s::set_p_%(var_name)s(%(var_type)s %(var_name)s) {"""
     return impl + "}\n"
 
 
-def gen_control_cpp(car_type, protocol, output_dir):
+def gen_control_cpp(car_type, protocol, output_root_dir):
     """
         doc string:
     """
-    control_cpp_tpl_file = "template/control_protocol.cc.tpl"
+    control_cpp_tpl_file = "template/protocol_control.cc.tpl"
     FMT = get_tpl_fmt(control_cpp_tpl_file)
-    control_cpp_file = output_dir + "/pix_" + \
-        car_type+"_driver/src/%s.cc" % protocol["name"]
+    control_cpp_file = output_root_dir + "%s.cc" % (protocol["name"])
     with open(control_cpp_file, 'w') as fp:
         fmt_val = {}
         fmt_val["car_type_lower"] = car_type
-        fmt_val["protocol_name_lower"] = protocol["name"]
+        fmt_val["protocol_name_lower"] = f"{protocol['name']}"
         protocol_id = int(protocol["id"].upper(), 16)
         if protocol_id > 2048:
             fmt_val["id_upper"] = gen_esd_can_extended(protocol["id"].upper())
         else:
             fmt_val["id_upper"] = protocol["id"].upper()
-        classname = snake_case_to_camel_case(protocol["name"])
+        message = f'{protocol["name"]}'
+        classname = snake_case_to_camel_case(message)
         fmt_val["classname"] = classname
-        # sssssssssssssssssss
         signal_type = ""
         signal_name = ""
         signalname_list = ""
@@ -476,8 +448,6 @@ def gen_control_cpp(car_type, protocol, output_dir):
         fmt_val["set_func_impl_list"] = "\n".join(set_func_impl_list)
         fp.write(FMT % fmt_val)
 
-#  按行读取模板,返回一个行组成的迭代对象
-
 
 def get_tpl_fmt(tpl_file):
     """
@@ -506,10 +476,12 @@ def gen_protocols(protocol_conf_file, protocol_dir, car_type):
         doc string:
     """
     print("Generating protocols")
-    if not os.path.exists(protocol_dir + "/pix_"+car_type+"_driver/src/"):
-        os.makedirs(protocol_dir + "/pix_"+car_type+"_driver/src/")
-    if not os.path.exists(protocol_dir + "/pix_"+car_type+"_driver/include/pix_"+car_type+"_driver"):
-        os.makedirs(protocol_dir + "/pix_"+car_type+"_driver/include/pix_"+car_type+"_driver")
+    src_path = protocol_dir + "/pix_"+car_type+"_driver/src/libs/"
+    include_path = protocol_dir + "/pix_"+car_type+"_driver/include/libs"
+    if not os.path.exists(src_path):
+        os.makedirs(src_path)
+    if not os.path.exists(include_path):
+        os.makedirs(include_path)
 
     with open(protocol_conf_file, 'r') as fp:
         content = yaml.safe_load(fp)
@@ -519,15 +491,26 @@ def gen_protocols(protocol_conf_file, protocol_dir, car_type):
             protocol = protocols[p_name]
 
             if protocol["protocol_type"] == "report":
-                gen_report_header(car_type, protocol, protocol_dir)
-                gen_report_cpp(car_type, protocol, protocol_dir)
+                gen_report_header(car_type, protocol, include_path)
+                gen_report_cpp(car_type, protocol, src_path)
             elif protocol["protocol_type"] == "control":
-                gen_control_header(car_type, protocol, protocol_dir)
-                gen_control_cpp(car_type, protocol, protocol_dir)
+                gen_control_header(car_type, protocol, include_path)
+                gen_control_cpp(car_type, protocol, src_path)
 
             else:
                 print("Unknown protocol_type:%s" % protocol["protocol_type"])
 
+    # 写入Byte.cc和Byte.hpp
+    byte_mani_cpp_tpl = "template/Byte.cc.tpl"
+    byte_mani_hpp_tpl = "template/Byte.hpp.tpl"
+    byte_mani_cpp_FMT = common.get_tpl_fmt(byte_mani_cpp_tpl)
+    byte_mani_hpp_FMT = common.get_tpl_fmt(byte_mani_hpp_tpl)
+    byte_mani_cpp = protocol_dir + "/pix_"+car_type+"_driver/src/libs/Byte.cc"
+    byte_mani_hpp = protocol_dir + "/pix_"+car_type+"_driver/include/libs/Byte.hpp"
+    with open(byte_mani_cpp, "w") as fp:
+        fp.write(byte_mani_cpp_FMT)
+    with open(byte_mani_hpp, "w") as fp:
+        fp.write(byte_mani_hpp_FMT)
 
 def gen_esd_can_extended(str):
     """
@@ -546,9 +529,8 @@ if __name__ == "__main__":
         sys.exit(0)
     with open(sys.argv[1], 'r') as fp:
         conf = yaml.safe_load(fp)
-    protocol_conf = conf["protocol_conf"]
+    protocol_conf = os.path.join(conf["output_dir"], conf["protocol_conf"])
+    car_type = conf["car_type"]
+    output_dir = conf["output_dir"]
 
-    protocol_dir = conf["output_dir"] + "vehicle/"
-    shutil.rmtree(protocol_dir, True)
-    os.makedirs(protocol_dir)
-    gen_protocols(protocol_conf, protocol_dir)
+    gen_protocols(protocol_conf, output_dir, car_type)

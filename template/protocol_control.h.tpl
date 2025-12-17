@@ -1,17 +1,14 @@
 #pragma once
-#include <pix_%(car_type_lower)s_driver/Byte.hpp>
+#include <libs/Byte.hpp>
 
 class %(classname)s {
 public:
 	static  int32_t ID;
 
 	%(classname)s();
-
-  	void UpdateData(%(signalname_list)s);
-
-  	void Reset();
-  
-  	uint8_t *get_data();
+	void UpdateData(%(signalname_list)s);
+	void Reset();
+	uint8_t *get_data();
 
 
 private:

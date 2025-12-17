@@ -7,10 +7,12 @@
   <maintainer email="pixmoving@pixmoving.net">pixmoving</maintainer>
   <license>Apache License 2.0</license>
 
-  <depend>can_msgs</depend>
   <depend>pix_%(car_type)s_driver_msgs</depend>
+  <depend>can_msgs</depend>
+  <depend>rclcpp_components</depend>
   <depend>rclcpp</depend>
   <depend>std_msgs</depend>
+  <depend>diagnostic_updater</depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>autoware_lint_common</test_depend>
