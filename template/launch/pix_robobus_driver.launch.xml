@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="base_frame_id" default="base_link" />
+  <arg name="loop_rate" default="50.0" />
+  <arg name="pix_interface_driver_period_ms" default="50.0" />
+  <arg name="PROJECT_NAME" default="pix_robobus_driver" />
+
+  <node pkg="$(var PROJECT_NAME)" name="$(var PROJECT_NAME)_control_command_node" exec="$(var PROJECT_NAME)_control_command_node" output="own_log">
+    <param name="base_frame_id" value="$(var base_frame_id)"/>
+    <param name="loop_rate" value="$(var loop_rate)"/>
+    <param name="pix_interface_driver_period_ms" value="$(var pix_interface_driver_period_ms)"/>
+    <remap from="output/can_tx" to="/to_can_bus" />
+    <remap from="input/engage" to="/$(var PROJECT_NAME)/control_command/engage" />
+  </node>
+  <node pkg="$(var PROJECT_NAME)" name="$(var PROJECT_NAME)_report_parser_node" exec="$(var PROJECT_NAME)_report_parser_node" output="own_log">
+    <param name="base_frame_id" value="$(var base_frame_id)"/>
+    <param name="loop_rate" value="$(var loop_rate)"/>
+    <param name="pix_interface_driver_period_ms" value="$(var pix_interface_driver_period_ms)"/>
+    <remap from="input/can_rx" to="/from_can_bus" />
+  </node>
+</launch>

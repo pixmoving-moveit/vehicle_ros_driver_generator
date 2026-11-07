@@ -1,0 +1,2484 @@
+car_type: marvel
+protocols:
+  '50':
+    id: '50'
+    name: brake_command
+    protocol_type: control
+    sender: ADS
+    vars:
+    - bit: 56
+      is_signed_var: false
+      len: 8
+      name: brk_req_chksm
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 48
+      is_signed_var: false
+      len: 4
+      name: brk_req_rc
+      offset: 0.0
+      order: intel
+      physical_range: '[0|15]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 16
+      name: brk_req_val
+      offset: 0.0
+      order: intel
+      physical_range: '[0|99.9]'
+      physical_unit: '%'
+      precision: 0.00152590218966964
+      type: double
+    - bit: 24
+      is_signed_var: false
+      len: 1
+      name: brk_req_en
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+  '51':
+    id: '51'
+    name: brake_report
+    protocol_type: report
+    sender: GW
+    vars:
+    - bit: 59
+      is_signed_var: false
+      len: 1
+      name: brk_pdl_appd
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 58
+      is_signed_var: false
+      len: 1
+      name: brk_avl
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 62
+      is_signed_var: false
+      len: 1
+      name: brk_flt
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 48
+      is_signed_var: false
+      len: 4
+      name: brk_rpt_rc
+      offset: 0.0
+      order: intel
+      physical_range: '[0|15]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 32
+      is_signed_var: false
+      len: 16
+      name: brk_out
+      offset: 0.0
+      order: intel
+      physical_range: '[0|100]'
+      physical_unit: '%'
+      precision: 0.00152590218966964
+      type: double
+    - bit: 0
+      is_signed_var: false
+      len: 16
+      name: brk_pdl_pos
+      offset: 0.0
+      order: intel
+      physical_range: '[0|100]'
+      physical_unit: '%'
+      precision: 0.00152590218966964
+      type: double
+    - bit: 63
+      is_signed_var: false
+      len: 1
+      name: brk_cmd_timeout
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 56
+      is_signed_var: false
+      len: 1
+      name: brk_rpt_en
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 57
+      is_signed_var: false
+      len: 1
+      name: brk_over_ride
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+  '52':
+    id: '52'
+    name: throttle_command
+    protocol_type: control
+    sender: ADS
+    vars:
+    - bit: 56
+      is_signed_var: false
+      len: 8
+      name: thr_req_chksm
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 48
+      is_signed_var: false
+      len: 4
+      name: thr_req_rc
+      offset: 0.0
+      order: intel
+      physical_range: '[0|15]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 16
+      name: thr_req_val
+      offset: 0.0
+      order: intel
+      physical_range: '[0|100]'
+      physical_unit: '%'
+      precision: 0.00152590218966964
+      type: double
+    - bit: 24
+      is_signed_var: false
+      len: 1
+      name: thr_req_en
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+  '53':
+    id: '53'
+    name: throttle_report
+    protocol_type: report
+    sender: GW
+    vars:
+    - bit: 55
+      is_signed_var: false
+      len: 1
+      name: vcu_override_status
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 58
+      is_signed_var: false
+      len: 1
+      name: thr_avl
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 62
+      is_signed_var: false
+      len: 1
+      name: thr_flt
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 48
+      is_signed_var: false
+      len: 4
+      name: thr_rpt_rc
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 32
+      is_signed_var: false
+      len: 16
+      name: thr_out
+      offset: -848.0
+      order: intel
+      physical_range: '[-848|2000]'
+      physical_unit: ''
+      precision: 0.5
+      type: double
+    - bit: 0
+      is_signed_var: false
+      len: 16
+      name: thr_actl_pos
+      offset: 0.0
+      order: intel
+      physical_range: '[0|100]'
+      physical_unit: '%'
+      precision: 0.00152590218966964
+      type: double
+    - bit: 63
+      is_signed_var: false
+      len: 1
+      name: thr_cmd_timeout
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 56
+      is_signed_var: false
+      len: 1
+      name: thr_rpt_en
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 57
+      is_signed_var: false
+      len: 1
+      name: thr_over_ride
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+  '54':
+    id: '54'
+    name: steering_command
+    protocol_type: control
+    sender: ADS
+    vars:
+    - bit: 17
+      is_signed_var: false
+      len: 2
+      name: eps_ctl_mod
+      offset: 0.0
+      order: intel
+      physical_range: '[0|15]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 32
+      is_signed_var: false
+      len: 11
+      name: lka_req_toq_val
+      offset: -10.24
+      order: intel
+      physical_range: '[-10.24|10.23]'
+      physical_unit: ''
+      precision: 0.01
+      type: double
+    - bit: 43
+      is_signed_var: false
+      len: 1
+      name: lka_req_toq_en
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 56
+      is_signed_var: false
+      len: 8
+      name: str_req_chksm
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 48
+      is_signed_var: false
+      len: 4
+      name: str_req_rc
+      offset: 0.0
+      order: intel
+      physical_range: '[0|15]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 24
+      is_signed_var: false
+      len: 8
+      name: str_whl_ang_spd_req
+      offset: 0.0
+      order: intel
+      physical_range: '[0|500]'
+      physical_unit: degrees/s
+      precision: 2.0
+      type: double
+    - bit: 16
+      is_signed_var: false
+      len: 1
+      name: str_req_en
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 0
+      is_signed_var: true
+      len: 16
+      name: str_whl_ang_req_val
+      offset: 0.0
+      order: intel
+      physical_range: '[-470|470]'
+      physical_unit: degrees
+      precision: 0.1
+      type: double
+  '55':
+    id: '55'
+    name: steering_report
+    protocol_type: report
+    sender: GW
+    vars:
+    - bit: 24
+      is_signed_var: false
+      len: 12
+      name: strg_whl_ang_grd
+      offset: -2048.0
+      order: intel
+      physical_range: '[-2048|2046]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 58
+      is_signed_var: false
+      len: 1
+      name: str_avl
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 62
+      is_signed_var: false
+      len: 1
+      name: str_flt
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 48
+      is_signed_var: false
+      len: 4
+      name: str_rpt_rc
+      offset: 0.0
+      order: intel
+      physical_range: '[0|15]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 63
+      is_signed_var: false
+      len: 1
+      name: str_cmd_timeout
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 16
+      is_signed_var: true
+      len: 8
+      name: drvr_strg_dlvrd_toq
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: Nm
+      precision: 0.0625
+      type: double
+    - bit: 56
+      is_signed_var: false
+      len: 1
+      name: str_rpt_en
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 57
+      is_signed_var: false
+      len: 1
+      name: str_over_ride
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 0
+      is_signed_var: true
+      len: 16
+      name: str_whl_ang_val
+      offset: 0.0
+      order: intel
+      physical_range: '[-470|470]'
+      physical_unit: degrees
+      precision: 0.1
+      type: double
+  '56':
+    id: '56'
+    name: gear_command
+    protocol_type: control
+    sender: ADS
+    vars:
+    - bit: 48
+      is_signed_var: false
+      len: 4
+      name: gear_rc
+      offset: 0.0
+      order: intel
+      physical_range: '[0|15]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 56
+      is_signed_var: false
+      len: 8
+      name: gear_chksm
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 3
+      is_signed_var: false
+      len: 1
+      name: gear_req_en
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 0
+      is_signed_var: false
+      len: 3
+      name: gear_pos_req
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+  '57':
+    id: '57'
+    name: gear_report
+    protocol_type: report
+    sender: GW
+    vars:
+    - bit: 3
+      is_signed_var: false
+      len: 1
+      name: gear_cmd_timeout
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 15
+      is_signed_var: false
+      len: 1
+      name: gear_avl
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 8
+      is_signed_var: false
+      len: 3
+      name: gear_ctl_sts
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 3
+      name: gear_actl_pos
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+  '58':
+    id: '58'
+    name: light_command
+    protocol_type: control
+    sender: ADS
+    vars:
+    - bit: 10
+      is_signed_var: false
+      len: 1
+      name: width_lamp_req
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 9
+      is_signed_var: false
+      len: 1
+      name: pass_lamp_req
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 8
+      is_signed_var: false
+      len: 1
+      name: auto_lamp_req
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 7
+      is_signed_var: false
+      len: 1
+      name: fog_lamp_req
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 6
+      is_signed_var: false
+      len: 1
+      name: low_beam_req
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 5
+      is_signed_var: false
+      len: 1
+      name: high_beam_req
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 4
+      is_signed_var: false
+      len: 1
+      name: horn
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 3
+      is_signed_var: false
+      len: 1
+      name: emeg_lamp_req
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 48
+      is_signed_var: false
+      len: 4
+      name: lght_req_rc
+      offset: 0.0
+      order: intel
+      physical_range: '[0|15]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 2
+      is_signed_var: false
+      len: 1
+      name: lght_en
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 0
+      is_signed_var: false
+      len: 2
+      name: trn_lght_req
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+  '59':
+    id: '59'
+    name: vehicle_report
+    protocol_type: report
+    sender: GW
+    vars:
+    - bit: 46
+      is_signed_var: false
+      len: 2
+      name: lo_beam
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 44
+      is_signed_var: false
+      len: 2
+      name: turn_light_sw_out
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 43
+      is_signed_var: false
+      len: 1
+      name: auto_off
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 42
+      is_signed_var: false
+      len: 1
+      name: auto_on
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 41
+      is_signed_var: false
+      len: 1
+      name: lght_cmd_timeout
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 40
+      is_signed_var: false
+      len: 1
+      name: lght_avl
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 39
+      is_signed_var: false
+      len: 1
+      name: move_dir
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 15
+      is_signed_var: false
+      len: 1
+      name: is_move
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 35
+      is_signed_var: false
+      len: 1
+      name: ld_up
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 38
+      is_signed_var: false
+      len: 1
+      name: ld_rht
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 34
+      is_signed_var: false
+      len: 1
+      name: ld_ok
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 37
+      is_signed_var: false
+      len: 1
+      name: ld_lft
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 36
+      is_signed_var: false
+      len: 1
+      name: ld_dwn
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 14
+      is_signed_var: false
+      len: 1
+      name: cu_cl
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 13
+      is_signed_var: false
+      len: 1
+      name: cu_res
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 11
+      is_signed_var: false
+      len: 1
+      name: cu_on
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 12
+      is_signed_var: false
+      len: 1
+      name: cu_off
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 33
+      is_signed_var: false
+      len: 1
+      name: belt_psg
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 32
+      is_signed_var: false
+      len: 1
+      name: belt_drv
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 31
+      is_signed_var: false
+      len: 1
+      name: psg_air_bag
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 30
+      is_signed_var: false
+      len: 1
+      name: psg_dect
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 29
+      is_signed_var: false
+      len: 1
+      name: trunk
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 28
+      is_signed_var: false
+      len: 1
+      name: hood
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 27
+      is_signed_var: false
+      len: 1
+      name: door_right
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 25
+      is_signed_var: false
+      len: 1
+      name: door_psg
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 26
+      is_signed_var: false
+      len: 1
+      name: door_left
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 24
+      is_signed_var: false
+      len: 1
+      name: door_drv
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 4
+      is_signed_var: false
+      len: 4
+      name: wiper
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 2
+      name: trn_lght_sts
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 18
+      is_signed_var: false
+      len: 1
+      name: s_inc
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 19
+      is_signed_var: false
+      len: 1
+      name: s_dec
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 16
+      is_signed_var: false
+      len: 1
+      name: on_off
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 22
+      is_signed_var: false
+      len: 1
+      name: lka_en
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 2
+      is_signed_var: false
+      len: 2
+      name: hi_beam
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 20
+      is_signed_var: false
+      len: 1
+      name: g_inc
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 21
+      is_signed_var: false
+      len: 1
+      name: g_dec
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 23
+      is_signed_var: false
+      len: 1
+      name: flt_bus
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 17
+      is_signed_var: false
+      len: 1
+      name: res_cncl
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 8
+      is_signed_var: false
+      len: 3
+      name: ambient
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+  5a:
+    id: 5a
+    name: wheel_speed_report
+    protocol_type: report
+    sender: GW
+    vars:
+    - bit: 48
+      is_signed_var: true
+      len: 16
+      name: rear_right
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: km/h
+      precision: 0.01
+      type: double
+    - bit: 32
+      is_signed_var: true
+      len: 16
+      name: rear_left
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: km/h
+      precision: 0.01
+      type: double
+    - bit: 16
+      is_signed_var: true
+      len: 16
+      name: front_right
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: km/h
+      precision: 0.01
+      type: double
+    - bit: 0
+      is_signed_var: true
+      len: 16
+      name: front_left
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: km/h
+      precision: 0.01
+      type: double
+  5b:
+    id: 5b
+    name: accel_report
+    protocol_type: report
+    sender: GW
+    vars:
+    - bit: 32
+      is_signed_var: true
+      len: 16
+      name: vert
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: m/s^2
+      precision: 0.01
+      type: double
+    - bit: 16
+      is_signed_var: true
+      len: 16
+      name: lon
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: m/s^2
+      precision: 0.01
+      type: double
+    - bit: 0
+      is_signed_var: true
+      len: 16
+      name: lat
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: m/s^2
+      precision: 0.01
+      type: double
+  5c:
+    id: 5c
+    name: gyro_report
+    protocol_type: report
+    sender: GW
+    vars:
+    - bit: 16
+      is_signed_var: true
+      len: 16
+      name: yaw
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: rad/s
+      precision: 0.0002
+      type: double
+    - bit: 0
+      is_signed_var: true
+      len: 16
+      name: roll
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: rad/s
+      precision: 0.0002
+      type: double
+  '60':
+    id: '60'
+    name: wheel_position_report
+    protocol_type: report
+    sender: GW
+    vars:
+    - bit: 48
+      is_signed_var: false
+      len: 16
+      name: esc_sum_of_edge_r_r_wss
+      offset: 0.0
+      order: intel
+      physical_range: '[0|65535]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 32
+      is_signed_var: false
+      len: 16
+      name: esc_sum_of_edge_r_l_wss
+      offset: 0.0
+      order: intel
+      physical_range: '[0|65535]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 16
+      is_signed_var: false
+      len: 16
+      name: esc_sum_of_edge_f_r_wss
+      offset: 0.0
+      order: intel
+      physical_range: '[0|65535]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 16
+      name: esc_sum_of_edge_f_l_wss
+      offset: 0.0
+      order: intel
+      physical_range: '[0|65535]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+  '61':
+    id: '61'
+    name: ads_command
+    protocol_type: control
+    sender: ADS
+    vars:
+    - bit: 32
+      is_signed_var: false
+      len: 8
+      name: acc_target_ax_lower_limit_new
+      offset: -12.5
+      order: intel
+      physical_range: '[-12.5|12.5]'
+      physical_unit: ''
+      precision: 0.1
+      type: double
+    - bit: 24
+      is_signed_var: false
+      len: 8
+      name: acc_target_ax_upper_limit_new
+      offset: -12.5
+      order: intel
+      physical_range: '[-12.5|12.5]'
+      physical_unit: ''
+      precision: 0.1
+      type: double
+    - bit: 48
+      is_signed_var: false
+      len: 4
+      name: acc_req_rc
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 56
+      is_signed_var: false
+      len: 8
+      name: acc_chksm
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 4
+      is_signed_var: false
+      len: 1
+      name: acc_req_en
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 8
+      is_signed_var: false
+      len: 12
+      name: acc_acc_req_val
+      offset: -10.24
+      order: intel
+      physical_range: '[-10.24|10.24]'
+      physical_unit: ''
+      precision: 0.005
+      type: double
+    - bit: 0
+      is_signed_var: false
+      len: 4
+      name: ads_mod
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+  '62':
+    id: '62'
+    name: vcu_state
+    protocol_type: report
+    sender: GW
+    vars:
+    - bit: 48
+      is_signed_var: true
+      len: 16
+      name: vcu_rear_motor_rpm
+      offset: 0.0
+      order: intel
+      physical_range: '[-30000|30000]'
+      physical_unit: RPM
+      precision: 1.0
+      type: int
+    - bit: 32
+      is_signed_var: true
+      len: 16
+      name: vcu_front_motor_rpm
+      offset: 0.0
+      order: intel
+      physical_range: '[-30000|30000]'
+      physical_unit: RPM
+      precision: 1.0
+      type: int
+    - bit: 17
+      is_signed_var: false
+      len: 1
+      name: vcu_ready
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 16
+      is_signed_var: false
+      len: 1
+      name: vcu_tcm_fail
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 0
+      is_signed_var: false
+      len: 16
+      name: fuel
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: '%'
+      precision: 0.108696
+      type: double
+  '64':
+    id: '64'
+    name: brake_info_report
+    protocol_type: report
+    sender: GW
+    vars:
+    - bit: 63
+      is_signed_var: false
+      len: 1
+      name: trac_enable
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 62
+      is_signed_var: false
+      len: 1
+      name: trac_activate
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 61
+      is_signed_var: false
+      len: 1
+      name: stab_enable
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 60
+      is_signed_var: false
+      len: 1
+      name: stab_activate
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 48
+      is_signed_var: true
+      len: 10
+      name: aog
+      offset: 0.0
+      order: intel
+      physical_range: '[-17.92|17.885]'
+      physical_unit: m/s^2
+      precision: 0.035
+      type: double
+    - bit: 59
+      is_signed_var: false
+      len: 1
+      name: abs_enable
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 58
+      is_signed_var: false
+      len: 1
+      name: abs_activate
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 32
+      is_signed_var: true
+      len: 14
+      name: whl_trq
+      offset: 0.0
+      order: intel
+      physical_range: '[-32768|32764]'
+      physical_unit: Nm
+      precision: 4.0
+      type: double
+    - bit: 30
+      is_signed_var: false
+      len: 2
+      name: p_brake
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 15
+      is_signed_var: false
+      len: 1
+      name: statnry
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 12
+      is_signed_var: false
+      len: 3
+      name: hsa_stat
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 28
+      is_signed_var: false
+      len: 2
+      name: hsa_mode
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 12
+      name: brk_trq_req
+      offset: 0.0
+      order: intel
+      physical_range: '[0|16380]'
+      physical_unit: Nm
+      precision: 4.0
+      type: double
+    - bit: 16
+      is_signed_var: false
+      len: 12
+      name: brk_trq_act
+      offset: 0.0
+      order: intel
+      physical_range: '[0|16380]'
+      physical_unit: Nm
+      precision: 4.0
+      type: double
+  '65':
+    id: '65'
+    name: throttle_info_report
+    protocol_type: report
+    sender: GW
+    vars:
+    - bit: 16
+      is_signed_var: false
+      len: 16
+      name: veh_spd
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: kph
+      precision: 0.01
+      type: double
+    - bit: 40
+      is_signed_var: false
+      len: 24
+      name: odo
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 16
+      name: eng_spd
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: RPM
+      precision: 0.25
+      type: double
+  '70':
+    id: '70'
+    name: apa_command
+    protocol_type: control
+    sender: ADS
+    vars:
+    - bit: 32
+      is_signed_var: false
+      len: 3
+      name: apa_tgr_gear_req
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 16
+      is_signed_var: false
+      len: 12
+      name: apa_stop_distance
+      offset: 0.0
+      order: intel
+      physical_range: '[0|4000]'
+      physical_unit: cm
+      precision: 1.0
+      type: int
+    - bit: 52
+      is_signed_var: false
+      len: 4
+      name: apa_req_rc
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 56
+      is_signed_var: false
+      len: 8
+      name: apa_chksm
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 6
+      name: apa_spd_limit
+      offset: 0.0
+      order: intel
+      physical_range: '[0|6.3]'
+      physical_unit: km/h
+      precision: 0.1
+      type: double
+    - bit: 6
+      is_signed_var: false
+      len: 1
+      name: apa_en
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 8
+      is_signed_var: false
+      len: 8
+      name: apa_accl_req_val
+      offset: -12.7
+      order: intel
+      physical_range: '[-12.7|12.8]'
+      physical_unit: m/s2
+      precision: 0.1
+      type: double
+    - bit: 7
+      is_signed_var: false
+      len: 1
+      name: apa_accl_req_en
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+  '701':
+    id: '701'
+    name: test_id
+    protocol_type: report
+    sender: Vector__XXX
+    vars:
+    - bit: 0
+      is_signed_var: false
+      len: 4
+      name: test_mode
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 56
+      is_signed_var: false
+      len: 8
+      name: test_mode_chk_sm
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+  '71':
+    id: '71'
+    name: acc_command
+    protocol_type: control
+    sender: ADS
+    vars:
+    - bit: 5
+      is_signed_var: false
+      len: 1
+      name: acc_drive_off_req
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 4
+      is_signed_var: false
+      len: 1
+      name: acc_dec_to_stop_req
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 32
+      is_signed_var: false
+      len: 7
+      name: acc_target_ax_upper_limit
+      offset: 0.0
+      order: intel
+      physical_range: '[0|12.7]'
+      physical_unit: m/s2
+      precision: 0.1
+      type: double
+    - bit: 16
+      is_signed_var: false
+      len: 7
+      name: acc_target_ax_upper_comft_band
+      offset: 0.0
+      order: intel
+      physical_range: '[0|3.15]'
+      physical_unit: m/s2
+      precision: 0.05
+      type: double
+    - bit: 40
+      is_signed_var: false
+      len: 7
+      name: acc_target_ax_lower_limit
+      offset: -12.7
+      order: intel
+      physical_range: '[-12.7|0]'
+      physical_unit: m/s2
+      precision: 0.1
+      type: double
+    - bit: 24
+      is_signed_var: false
+      len: 7
+      name: acc_target_ax_lower_comft_band
+      offset: 0.0
+      order: intel
+      physical_range: '[0|3.15]'
+      physical_unit: m/s2
+      precision: 0.05
+      type: double
+    - bit: 8
+      is_signed_var: false
+      len: 8
+      name: acc_target_ax
+      offset: -7.0
+      order: intel
+      physical_range: '[-7|5.75]'
+      physical_unit: m/s2
+      precision: 0.05
+      type: double
+    - bit: 0
+      is_signed_var: false
+      len: 3
+      name: acc_state
+      offset: 0.0
+      order: intel
+      physical_range: '[0|7]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 3
+      is_signed_var: false
+      len: 1
+      name: acc_standstill_req
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 52
+      is_signed_var: false
+      len: 4
+      name: acc_rolling_counter
+      offset: 0.0
+      order: intel
+      physical_range: '[0|15]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 56
+      is_signed_var: false
+      len: 8
+      name: acc_check_sum
+      offset: 0.0
+      order: intel
+      physical_range: '[0|255]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+  '72':
+    id: '72'
+    name: acc_info_report
+    protocol_type: report
+    sender: GW
+    vars:
+    - bit: 32
+      is_signed_var: false
+      len: 7
+      name: acc_ax_upper_limit_val
+      offset: 0.0
+      order: intel
+      physical_range: '[0|12.7]'
+      physical_unit: m/s2
+      precision: 0.1
+      type: double
+    - bit: 16
+      is_signed_var: false
+      len: 7
+      name: acc_ax_upper_comft_band_val
+      offset: 0.0
+      order: intel
+      physical_range: '[0|3.15]'
+      physical_unit: m/s2
+      precision: 0.05
+      type: double
+    - bit: 40
+      is_signed_var: false
+      len: 7
+      name: acc_ax_lower_limit_val
+      offset: -12.7
+      order: intel
+      physical_range: '[-12.7|0]'
+      physical_unit: m/s2
+      precision: 0.1
+      type: double
+    - bit: 24
+      is_signed_var: false
+      len: 7
+      name: acc_ax_lower_comft_band_val
+      offset: 0.0
+      order: intel
+      physical_range: '[0|3.15]'
+      physical_unit: m/s2
+      precision: 0.05
+      type: double
+  '73':
+    id: '73'
+    name: aeb_command
+    protocol_type: control
+    sender: ADS
+    vars:
+    - bit: 0
+      is_signed_var: false
+      len: 10
+      name: mrr_aeb_target_ax
+      offset: -16.0
+      order: intel
+      physical_range: '[-16|16]'
+      physical_unit: m/s2
+      precision: 0.05
+      type: double
+    - bit: 10
+      is_signed_var: false
+      len: 1
+      name: mrr_eba_req
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 11
+      is_signed_var: false
+      len: 1
+      name: mrr_aeb_req
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 12
+      is_signed_var: false
+      len: 2
+      name: mrr_aba_level
+      offset: 0.0
+      order: intel
+      physical_range: '[0|3]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 14
+      is_signed_var: false
+      len: 1
+      name: mrr_aba_req
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 15
+      is_signed_var: false
+      len: 1
+      name: mrr_awb_req
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 16
+      is_signed_var: false
+      len: 3
+      name: mrr_awb_level
+      offset: 0.0
+      order: intel
+      physical_range: '[0|7]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 19
+      is_signed_var: false
+      len: 1
+      name: mrr_abp_req
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 20
+      is_signed_var: false
+      len: 2
+      name: mrr_aeb_on_off_status
+      offset: 0.0
+      order: intel
+      physical_range: '[0|3]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 33
+      is_signed_var: false
+      len: 3
+      name: mrr_pebs_warning
+      offset: 0.0
+      order: intel
+      physical_range: '[0|7]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 40
+      is_signed_var: false
+      len: 2
+      name: mrr_pcw_on_off_status
+      offset: 0.0
+      order: intel
+      physical_range: '[0|3]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 52
+      is_signed_var: false
+      len: 4
+      name: mrr239_rolling_counter
+      offset: 0.0
+      order: intel
+      physical_range: '[0|15]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 56
+      is_signed_var: false
+      len: 8
+      name: mrr239_check_sum
+      offset: 0.0
+      order: intel
+      physical_range: '[0|255]'
+      physical_unit: N/A
+      precision: 1.0
+      type: int
+  '74':
+    id: '74'
+    name: gw_esc_state1
+    protocol_type: report
+    sender: GW
+    vars:
+    - bit: 0
+      is_signed_var: false
+      len: 13
+      name: esc_vehicle_speed
+      offset: 0.0
+      order: intel
+      physical_range: '[0|270]'
+      physical_unit: km/h
+      precision: 0.05625
+      type: double
+    - bit: 13
+      is_signed_var: false
+      len: 1
+      name: esc_vehicle_speed_valid
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 14
+      is_signed_var: false
+      len: 1
+      name: esc_abs_fault
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 15
+      is_signed_var: false
+      len: 1
+      name: esc_abs_active
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 16
+      is_signed_var: false
+      len: 1
+      name: esc_vdc_active
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 17
+      is_signed_var: false
+      len: 1
+      name: esc_esc_active
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 18
+      is_signed_var: false
+      len: 1
+      name: esc_tcs_active
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 19
+      is_signed_var: false
+      len: 1
+      name: esc_off_status_valid
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 20
+      is_signed_var: false
+      len: 1
+      name: esc_obd_mil_on_rq
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 21
+      is_signed_var: false
+      len: 1
+      name: esc_ebd_active
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 22
+      is_signed_var: false
+      len: 1
+      name: esc_avh_active
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 23
+      is_signed_var: false
+      len: 1
+      name: esc_avh_standby
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 24
+      is_signed_var: false
+      len: 1
+      name: esc_avh_available
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 25
+      is_signed_var: false
+      len: 1
+      name: esc_cdp_active
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 26
+      is_signed_var: false
+      len: 1
+      name: esc_cdp_available
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 27
+      is_signed_var: false
+      len: 2
+      name: esc_hdc_status
+      offset: 0.0
+      order: intel
+      physical_range: '[0|3]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 29
+      is_signed_var: false
+      len: 1
+      name: esc_hdc_available
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 30
+      is_signed_var: false
+      len: 1
+      name: esc_hhc_active
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 31
+      is_signed_var: false
+      len: 1
+      name: esc_hhc_available
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 32
+      is_signed_var: false
+      len: 12
+      name: esc_mas_cyl_brake_pressure
+      offset: 0.0
+      order: intel
+      physical_range: '[0|250]'
+      physical_unit: Bar
+      precision: 0.1
+      type: double
+    - bit: 44
+      is_signed_var: false
+      len: 1
+      name: esc_mas_cyl_brake_pressure_valid
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 45
+      is_signed_var: false
+      len: 1
+      name: esc_wheel_cy_brake_force_exist
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 46
+      is_signed_var: false
+      len: 1
+      name: esc_ebd_fault
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 47
+      is_signed_var: false
+      len: 1
+      name: esc_off_status
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 48
+      is_signed_var: false
+      len: 1
+      name: esc_esc_fault
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 49
+      is_signed_var: false
+      len: 1
+      name: esc_emergency_brake_sts
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 50
+      is_signed_var: false
+      len: 1
+      name: esc_dtc_active
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 51
+      is_signed_var: false
+      len: 1
+      name: esc_gearhold_requst
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 52
+      is_signed_var: false
+      len: 4
+      name: esc212_rolling_counter
+      offset: 0.0
+      order: intel
+      physical_range: '[0|15]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 56
+      is_signed_var: false
+      len: 8
+      name: esc212_checksum
+      offset: 0.0
+      order: intel
+      physical_range: '[0|255]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+  c0000000:
+    id: c0000000
+    name: vector_independent_sig_msg
+    protocol_type: report
+    sender: Vector__XXX
+    vars:
+    - bit: 0
+      is_signed_var: true
+      len: 8
+      name: new_signal286
+      offset: 0.0
+      order: intel
+      physical_range: '[0|0]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 8
+      name: thr_accl_req_val
+      offset: -12.7
+      order: intel
+      physical_range: '[-12.7|12.8]'
+      physical_unit: m/s2
+      precision: 0.1
+      type: double
+    - bit: 0
+      is_signed_var: false
+      len: 1
+      name: mrr_acc_take_over_req
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 0
+      is_signed_var: false
+      len: 9
+      name: mrr_v_set_dis
+      offset: 0.0
+      order: intel
+      physical_range: '[0|255.5]'
+      physical_unit: KPH
+      precision: 0.5
+      type: double
+    - bit: 0
+      is_signed_var: false
+      len: 3
+      name: mrr_time_gap_set
+      offset: 0.0
+      order: intel
+      physical_range: '[0|7]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 5
+      name: mrr_text_info
+      offset: 0.0
+      order: intel
+      physical_range: '[0|15]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 2
+      name: mrr_system_failure_st
+      offset: 0.0
+      order: intel
+      physical_range: '[0|3]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 1
+      name: mrr_blocked_st
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 0
+      is_signed_var: false
+      len: 13
+      name: esc_vlc_torq_req
+      offset: -500.0
+      order: intel
+      physical_range: '[-500|1547.5]'
+      physical_unit: N.m
+      precision: 0.25
+      type: double
+    - bit: 0
+      is_signed_var: false
+      len: 1
+      name: esc_vlc_torq_req_active
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 0
+      is_signed_var: false
+      len: 1
+      name: esc_vlc_error
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 0
+      is_signed_var: false
+      len: 1
+      name: esc_vlc_avalible
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 0
+      is_signed_var: false
+      len: 8
+      name: esc_vlc_inter_target_ax
+      offset: -7.0
+      order: intel
+      physical_range: '[-7|5.75]'
+      physical_unit: ''
+      precision: 0.05
+      type: double
+    - bit: 0
+      is_signed_var: false
+      len: 1
+      name: esc_vlc_active
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: bool
+    - bit: 0
+      is_signed_var: false
+      len: 10
+      name: wh_pls_r_r
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1023]'
+      physical_unit: counts
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 10
+      name: wh_pls_r_l
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1023]'
+      physical_unit: counts
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 10
+      name: wh_pls_f_r
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1023]'
+      physical_unit: counts
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 10
+      name: wh_pls_f_l
+      offset: 0.0
+      order: intel
+      physical_range: '[0|1023]'
+      physical_unit: counts
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 4
+      name: esc272_rolling_counter
+      offset: 0.0
+      order: intel
+      physical_range: '[0|15]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 8
+      name: esc272_checksum
+      offset: 0.0
+      order: intel
+      physical_range: '[0|255]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 4
+      name: esc282_rolling_counter
+      offset: 0.0
+      order: intel
+      physical_range: '[0|15]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+    - bit: 0
+      is_signed_var: false
+      len: 8
+      name: esc282_checksum
+      offset: 0.0
+      order: intel
+      physical_range: '[0|255]'
+      physical_unit: ''
+      precision: 1.0
+      type: int
+version_major: 3
+version_minor: 1

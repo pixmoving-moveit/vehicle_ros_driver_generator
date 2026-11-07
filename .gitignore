@@ -31,7 +31,7 @@ __pycache__/
 .vscode/
 *.code-workspace
 .cache
-
+*.dbc
 # CLion
 .idea/
 cmake-build-debug/
@@ -50,6 +50,7 @@ ENV/
 *.pcd
 *.bag
 *.csv
+robobus_*.yml
 
 /.metadata/
 
@@ -64,5 +65,5 @@ devel/
 install/
 logs/
 .catkin_tools/
-
+output/
 # Don't ignore src/ because full-text search won't work.

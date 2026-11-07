@@ -5,7 +5,7 @@ find_package(ament_cmake_auto REQUIRED)
 ament_auto_find_build_dependencies()
 
 set(msg_files
-	%(canID_msg_list)s
+%(canID_msg_list)s
 )
 
 set(msg_dependencies

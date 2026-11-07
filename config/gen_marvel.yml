@@ -1,0 +1,11 @@
+dbc_file: MarvelRCHACAN_converted.dbc
+protocol_conf: MarvelRCHACAN.yml
+car_type: marvel 
+sender_list: [AccCommand, ApaCommand, AdsCommand, LightCommand, GearCommand, SteeringCommand, ThrottleCommand, BrakeCommand, AebCommand]
+sender: ADS
+black_list: []
+version_major: 3
+version_minor: 1
+
+output_dir: output/src
+config_dir: config
