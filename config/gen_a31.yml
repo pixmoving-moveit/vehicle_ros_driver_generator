@@ -1,8 +1,8 @@
-dbc_file: robobus_a31.dbc
+dbc_file: a31.dbc
 protocol_conf: robobus_a31.yml
 car_type: robobus 
-sender_list: [AcuSysTime, AvAebCtrl, AvDriveCtrl, AvBrakeCtrl, AvSteerCtrl, AvVehicleCtrl, AvWheelTorqueCtrl, RemoteMessage, AutoVcuMessage1, AutoVcuMessage2]
-sender: AUTO
+sender_list: [] 
+sender: ACU 
 black_list: []
 version_major: 3
 version_minor: 1
